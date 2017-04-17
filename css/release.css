@@ -11,3 +11,18 @@
 #category-list li {
 	padding: 8px;
 }
+
+.post {
+	margin: 15px 0;
+}
+
+.post h1 a {
+	color: #1b75d5;
+	text-decoration: none;
+	font-size: 1.25em;
+}
+
+.post li {
+	padding: 4px;
+	list-style: disc;
+}
