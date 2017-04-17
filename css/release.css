@@ -4,12 +4,19 @@
 }
 
 #posts {
-	margin-left: 225px;
+	margin-left: 300px;
 	box-sizing: border-box;
+}
+
+.category-list h3 {
+	background-color: #73a5da;
+	padding: 10px;
+	margin: 0 0 8px 0;
 }
 
 .category-list li {
 	padding: 6px;
+	margin: 0 0 0 14px;
 }
 
 .post {
