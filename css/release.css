@@ -1,8 +1,13 @@
 #sidebar {
 	width: 200px;
+	float: left;
 }
 
-#post {
-	margin-left: 200px;
+#posts {
+	margin-left: 225px;
 	box-sizing: border-box;
+}
+
+#category-list li {
+	padding: 8px;
 }

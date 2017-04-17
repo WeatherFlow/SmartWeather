@@ -10,12 +10,14 @@
 	<body>
 		{% include header.html %}
 
-		<div id="sidebar">
-			{% include category-list.html %}
-		</div>
+		<div id="main-content">
+			<div id="sidebar">
+				{% include category-list.html %}
+			</div>
 
-		<div id="posts">
-			{{content}}
+			<div id="posts">
+				{{content}}
+			</div>
 		</div>
 	</body>
 </html>
