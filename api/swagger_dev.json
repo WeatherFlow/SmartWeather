@@ -1,0 +1,413 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "# Overview  \nThis API gives access to observation and metadata for WeatherFlow Smart Weather Stations. You can learn more about WeatherFlow Smart Weather at http://www.weatherflow.com/smart-home-weather-stations/ . To see an example of what you can do with this API visit http://smartweather.weatherflow.com  \n\n# Object Model  \n![Object Model Image](images/swd_object_model.jpg \"Logo Title Text 1\")  \n# Security  \nSmart Weather Station users have the option of setting the data for each of their stations as either public or private.  The API has two access levels (Public and User).\n\n\n - Public Access Level with API Key\n  - Access to all Stations currently set as \"public\"\n  - Send your API Key as \"api_key\" in the query string with all API requests\n\n - User Access Level with Oauth2 Access Token\n  - Access to all data owned by the user's access token\n  - Access to all Stations currently set as \"public\"\n  - Send the access token as \"token\" in the query string with all API requests\n  - Oauth2 Implicit Flow\n    - Use this flow to get an access token that never expires.  This is the token you send with all API requests.\n  \n# Getting Started\n - Contact Us to get your API Key or Oauth2 Client\n  - You can use this development API key to get started quickly.  Do not use this key in your application.\n   - Dev API Key = 20c70eae-e62f-4d3b-b3a4-8586e90f3ac8\n - Use the API Endpoints section below to test the API.\n  - Use the \"Authorization\" button to either enter your API Key or use the Oauth2 path to connect to your Smart Weather user account.\n    - If you do not do this step the API will respond with \"401 Unauthorized\"\n  - Find a station_id (this is the id of your Station).  The easiest way to do this is sign into you Smart Weather account using a browser and go to an observation list view for a Station.  Your should see a URL that includes a location_id that looks something like this.\n    - https://smartweather.weatherflow.com/station/690\n  - Try the stations service using the station_id.  The response should contain all of the meta data for the Station.  Make note of a device_id so you can use it later to get observations.\n  - Try the observations service using just the device_id.  If you only send the device_id in the request you should see the latest observation in the response.\n\n# API Endpoints",
+        "version": "1.0.0",
+        "title": "WeatherFlow Smart Weather API",
+        "contact": {
+            "email": "jforare@weatherflow.com"
+        }
+    },
+    "host": "swd.weatherflow.com",
+    "basePath": "/swd/rest",
+    "tags": [
+        {
+            "name": "stations",
+            "description": "Stations with Smart Weather Devices"
+        },
+        {
+            "name": "observations",
+            "description": "Get observations for a Smart Weather Device."
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "security": [
+        {
+            "swdImplicit": [
+                "user"
+            ]
+        },
+        {
+            "swdApiKey": []
+        }
+    ],
+    "paths": {
+        "/stations": {
+            "get": {
+                "tags": [
+                    "stations"
+                ],
+                "description": "Smart Weather Devices all belong to a Station.  This response contains Station metadata and metadata for the Devices in it.  Each user can create multiple Stations.  A Device can only be in one Station at a time.  Only devices with a serial_number value can send new observations.  A Device wihout a serial_number indicates that Device is no longer active.",
+                "summary": "Find all Stations for a user",
+                "operationId": "getStations",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/StationSet"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            }
+        },
+        "/stations/{station_id}": {
+            "get": {
+                "tags": [
+                    "stations"
+                ],
+                "description": "Smart Weather Devices all belong to a Station.  This response contains Station metadata and metadata for the Devices in it.  Each user can create multiple Stations.  A Device can only be in one Station at a time.  Only devices with a serial_number value can send new observations.  A Device wihout a serial_number indicates that Device is no longer active.",
+                "summary": "Find a Station by ID",
+                "operationId": "getStationById",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "station_id",
+                        "in": "path",
+                        "description": "ID of Station to return",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/StationSet"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            }
+        },
+        "/observations/": {
+            "get": {
+                "tags": [
+                    "observations"
+                ],
+                "description": "Get observations for a Device by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).  \n  \n**Air**  (type=\"obs_air\")  \nObservation Layout  \n0 - epoch (seconds UTC)  \n1 - pressure (MB)  \n2 - air temperature (C)  \n3 - relative humidity (%)  \n4 - strike count  \n5 - average strike distance  \n6 - battery \n7 - report interval  \n  \n  \n**Sky** (type=\"obs_sky\")  \nObservation Layout  \n0 - epoch (seconds UTC)  \n1 - lux ()  \n2 - UV Index  \n3 - precipitation accumulation (mm)  \n4 - wind lull  (m/s)  \n5 - wind avg (m/s)  \n6 - wind gust (m/s)  \n7 - wind dir  \n8 - battery  \n9 - report interval  ",
+                "summary": "Get observations for a single Smart Weather Device",
+                "operationId": "getObservationsByDeviceId",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "device_id",
+                        "in": "query",
+                        "description": "ID of device",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "time_start",
+                        "in": "query",
+                        "description": "TIME FILTER - Time range start time epoch seconds UTC.  Observation data at a one minute time resolution is available for a time range that is five days or less.  You also need to send \"time_end\".  This field pair is optional.  If the request does not contain any time filters only the latest observation will be returned.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "time_end",
+                        "in": "query",
+                        "description": "TIME FILTER - Time range start time epoch seconds UTC.  Observation data at a one minute time resolution is available for a time range that is five days or less.  You also need to send \"time_start\".  This field pair is optional.  If the request does not contain any time filters only the latest observation will be returned.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ObservationSet"
+                        }
+                    },
+                    "404": {
+                        "description": "Device not found"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "swdImplicit": {
+            "type": "oauth2",
+            "scopes": {
+                "user": "Grants read/write access to all user data."
+            },
+            "flow": "implicit",
+            "authorizationUrl": "https://smartweather.weatherflow.com/authorize.html"
+        },
+        "swdApiKey": {
+            "type": "apiKey",
+            "in": "query",
+            "name": "api_key"
+        }
+    },
+    "definitions": {
+        "Device": {
+            "type": "object",
+            "properties": {
+                "device_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 128
+                },
+                "serial_number": {
+                    "type": "string",
+                    "example": "AR-12345678"
+                },
+                "device_meta": {
+                    "$ref": "#/definitions/DeviceMeta"
+                },
+                "device_type": {
+                    "type": "string",
+                    "example": "AR",
+                    "enum": [
+                        "AR",
+                        "SK"
+                    ]
+                },
+                "hardware_revision": {
+                    "type": "string",
+                    "example": "3"
+                },
+                "firmware_revision": {
+                    "type": "string",
+                    "example": "3"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            }
+        },
+        "DeviceMeta": {
+            "type": "object",
+            "properties": {
+                "agl": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 2.2
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Pool Air Device"
+                },
+                "environment": {
+                    "type": "string",
+                    "example": "outdoor",
+                    "enum": [
+                        "indoor",
+                        "outdoor"
+                    ]
+                },
+                "wifi_network_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Station": {
+            "type": "object",
+            "properties": {
+                "station_id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 67
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Home"
+                },
+                "public_name": {
+                    "type": "string",
+                    "example": "Public Location Name"
+                },
+                "latitude": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 29.00724
+                },
+                "longitude": {
+                    "type": "number",
+                    "format": "float",
+                    "example": -80.88067
+                },
+                "station_meta": {
+                    "$ref": "#/definitions/StationMeta"
+                },
+                "devices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Device"
+                    }
+                },
+                "station_items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/StationItem"
+                    }
+                }
+            }
+        },
+        "StationItem": {
+            "type": "object",
+            "properties": {
+                "location_item_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 55
+                },
+                "station_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 67
+                },
+                "device_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 55
+                },
+                "item": {
+                    "type": "string",
+                    "example": "air_temperature_humidity"
+                }
+            }
+        },
+        "StationMeta": {
+            "type": "object",
+            "properties": {
+                "elevation": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 33.2
+                },
+                "share_with_wf": {
+                    "type": "boolean",
+                    "example": true,
+                    "default": true
+                },
+                "share_with_wu": {
+                    "type": "boolean",
+                    "example": true,
+                    "default": true
+                }
+            }
+        },
+        "StationSet": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "$ref": "#/definitions/Status"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Station"
+                    }
+                }
+            }
+        },
+        "ObservationSet": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "$ref": "#/definitions/Status"
+                },
+                "device_id": {
+                    "type": "number",
+                    "format": "in32",
+                    "example": 59
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "obs_sky",
+                        "obs_air"
+                    ],
+                    "example": "obs_air"
+                },
+                "obs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ObservationValuesArray"
+                    }
+                }
+            }
+        },
+        "ObservationValuesArray": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "example": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ]
+            }
+        },
+        "Status": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 0
+                },
+                "status_message": {
+                    "type": "string",
+                    "example": "SUCCESS"
+                }
+            }
+        }
+    }
+}
