@@ -8,18 +8,23 @@
 	box-sizing: border-box;
 }
 
-#category-list li {
-	padding: 8px;
+.category-list li {
+	padding: 6px;
 }
 
 .post {
-	margin: 15px 0;
+	margin: 50px 0;
 }
 
-.post h1 a {
+.post h2 a {
 	color: #1b75d5;
 	text-decoration: none;
 	font-size: 1.25em;
+}
+
+.post ul {
+	margin: 25px 0;
+	padding: 0 0 0 50px;
 }
 
 .post li {
