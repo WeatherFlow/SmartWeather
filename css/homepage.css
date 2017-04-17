@@ -1,0 +1,29 @@
+header {
+	background: linear-gradient(#1267c0,#73a5da);
+	padding: 0 15px 50px;
+	box-sizing: border-box;
+	color: #fff;
+	text-align: center;
+	font-size: 2em;
+}
+
+#header-ctn {
+	background: url(../images/logo.svg) no-repeat 50% 50px;
+	background-size: auto 175px;
+}
+
+#header-ctn h1 {
+	padding-top: 250px;
+}
+
+#doc-sections {
+	display: flex;
+	flex-direction: row;
+	flew-wrap: wrap;
+	flex-flow: flex-start;
+}
+
+#doc-sections .doc-section {
+	padding: 15px;
+	text-align: center;
+}
