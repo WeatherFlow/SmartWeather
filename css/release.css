@@ -11,7 +11,11 @@
 .category-list li {
 	padding: 6px;
 	margin: 0 0 0 14px;
+}
+
+.category-list li a {
 	color: #1b75d5;
+	text-decoration: none;
 }
 
 .post {
@@ -47,6 +51,7 @@
 	width: 40px;
 	height: 40px;
 	background: url(../images/app-menu.svg) no-repeat 100% 50%;
+	z-index: 9999;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -60,6 +65,8 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
+		width: 100%;
+		z-index: 100;
 	}
 
 	.category-list {
