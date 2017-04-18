@@ -87,3 +87,13 @@ header {
 	max-width: 960px;
 	margin: 0 auto;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	#header-ctn {
+		background-size: auto 75px;
+	}
+
+	#header-ctn h1 {
+		padding-top: 125px;
+	}
+}
