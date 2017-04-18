@@ -8,16 +8,10 @@
 	box-sizing: border-box;
 }
 
-#sidebar h3 {
-	background-color: #73a5da;
-	padding: 10px;
-	margin: 0 0 8px 0;
-	color: #fff;
-}
-
 .category-list li {
 	padding: 6px;
 	margin: 0 0 0 14px;
+	color: #1b75d5;
 }
 
 .post {
