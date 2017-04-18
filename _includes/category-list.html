@@ -1,5 +1,5 @@
 <ul class="category-list">
 {% for category in site.categories %}
-    <li><a href="{{ category | first | slugify | relative_url }}.html">{{ category | first }}</a></li>
+    <li><a href="{{ category | first | slugify }}.html">{{ category | first }}</a></li>
 {% endfor %}
 </ul>
