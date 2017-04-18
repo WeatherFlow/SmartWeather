@@ -43,6 +43,11 @@
 	list-style: disc;
 }
 
+.post p {
+	line-height: 2em;
+	margin: 14px 0;
+}
+
 #app-menu {
 	display: none;
 	position: absolute;
@@ -106,10 +111,5 @@
 
 	.post h2 a {
 		font-size: 1.6em;
-	}
-
-	.post p {
-		line-height: 2em;
-		margin: 14px 0;
 	}
 }
