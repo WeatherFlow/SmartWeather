@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+    	{% include meta.html %}
+        <title>{{page.title}}</title>
+		<link rel="stylesheet" href="{{site.url}}/css/base.css">
+		<link rel="stylesheet" href="{{site.url}}/css/release.css?">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+	</head>
+	<body>
+		{% include header.html %}
+
+		<div id="main-content">
+			<div id="sidebar">
+				{% include category-list.html %}
+			</div>
+
+			<div id="posts">
+				{{content}}
+			</div>
+		</div>
+	</body>
+</html>
