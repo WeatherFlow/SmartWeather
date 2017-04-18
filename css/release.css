@@ -66,21 +66,21 @@
 		left: 0;
 		right: 0;
 		width: 100%;
+		background-color: #b4ceeb;
 		z-index: 100;
 	}
 
 	.category-list {
 		display:none;
-		position: absolute;
 		width: 100%;
-		padding: 10px;
-		background-color: #fff;
-		padding-top: 40px;
+		padding: 40px 0 0 0;
 	}
 
 	.category-list li {
 		font-size: 2em;
 		text-align: center;
+		margin: 10px 0;
+		padding: 20px 0;
 	}
 
 	#posts {
