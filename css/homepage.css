@@ -1,0 +1,27 @@
+#sections {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+	flex-flow: center;
+}
+
+.doc-section {
+	display: block;
+	background-position: 50% 10px;
+	background-size: auto 100px;
+	background-repeat: no-repeat;
+	padding: 120px 0 0 0;
+	margin: 25px 75px;
+	color: #1b75d5;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 1.25em;
+}
+
+#release-notes {
+	background-image: url(../images/release-notes.svg);
+}
+
+#api-documentation {
+	background-image: url(../images/api.svg);
+}
