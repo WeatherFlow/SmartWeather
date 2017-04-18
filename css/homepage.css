@@ -1,12 +1,9 @@
 #sections {
-	display: flex;
-	flex-flow: row;
-	flex-wrap: wrap;
-	flex-flow: center;
+	text-align: center;
 }
 
 .doc-section {
-	display: block;
+	display: inline-block;
 	background-position: 50% 10px;
 	background-size: auto 100px;
 	background-repeat: no-repeat;
