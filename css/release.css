@@ -46,6 +46,7 @@
 	height: 40px;
 	background: url(../images/app-menu.svg) no-repeat 100% 50%;
 	float: right;
+	margin: 0 10px 0 0;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -58,10 +59,12 @@
 		position: absolute;
 		width: 100%;
 		padding: 10px;
+		background-color: #fff;
 	}
 
 	#sidebar {
 		float: none;
+		width: 100%;
 	}
 
 	#posts {
