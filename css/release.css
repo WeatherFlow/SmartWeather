@@ -41,12 +41,12 @@
 
 #app-menu {
 	display: none;
-	padding: 0 60px 0 0;
+	position: absolute;
+	top: 0;
+	right: 10px;
 	width: 40px;
 	height: 40px;
 	background: url(../images/app-menu.svg) no-repeat 100% 50%;
-	float: right;
-	margin: 0 10px 0 0;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -54,18 +54,26 @@
 		display: block;
 	}
 
+	#sidebar {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
 	.category-list {
 		display:none;
 		position: absolute;
 		width: 100%;
 		padding: 10px;
-		background-color: #eee;
-		margin-top: 40px;
+		background-color: #fff;
+		padding-top: 40px;
 	}
 
-	#sidebar {
-		float: none;
-		width: 100%;
+	.category-list li {
+		font-size: 2em;
+		text-align: center;
 	}
 
 	#posts {

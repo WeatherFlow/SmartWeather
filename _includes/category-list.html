@@ -1,4 +1,3 @@
-<div id="app-menu"></div>
 <ul class="category-list">
 {% for category in site.categories %}
     <li><a href="{{ category | first | slugify }}.html">{{ category | first }}</a></li>
