@@ -76,10 +76,10 @@ header {
 	position: absolute;
 	top: 0;
 	left: 10px;
-	width: 40px;
-	height: 40px;
+	width: 28px;
+	height: 28px;
 	background: url(../images/home.svg) no-repeat 50% 50%;
-	background-size: 40px 40px;
+	background-size: 28px 28px;
 }
 
 #doc-sections {
