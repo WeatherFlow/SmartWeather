@@ -91,9 +91,10 @@ header {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 	#header-ctn {
 		background-size: auto 75px;
+		background-position: 50% 30px;
 	}
 
 	#header-ctn h1 {
-		padding-top: 125px;
+		padding-top: 150px;
 	}
 }
