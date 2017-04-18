@@ -59,7 +59,8 @@
 		position: absolute;
 		width: 100%;
 		padding: 10px;
-		background-color: #fff;
+		background-color: #eee;
+		margin-top: 40px;
 	}
 
 	#sidebar {
