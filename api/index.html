@@ -11,3 +11,24 @@ title: WeatherFlow Smart Weather API
 
 <h2>Security</h2>
 <p>Smart Weather Station users have the option of setting the data for each of their stations as either public or private. The API has two access levels (Public and User).</p>
+
+<ul>
+	<li>Public Access Level with API Key
+		<ul>
+			<li>Access to all Stations currently set as "public"</li>
+			<li>Send your API Key as "api_key" in the query string with all API requests</li>
+		</ul>
+	</li>
+	<li>User Access Level with Oauth2 Access Token
+		<ul>
+			<li>Access to all data owned by the user's access token</li>
+			<li>Access to all Stations currently set as "public"</li>
+			<li>Send the access token as "token" in the query string with all API requests</li>
+			<li>Oauth2 Implicit Flow
+				<ul>
+					<li>Use this flow to get an access token that never expires. This is the token you send with all API requests.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
