@@ -5,6 +5,10 @@
 
 #sidebar h3 {
 	display: none;
+	margin-top: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	color: 1b75d5;
 }
 
 #posts {
