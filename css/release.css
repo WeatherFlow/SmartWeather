@@ -79,6 +79,14 @@
 		z-index: 100;
 	}
 
+	#sidebar #releases-cat {
+		margin-top: 50px;
+		text-align: center;
+		text-transform: uppercase;
+		background-color: transparent;
+		color: #1b75d5;
+	}
+
 	.category-list {
 		width: 100%;
 		padding: 0;
