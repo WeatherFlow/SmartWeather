@@ -1,5 +1,5 @@
 <ul class="category-list">
 {% for category in site.categories %}
-    <li>{{ category | first }}</li>
+    <li><a href="{{ category | first }}">{{ category | first }}</a></li>
 {% endfor %}
 </ul>
