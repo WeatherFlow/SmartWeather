@@ -60,6 +60,7 @@
 	}
 
 	#sidebar {
+		display: none;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -71,7 +72,6 @@
 	}
 
 	.category-list {
-		display:none;
 		width: 100%;
 		padding: 40px 0 0 0;
 	}
