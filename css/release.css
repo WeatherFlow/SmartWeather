@@ -3,14 +3,6 @@
 	float: left;
 }
 
-#sidebar h3 {
-	display: none;
-	margin-top: 50px;
-	text-align: center;
-	text-transform: uppercase;
-	color: #1b75d5;
-}
-
 #posts {
 	margin-left: 300px;
 	box-sizing: border-box;
@@ -85,6 +77,7 @@
 		text-transform: uppercase;
 		background-color: transparent;
 		color: #1b75d5;
+		font-size: 1em;
 	}
 
 	.category-list {
@@ -93,12 +86,12 @@
 	}
 
 	.category-list li {
-		font-size: 2em;
 		text-align: center;
 		margin: 10px 0;
 	}
 
 	.category-list li a {
+		font-size: 2em;
 		display: block;
 		padding: 20px 0;
 		background-color: #1b75d5;
