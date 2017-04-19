@@ -16,6 +16,7 @@
 .category-list li {
 	padding: 6px;
 	margin: 0 0 0 14px;
+	list-style: none;
 }
 
 .category-list li a {
