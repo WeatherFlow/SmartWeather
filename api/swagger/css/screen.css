@@ -1392,6 +1392,7 @@ body {
     max-width: 960px;
     margin: 0 auto;
     clear: none;
+    padding: 10px 0 0 0;
 }
 .swagger-section #api_selector .input {
     display: inline-block;
