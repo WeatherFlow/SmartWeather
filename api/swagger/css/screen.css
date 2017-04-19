@@ -306,13 +306,14 @@ body {
 .swagger-section .swagger-ui-wrap figure,
 .swagger-section .swagger-ui-wrap header,
 .swagger-section .swagger-ui-wrap hgroup,
+.swagger-section .swagger-ui-wrap footer,
 .swagger-section .swagger-ui-wrap menu,
 .swagger-section .swagger-ui-wrap nav,
 .swagger-section .swagger-ui-wrap section,
 .swagger-section .swagger-ui-wrap summary {
     display: block
 }
-.swagger-section .swagger-ui-wrap footer {
+.footer {
     display: none;
 }
 .swagger-section .swagger-ui-wrap pre {
