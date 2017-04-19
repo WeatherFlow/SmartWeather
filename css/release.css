@@ -56,6 +56,10 @@
 		display: block;
 	}
 
+	.api-home #app-menu {
+		display: none;
+	}
+
 	#sidebar {
 		display: none;
 		position: absolute;
