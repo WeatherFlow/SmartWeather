@@ -54,6 +54,11 @@ html, body {
 	line-height: 24px;
 }
 
+h2 {
+	color: #1b75d5;
+	font-size: 1.5em;
+}
+
 p {
 	line-height: 2em;
 	margin: 14px 0;
