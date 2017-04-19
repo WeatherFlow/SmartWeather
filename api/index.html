@@ -4,7 +4,7 @@ title: WeatherFlow Smart Weather API
 ---
 
 <h2><a name="overview">Overview</a></h2>
-<p>This API gives access to observation and metadata for WeatherFlow Smart Weather Stations. You can learn more about WeatherFlow Smart Weather at <a href="http://www.weatherflow.com/smart-home-weather-stations/">http://www.weatherflow.com/smart-home-weather-stations/</a> . To see an example of what you can do with this API visit <a href="http://smartweather.weatherflow.com">http://smartweather.weatherflow.com</a></p>
+<p>This API gives access to observation and metadata for WeatherFlow Smart Weather Stations. You can learn more about WeatherFlow Smart Weather at <a href="http://www.weatherflow.com/smart-home-weather-stations/">http://www.weatherflow.com/smart-home-weather-stations/</a> . To see an example of what you can do with this API visit the <a href="http://smartweather.weatherflow.com">Smart Weather website</a></p>
 
 <h2>Object Model</h2>
 <img src="{{site.url}}/images/swd_object_model.jpg" alt="WeatherFlow Smart Weather API Object Model" style="width:100%" />
@@ -39,7 +39,7 @@ title: WeatherFlow Smart Weather API
 	<li>Contact Us to get your API Key or Oauth2 Client
 		<ul>
 			<li>You can use this development API key to get started quickly. Do not use this key in your application.</li>
-			<li>Dev API Key = 20c70eae-e62f-4d3b-b3a4-8586e90f3ac8</li>
+			<li>Dev API Key = <span class="code-highlight">20c70eae-e62f-4d3b-b3a4-8586e90f3ac8</span></li>
 		</ul>
 	</li>
 	<li>Use the API Endpoints section below to test the API.
@@ -51,7 +51,7 @@ title: WeatherFlow Smart Weather API
 			</li>
 			<li>Find a station_id (this is the id of your Station). The easiest way to do this is sign into you Smart Weather account using a browser and go to an observation list view for a Station. Your should see a URL that includes a location_id that looks something like this.
 				<ul>
-					<li><a href="https://smartweather.weatherflow.com/station/690">https://smartweather.weatherflow.com/station/690</a></li>
+					<li><a href="https://smartweather.weatherflow.com/station/690" class="code-highlight">https://smartweather.weatherflow.com/station/690</a></li>
 				</ul>
 			</li>
 			<li>Try the stations service using the station_id. The response should contain all of the meta data for the Station. Make note of a device_id so you can use it later to get observations.</li>

@@ -130,6 +130,15 @@ header {
 	margin: 0 auto;
 }
 
+.code-highlight {
+	font-family: monospace, Arial;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 	#header-ctn {
 		background-size: auto 90px;
