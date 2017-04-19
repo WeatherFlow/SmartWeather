@@ -54,6 +54,21 @@ html, body {
 	line-height: 24px;
 }
 
+p {
+	line-height: 2em;
+	margin: 14px 0;
+}
+
+ul {
+	margin: 25px 0;
+	padding: 0 0 0 20px;
+}
+
+li {
+	padding: 4px;
+	list-style: disc;
+}
+
 header {
 	background: linear-gradient(#1267c0,#73a5da);
 	padding: 0 15px 50px;
