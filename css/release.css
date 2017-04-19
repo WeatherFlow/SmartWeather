@@ -3,6 +3,11 @@
 	float: left;
 }
 
+#page {
+	margin-left: 250px;
+	box-sizing: border-box;
+}
+
 #posts {
 	margin-left: 300px;
 	box-sizing: border-box;
