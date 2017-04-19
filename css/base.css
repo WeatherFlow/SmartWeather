@@ -74,6 +74,10 @@ li {
 	list-style: disc;
 }
 
+ul li ul {
+	margin: 0;
+}
+
 header {
 	background: linear-gradient(#1267c0,#73a5da);
 	padding: 0 15px 50px;
