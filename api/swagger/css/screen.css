@@ -304,7 +304,6 @@ body {
 .swagger-section .swagger-ui-wrap details,
 .swagger-section .swagger-ui-wrap figcaption,
 .swagger-section .swagger-ui-wrap figure,
-.swagger-section .swagger-ui-wrap footer,
 .swagger-section .swagger-ui-wrap header,
 .swagger-section .swagger-ui-wrap hgroup,
 .swagger-section .swagger-ui-wrap menu,
@@ -312,6 +311,9 @@ body {
 .swagger-section .swagger-ui-wrap section,
 .swagger-section .swagger-ui-wrap summary {
     display: block
+}
+.swagger-section .swagger-ui-wrap footer {
+    display: none;
 }
 .swagger-section .swagger-ui-wrap pre {
     font-family: Anonymous Pro, Menlo, Consolas, Bitstream Vera Sans Mono, Courier New, monospace;
