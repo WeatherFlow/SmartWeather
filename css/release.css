@@ -95,7 +95,7 @@
 		color: #fff;
 	}
 
-	#posts {
+	#page, #posts {
 		margin-left: 0;
 		clear: both;
 		padding: 0 15px 0 15px;
