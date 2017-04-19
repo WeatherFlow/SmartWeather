@@ -34,21 +34,6 @@
 	margin: 0 !important;
 }
 
-.post ul {
-	margin: 25px 0;
-	padding: 0 0 0 20px;
-}
-
-.post li {
-	padding: 4px;
-	list-style: disc;
-}
-
-.post p {
-	line-height: 2em;
-	margin: 14px 0;
-}
-
 #app-menu {
 	display: none;
 	position: absolute;
