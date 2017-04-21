@@ -54,6 +54,11 @@ html, body {
 	line-height: 24px;
 }
 
+strong {
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+
 h2 {
 	color: #1b75d5;
 	font-size: 1.5em;
