@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Smart Weather Firmware - v12"
-date:   2017-04-18 16:00:00 -0500
+date:   2017-04-24 16:00:00 -0500
 categories: Firmware
 ---
 
