@@ -2,20 +2,24 @@
 layout: apiwshome
 title: WeatherFlow Smart Weather API
 ---
+<h1>Websocket</h1>
 
 <h2><a name="endpoints">Endpoints</a></h2>
-<p>ws://ws.weatherflow.com/swd/data</p>
-<p>wss://ws.weatherflow.com/swd/data</p>
+<div>ws://ws.weatherflow.com/swd/data</div>
+<div>wss://ws.weatherflow.com/swd/data</div>
 
 <h2><a name="request-messages">Request Messages</a></h2>
-<table>
-  <tr>
-    <td>one</td><td>two</td>
-  </tr>
-  <tr>
-    <td>three</td><td>four</td>
-  </tr>
-</table>
+Observation (Air)
+<div class="code-highlight">
+{
+	"serial_number":"0ee6fd",
+	"device_id": 1234,
+	"type":"obs_air",
+	"obs":[
+		[123123160,1020.2,33.33,51,0,0,3.13,1]
+	]
+}
+</div>
 
 <h2><a name="response-messages">Response Messages</a></h2>
 <table>
