@@ -98,6 +98,7 @@ title: WeatherFlow Smart Weather API Websocket Reference
 
 
 <h2><a name="response-messages">Response Messages</a></h2>
+<br><br>
 <h3>Acknowledgement [type = ack]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
@@ -108,7 +109,65 @@ title: WeatherFlow Smart Weather API Websocket Reference
 {% endhighlight %}
 </div>
 
-<hr>
+
+<br><br>
+<h3>Rain Start Event [type = evt_precip]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"evt_precip",
+  "device_id":1110
+}
+{% endhighlight %}
+</div>
+
+
+<br><br>
+<h3>Lightning Strike Event [type = evt_strike]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"evt_strike",
+  "device_id":1110,
+  "evt":[1493322445,27,3848]
+}
+{% endhighlight %}
+</div>
+Evt Value Layout
+<table>
+  <tr><th>Index</th><th>Field</th><th>Units</th></tr>
+  <tr><td>0</td><td>Time Epoch</td><td>Seconds</td></tr>
+  <tr><td>1</td><td>Distance</td><td>km</td></tr>
+  <tr><td>2</td><td>Energy</td><td></td></tr>
+</table>
+
+
+
+
+
+<br><br>
+<h3>Rapid Wind [type = rapid_wind]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"rapid_wind",
+  "device_id":1110,
+  "ob":[1493322445,2.3,128]
+}
+{% endhighlight %}
+</div>
+Ob Value Layout
+<table>
+  <tr><th>Index</th><th>Field</th><th>Units</th></tr>
+  <tr><td>0</td><td>Time Epoch</td><td>Seconds</td></tr>
+  <tr><td>1</td><td>Wind Speed</td><td>mps</td></tr>
+  <tr><td>2</td><td>Wind Direction</td>degrees<td></td></tr>
+</table>
+
+
+
+
+<br><br>
 <h3>Observation (Air) [type = obs_air]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
@@ -122,7 +181,7 @@ title: WeatherFlow Smart Weather API Websocket Reference
 Observation Value Layout
 <table>
   <tr><th>Index</th><th>Field</th><th>Units</th></tr>
-  <tr><td>0</td><td>Time Seconds Epoch</td><td>Seconds</td></tr>
+  <tr><td>0</td><td>Time Epoch</td><td>Seconds</td></tr>
   <tr><td>1</td><td>Station Pressure</td><td>MB</td></tr>
   <tr><td>2</td><td>Air Temperature</td><td>C</td></tr>
   <tr><td>3</td><td>Relative Humidity</td><td>%</td></tr>
@@ -132,7 +191,7 @@ Observation Value Layout
   <tr><td>7</td><td>Report Interval</td><td>Minutes</td></tr>
 </table>
 
-
+<br><br>
 <h3>Observation (Sky) [type = obs_sky]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
@@ -146,14 +205,14 @@ Observation Value Layout
 Observation Value Layout
 <table>
   <tr><th>Index</th><th>Field</th><th>Units</th></tr>
-  <tr><td>0</td><td>Time Seconds Epoch</td><td>Seconds</td></tr>
+  <tr><td>0</td><td>Time Epoch</td><td>Seconds</td></tr>
   <tr><td>1</td><td>Lux</td><td></td></tr>
   <tr><td>2</td><td>UV</td><td>Index 1-10</td></tr>
   <tr><td>3</td><td>Precip Accumulated</td>mm<td></td></tr>
   <tr><td>4</td><td>Wind Lull</td><td>mps</td></tr>
   <tr><td>5</td><td>Wind Avg</td><td>mps</td></tr>
   <tr><td>6</td><td>Wind Gust</td><td>mps</td></tr>
-  <tr><td>7</td><td>Wind Direction</td><td></td></tr>
+  <tr><td>7</td><td>Wind Direction</td><td>degrees</td></tr>
   <tr><td>8</td><td>Battery</td><td></td></tr>
   <tr><td>9</td><td>Report Interval</td><td>Minutes</td></tr>
   <tr><td>10</td><td>Solar Radiation</td><td></td></tr>
