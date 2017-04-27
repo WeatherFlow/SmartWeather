@@ -10,7 +10,7 @@ title: WeatherFlow Smart Weather API
 
 <h2><a name="request-messages">Request Messages</a></h2>
 <table>
-  <tr><th>Message</th><th>Response Types</th><th>Description</th></tr>
+  <tr><th>Message</th><th>Pushed Types</th><th>Description</th></tr>
   <tr>
     <td>
       <div class="code-highlight">
@@ -22,8 +22,22 @@ title: WeatherFlow Smart Weather API
 }
 {% endhighlight %}
     </div>
-    <td>ack<br>obs_air<br>obs_sky</td>
-    <td>Start listening for all new observations for a device_id.  Each new observation sent by the Device will be pushed to the client as soon as possible.</td>
+    <td>ack<br>obs_air<br>obs_sky<br>evt_strike<br>evt_precip</td>
+    <td>Start listening for all new observations and events for a device_id.  Each new observation sent by the Device will be pushed to the client as soon as possible.  All Device events will be immediatly pushed.</td>
+  </tr>
+  <tr>
+    <td>
+      <div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"listen_stop",
+  "device_id":1110,
+  "id":"2098388936"
+}
+{% endhighlight %}
+    </div>
+    <td>ack</td>
+    <td>Stop listening for all messages for a Device.</td>
   </tr>
 </table>
 
