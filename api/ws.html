@@ -98,7 +98,6 @@ title: WeatherFlow Smart Weather API Websocket Reference
 
 
 <h2><a name="response-messages">Response Messages</a></h2>
-<br><br>
 <h3>Acknowledgement [type = ack]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
@@ -144,6 +143,64 @@ Evt Value Layout
 
 
 
+<br><br>
+<h3>Device Online Event [type = evt_device_online]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"evt_device_online",
+  "device_id":1110
+}
+{% endhighlight %}
+</div>
+
+
+
+
+<br><br>
+<h3>Device Offline Event [type = evt_device_offline]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"evt_device_offline",
+  "device_id":1110
+}
+{% endhighlight %}
+</div>
+
+
+
+
+<br><br>
+<h3>Station Online Event [type = evt_station_online]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"evt_station_online",
+  "station_id":4582
+}
+{% endhighlight %}
+</div>
+
+
+
+
+<br><br>
+<h3>Station Offline Event [type = evt_station_offline]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"evt_station_offline",
+  "station_id":4582
+}
+{% endhighlight %}
+</div>
+
+
+
+
+
+
 
 <br><br>
 <h3>Rapid Wind [type = rapid_wind]</h3>
@@ -161,7 +218,7 @@ Ob Value Layout
   <tr><th>Index</th><th>Field</th><th>Units</th></tr>
   <tr><td>0</td><td>Time Epoch</td><td>Seconds</td></tr>
   <tr><td>1</td><td>Wind Speed</td><td>mps</td></tr>
-  <tr><td>2</td><td>Wind Direction</td>degrees<td></td></tr>
+  <tr><td>2</td><td>Wind Direction</td><td>Degrees</td></tr>
 </table>
 
 
@@ -212,7 +269,7 @@ Observation Value Layout
   <tr><td>4</td><td>Wind Lull</td><td>mps</td></tr>
   <tr><td>5</td><td>Wind Avg</td><td>mps</td></tr>
   <tr><td>6</td><td>Wind Gust</td><td>mps</td></tr>
-  <tr><td>7</td><td>Wind Direction</td><td>degrees</td></tr>
+  <tr><td>7</td><td>Wind Direction</td><td>Degrees</td></tr>
   <tr><td>8</td><td>Battery</td><td></td></tr>
   <tr><td>9</td><td>Report Interval</td><td>Minutes</td></tr>
   <tr><td>10</td><td>Solar Radiation</td><td></td></tr>
