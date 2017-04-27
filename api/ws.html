@@ -9,25 +9,6 @@ title: WeatherFlow Smart Weather API
 <div>wss://ws.weatherflow.com/swd/data</div>
 
 <h2><a name="request-messages">Request Messages</a></h2>
-Observation (Air)
-<div class="code-highlight">
-{% highlight javascript %}
-{
-  "serial_number":"0ee6fd",
-  "device_id": 1234,
-  "type":"obs_air",
-  "obs":[
-    [123123160,1020.2,33.33,51,0,0,3.13,1]
-  ]
-}
-{% endhighlight %}
-</div>
-
-<h2><a name="response-messages">Response Messages</a></h2>
-{% highlight javascript %}
-{"serial_number":"AR-00007355","type":"obs_air","obs":[[1493164835,835.0,10.0,45,0,0,3.46,1]],"firmware_revision":17}
-{% endhighlight %}
-
 <table>
   <tr>
     <td>one</td><td>two</td>
@@ -36,4 +17,28 @@ Observation (Air)
     <td>three</td><td>four</td>
   </tr>
 </table>
+
+
+<h2><a name="response-messages">Response Messages</a></h2>
+Observation (Air)
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"obs_air",
+  "device_id":1110,
+  "obs":[[1493164835,835.0,10.0,45,0,0,3.46,1]]
+}
+{% endhighlight %}
+</div>
+Observation Value Layout
+1. Time Seconds Epoch UTC
+2. Station Pressure MB
+3. Air Temperature C
+4. Relative Humidity %
+5. Lightning Strike Count
+6. Lightning Strike Avg Distance km
+7. Battery
+8. Report Interval Minutes
+
+
 
