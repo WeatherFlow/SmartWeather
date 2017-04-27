@@ -1,26 +1,24 @@
 ---
 layout: apiwshome
-title: WeatherFlow Smart Weather API
+title: WeatherFlow Smart Weather API Websocket Reference
 ---
-<h1>Websocket</h1>
-
 <h2><a name="endpoints">Endpoints</a></h2>
-<div>ws://ws.weatherflow.com/swd/data</div>
-<div>wss://ws.weatherflow.com/swd/data</div>
+<div class="code-highlight">ws://ws.weatherflow.com/swd/data</div>
+<div class="code-highlight">wss://ws.weatherflow.com/swd/data</div>
 
 <h2><a name="request-messages">Request Messages</a></h2>
 <table>
-  <tr><th>Message</th><th>Pushed Types</th><th>Description</th></tr>
+  <tr><th>Request Message</th><th>Response Message Types</th><th>Description</th></tr>
   <tr>
     <td>
       <div class="code-highlight">
-{% highlight javascript %}
-{
-  "type":"listen_start",
-  "device_id":1110,
-  "id":"2098388936"
-}
-{% endhighlight %}
+        {% highlight javascript %}
+        {
+          "type":"listen_start",
+          "device_id":1110,
+          "id":"2098388936"
+        }
+        {% endhighlight %}
     </div>
     <td>ack<br>obs_air<br>obs_sky<br>evt_strike<br>evt_precip</td>
     <td>Start listening for all new observations and events for a device_id.  Each new observation sent by the Device will be pushed to the client as soon as possible.  All Device events will be immediatly pushed.</td>
@@ -28,17 +26,46 @@ title: WeatherFlow Smart Weather API
   <tr>
     <td>
       <div class="code-highlight">
-{% highlight javascript %}
-{
-  "type":"listen_stop",
-  "device_id":1110,
-  "id":"2098388936"
-}
-{% endhighlight %}
+        {% highlight javascript %}
+        {
+          "type":"listen_stop",
+          "device_id":1110,
+          "id":"2098388936"
+        }
+        {% endhighlight %}
     </div>
     <td>ack</td>
     <td>Stop listening for all messages for a Device.</td>
   </tr>
+  <tr>
+    <td>
+      <div class="code-highlight">
+        {% highlight javascript %}
+        {
+          "type":"listen_events",
+          "station_id":2594,
+          "id":"2098388541"
+        }
+        {% endhighlight %}
+    </div>
+    <td>ack<br>evt_station_online<br>evt_station_offline</td>
+    <td>Start listening for all Station online and offline events.  All Station events will be immediatly pushed.</td>
+  </tr>
+  <tr>
+    <td>
+      <div class="code-highlight">
+        {% highlight javascript %}
+        {
+          "type":"listen_stop",
+          "device_id":1110,
+          "id":"2098388936"
+        }
+        {% endhighlight %}
+    </div>
+    <td>ack</td>
+    <td>Stop listening for all messages for a Device.</td>
+  </tr>
+
 </table>
 
 
