@@ -12,13 +12,13 @@ title: WeatherFlow Smart Weather API Websocket Reference
   <tr>
     <td>
       <div class="code-highlight">
-        {% highlight javascript %}
-        {
-          "type":"listen_start",
-          "device_id":1110,
-          "id":"2098388936"
-        }
-        {% endhighlight %}
+{% highlight javascript %}
+{
+  "type":"listen_start",
+  "device_id":1110,
+  "id":"2098388936"
+}
+{% endhighlight %}
     </div>
     <td>ack<br>obs_air<br>obs_sky<br>evt_strike<br>evt_precip</td>
     <td>Start listening for all new observations and events for a device_id.  Each new observation sent by the Device will be pushed to the client as soon as possible.  All Device events will be immediatly pushed.</td>
@@ -26,13 +26,13 @@ title: WeatherFlow Smart Weather API Websocket Reference
   <tr>
     <td>
       <div class="code-highlight">
-        {% highlight javascript %}
-        {
-          "type":"listen_stop",
-          "device_id":1110,
-          "id":"2098388936"
-        }
-        {% endhighlight %}
+{% highlight javascript %}
+{
+  "type":"listen_stop",
+  "device_id":1110,
+  "id":"2098388936"
+}
+{% endhighlight %}
     </div>
     <td>ack</td>
     <td>Stop listening for all messages for a Device.</td>
@@ -40,13 +40,13 @@ title: WeatherFlow Smart Weather API Websocket Reference
   <tr>
     <td>
       <div class="code-highlight">
-        {% highlight javascript %}
-        {
-          "type":"listen_events",
-          "station_id":2594,
-          "id":"2098388541"
-        }
-        {% endhighlight %}
+{% highlight javascript %}
+{
+  "type":"listen_start_events",
+  "station_id":2594,
+  "id":"2098388541"
+}
+{% endhighlight %}
     </div>
     <td>ack<br>evt_station_online<br>evt_station_offline</td>
     <td>Start listening for all Station online and offline events.  All Station events will be immediatly pushed.</td>
@@ -54,16 +54,44 @@ title: WeatherFlow Smart Weather API Websocket Reference
   <tr>
     <td>
       <div class="code-highlight">
-        {% highlight javascript %}
-        {
-          "type":"listen_stop",
-          "device_id":1110,
-          "id":"2098388936"
-        }
-        {% endhighlight %}
+{% highlight javascript %}
+{
+  "type":"listen_stop_events",
+  "station_id":2594,
+  "id":"2098388541"
+}
+{% endhighlight %}
     </div>
     <td>ack</td>
-    <td>Stop listening for all messages for a Device.</td>
+    <td>Stop listening for all event messages for a Station.</td>
+  </tr>
+  <tr>
+    <td>
+      <div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"listen_rapid_start",
+  "device_id":1110,
+  "id":"2098388542"
+}
+{% endhighlight %}
+    </div>
+    <td>ack<br>rapid_wind</td>
+    <td>Start listening for rapid 3 second wind data for a Sky Device.</td>
+  </tr>
+  <tr>
+    <td>
+      <div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"listen_rapid_stop",
+  "device_id":1110,
+  "id":"2098388587"
+}
+{% endhighlight %}
+    </div>
+    <td>ack</td>
+    <td>Stop listening for rapid data messages for a Device.</td>
   </tr>
 
 </table>
