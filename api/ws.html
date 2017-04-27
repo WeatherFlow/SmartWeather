@@ -10,11 +10,20 @@ title: WeatherFlow Smart Weather API
 
 <h2><a name="request-messages">Request Messages</a></h2>
 <table>
+  <tr><th>Message</th><th>Response Types</th><th>Description</th></tr>
   <tr>
-    <td>one</td><td>two</td>
-  </tr>
-  <tr>
-    <td>three</td><td>four</td>
+    <td>
+      <div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"listen_start",
+  "device_id":1110,
+  "id":"2098388936"
+}
+{% endhighlight %}
+    </div>
+    <td>ack<br>obs_air<br>obs_sky</td>
+    <td>Start listening for all new observations for a device_id.  Each new observation sent by the Device will be pushed to the client as soon as possible.</td>
   </tr>
 </table>
 
@@ -24,7 +33,7 @@ title: WeatherFlow Smart Weather API
 <div class="code-highlight">
 {% highlight javascript %}
 {
-  "type":"acknowledgement",
+  "type":"ack",
   "id":"2098388936"
 }
 {% endhighlight %}
