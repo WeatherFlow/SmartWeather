@@ -98,7 +98,7 @@ title: WeatherFlow Smart Weather API Websocket Reference
 
 
 <h2><a name="response-messages">Response Messages</a></h2>
-<h3>Acknowledgement</h3>
+<h3>Acknowledgement [type = ack]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
 {
@@ -108,7 +108,8 @@ title: WeatherFlow Smart Weather API Websocket Reference
 {% endhighlight %}
 </div>
 
-<h3>Observation (Air)</h3>
+
+<h3>Observation (Air) [type = obs_air]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
 {
@@ -132,5 +133,30 @@ Observation Value Layout
 </table>
 
 
+<h3>Observation (Sky) [type = obs_sky]</h3>
+<div class="code-highlight">
+{% highlight javascript %}
+{
+  "type":"obs_sky",
+  "device_id":1110,
+  "obs":[[1493321340,9000,10,0.0,2.6,4.6,7.4,187,3.12,1,130]]
+}
+{% endhighlight %}
+</div>
+Observation Value Layout
+<table>
+  <tr><th>Index</th><th>Field</th><th>Units</th></tr>
+  <tr><td>0</td><td>Time Seconds Epoch</td><td>Seconds</td></tr>
+  <tr><td>1</td><td>Lux</td><td></td></tr>
+  <tr><td>2</td><td>UV</td><td>Index 1-10</td></tr>
+  <tr><td>3</td><td>Precip Accumulated</td>mm<td></td></tr>
+  <tr><td>4</td><td>Wind Lull</td><td>mps</td></tr>
+  <tr><td>5</td><td>Wind Avg</td><td>mps</td></tr>
+  <tr><td>6</td><td>Wind Gust</td><td>mps</td></tr>
+  <tr><td>7</td><td>Wind Direction</td><td></td></tr>
+  <tr><td>8</td><td>Battery</td><td></td></tr>
+  <tr><td>9</td><td>Report Interval</td><td>Minutes</td></tr>
+  <tr><td>10</td><td>Solar Radiation</td><td></td></tr>
+</table>
 
 
