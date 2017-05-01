@@ -4,7 +4,19 @@ title: WeatherFlow Smart Weather API
 ---
 
 <h2><a name="overview">Overview</a></h2>
-<p>This API gives access to observation and metadata for WeatherFlow Smart Weather Stations. You can learn more about WeatherFlow Smart Weather at <a href="http://www.weatherflow.com/smart-home-weather-stations/">http://www.weatherflow.com/smart-home-weather-stations/</a> . To see an example of what you can do with this API visit the <a href="http://smartweather.weatherflow.com">Smart Weather website</a>.</p>
+<p>This API gives access to observations and metadata for WeatherFlow Smart Weather Stations.  REST services are available for pulling data. The API also supports websocket connections for pushing data to listening clients.</p>
+<ul>
+	<li>Websocket Data Streams
+		<ul>
+			<li>Device Observations</li>
+			<li>Device Events</li>
+			<li>Station Observations (federated) (coming soon 2017)</li>
+			<li>Station Events</li>
+		</ul>
+	</li>
+</ul>
+
+<p>You can learn more about WeatherFlow Smart Weather at <a href="http://www.weatherflow.com/smart-home-weather-stations/">http://www.weatherflow.com/smart-home-weather-stations/</a> . To see an example of what you can do with this API visit the <a href="http://smartweather.weatherflow.com">Smart Weather website</a>.</p>
 
 <h2>Object Model</h2>
 <img src="{{site.url}}/images/swd_object_model.jpg" alt="WeatherFlow Smart Weather API Object Model" style="width:100%" />
@@ -16,19 +28,21 @@ title: WeatherFlow Smart Weather API
 	<li>Public Access Level with API Key
 		<ul>
 			<li>Access to all Stations currently set as "public"</li>
-			<li>Send your API Key as "api_key" in the query string with all API requests</li>
+			<li>REST - Send your API Key as "api_key" in the query string with all API requests</li>
+			<li>Websocket - Send your API Key as "api_key" in the query string when opening the websocket connection</li>
 		</ul>
 	</li>
 	<li>User Access Level with Oauth2 Access Token
 		<ul>
 			<li>Access to all data owned by the user's access token</li>
 			<li>Access to all Stations currently set as "public"</li>
-			<li>Send the access token as "token" in the query string with all API requests</li>
 			<li>Oauth2 Implicit Flow
 				<ul>
 					<li>Use this flow to get an access token that never expires. This is the token you send with all API requests.</li>
 				</ul>
 			</li>
+			<li>REST - Send the Access Token as "token" in the query string with all API requests</li>
+			<li>Websocket - Send the Access Token as "token" in the query string when opening the websocket connection</li>
 		</ul>
 	</li>
 </ul>
