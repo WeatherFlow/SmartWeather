@@ -97,10 +97,31 @@ title: WeatherFlow Smart Weather API
 			</li>
 		</ul>
 	</li>
+	<li>Websocket
+		<ul>
+			<li>Open a websocket connection
+				<ul>
+					<li class="code-highlight">wss://ws.weatherflow.com/swd/data?api_key=20c70eae-e62f-4d3b-b3a4-8586e90f3ac8</li>
+				</ul>
+			</li>
+			<li>Send a JSON message to start listening for observations from the demo Device.  After sending this message your connected websocket client sould receive a new observation JSON message every minute.
+				<ul>
+					<li class="code-highlight">
+{
+  "type":"listen_start",
+  "device_id":1110,
+  "id":"random-id-12345"
+}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+
 </ul>
 
 <h2><a name="api-reference">REST API Reference</a></h2>
 <p><a href="{{site.url}}/api/swagger" target="_blank">Rest API Reference</a>.</p>
 
 <h2><a name="ws-api-reference">Websocket API Reference</a></h2>
-<p><a href="{{site.url}}/ws.html" target="_blank">Websocket API Reference</a>.</p>
+<p><a href="{{site.url}}/api/ws.html" target="_blank">Websocket API Reference</a>.</p>
