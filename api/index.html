@@ -56,7 +56,7 @@ title: WeatherFlow Smart Weather API
 				<ul>
 					<li>Dev API Key = <span class="code-highlight">20c70eae-e62f-4d3b-b3a4-8586e90f3ac8</span></li>
 				</ul>
-			<li>Demo Station</li>
+			<li>Demo Station and Devices</li>
 				<ul>
 					<li>station_id = 690</li>
 					<li>(Air) device_id = 1110</li>
@@ -65,20 +65,36 @@ title: WeatherFlow Smart Weather API
 	</li>
 	<li>REST
 		<ul>
-			<li>Use the REST API Reference to see an test all services.
+			<li>Use the REST API Reference to see and test all services.
 				<ul>
 					<li>Use the "Authorization" button to either enter your API Key or use the Oauth2 path to connect to your Smart Weather user account.
 						<ul>
 							<li>If you do not do this step the API will respond with "401 Unauthorized"</li>
 						</ul>
 					</li>
-					<li>Find a station_id (this is the id of your Station). The easiest way to do this is sign into you Smart Weather account using a browser and go to an observation list view for a Station. Your should see a URL that includes a station_id that looks something like this.
+					<li>Find a station_id (this is the id of your Station). The easiest way to do this is sign into you Smart Weather account using a browser and go to an observation list view for a Station. You should see a URL that includes a station_id that looks something like this.
 						<ul>
 							<li><a href="https://smartweather.weatherflow.com/station/690" class="code-highlight">https://smartweather.weatherflow.com/station/690</a></li>
 						</ul>
 					</li>
 					<li>Try the stations service using the station_id. The response should contain all of the meta data for the Station. Make note of a device_id so you can use it later to get observations.</li>
 					<li>Try the observations service using just the device_id. If you only send the device_id in the request you should see the latest observation in the response.</li>
+				</ul>
+				<ul>
+					<li>Examples (using the Demo Station and Device)
+						<ul>
+							<li>GET Station Meta Data
+								<ul>
+									<li>https://swd.weatherflow.com/swd/rest/stations/690?api_key=20c70eae-e62f-4d3b-b3a4-8586e90f3ac8</li>
+								</ul>
+							</li>
+							<li>GET Latest Device Observation
+								<ul>
+									<li>https://swd.weatherflow.com/swd/rest/observations/?device_id=1110&api_key=20c70eae-e62f-4d3b-b3a4-8586e90f3ac8</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 		</ul>
