@@ -113,6 +113,50 @@
                 }
             }
         },
+        "/observations/station/{station_id}": {
+            "get": {
+                "tags": [
+                    "observations"
+                ],
+                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary and that is the one used for this federated observation.",
+                "summary": "Get the latest Station observation",
+                "operationId": "getStationObservation",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "station_id",
+                        "in": "path",
+                        "description": "ID of Station to return",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/StationObservation"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            }
+        },
         "/observations/": {
             "get": {
                 "tags": [
@@ -393,6 +437,20 @@
                     7,
                     8
                 ]
+            }
+        },
+        "StationObservation": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "$ref": "#/definitions/Status"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Station"
+                    }
+                }
             }
         },
         "Status": {
