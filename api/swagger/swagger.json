@@ -493,10 +493,130 @@
                     "format": "in32",
                     "example": 1495732068
                 },
-                "timestamp": {
-                    "type": "air_temperature_indoor",
+                "air_temperature": {
+                    "type": "number",
                     "format": "float",
                     "example": 29.1
+                },
+                "barometric_pressure": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1002.9
+                },
+                "sea_level_pressure": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1004.7
+                },
+                "relative_humidity": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 77
+                },
+                "precip": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.0
+                },
+                "precip_accum_last_1hr": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.0
+                },
+                "precip_accum_last_24hr": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.0
+                },
+                "wind_avg": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 3.5
+                },
+                "wind_direction": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 289
+                },
+                "wind_gust": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 5.1
+                },
+                "wind_lull": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 2.2
+                },
+                "solar_radiation": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 330
+                },
+                "uv": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 8
+                },
+                "brightness": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 7000
+                },
+                "": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 
+                },
+                "lightning_strike_last_epoch": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1495652340
+                },
+                "lightning_strike_last_distance": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 22
+                },
+                "lightning_strike_count_last_3hr": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0
+                },
+                "feels_like": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 21.4
+                },
+                "heat_index": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 21.4
+                },
+                "wind_chill": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 21.4
+                },
+                "dew_point": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 17.2
+                },
+                "wet_bulb_temperature": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 18.6
+                },
+                "delta_t": {
+                    "type": "number",
+                    "format": "float",
+                    "example": -2.8
+                },
+                "air_density": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1.18257
                 }
             }
         },
