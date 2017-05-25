@@ -563,11 +563,6 @@
                     "format": "float",
                     "example": 7000
                 },
-                "": {
-                    "type": "number",
-                    "format": "float",
-                    "example": 
-                },
                 "lightning_strike_last_epoch": {
                     "type": "number",
                     "format": "float",
