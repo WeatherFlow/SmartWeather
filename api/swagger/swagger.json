@@ -178,7 +178,7 @@
                 "tags": [
                     "observations"
                 ],
-                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make federated observation.  A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an _indoor suffix.  Outdoor observations fields do not have a suffix.  ",
+                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make federated observation.  A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.  ",
                 "summary": "Get the latest Station observation",
                 "operationId": "getStationObservation",
                 "security": [
@@ -708,7 +708,7 @@
                     "format": "float",
                     "example": 21.4
                 },
-                "wind_chill_indoor: {
+                "wind_chill_indoor": {
                     "type": "number",
                     "format": "float",
                     "example": 21.4
