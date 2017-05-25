@@ -146,7 +146,7 @@
                     {
                         "name": "day_offset",
                         "in": "query",
-                        "description": "TIME FILTER - Get an entire day of observations by UTC day offset. \n \n 0 - Current day UTC \n 1 - Yesterday UTC",
+                        "description": "TIME FILTER - Get an entire day of observations by UTC day offset. \n \n 0 - Current day UTC \n \n 1 - Yesterday UTC",
                         "required": false,
                         "type": "integer",
                         "format": "int64"
