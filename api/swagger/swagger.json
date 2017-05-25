@@ -186,7 +186,7 @@
                 "tags": [
                     "observations"
                 ],
-                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make the federated observation.  A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.  ",
+                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make the federated observation.<br><br>A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.<br><br>The station_units values represent the units of the Station's owner, not the units of the observation values in the API response.",
                 "summary": "Get the latest Station observation",
                 "operationId": "getStationObservation",
                 "security": [
@@ -431,6 +431,39 @@
                 }
             }
         },
+        "StationUnits": {
+            "type": "object",
+            "properties": {
+                "units_temp": {
+                    "type": "string",
+                    "example": "f"
+                },
+                "units_wind": {
+                    "type": "string",
+                    "example": "mph"
+                },
+                "units_precip": {
+                    "type": "string",
+                    "example": "in"
+                },
+                "units_pressure": {
+                    "type": "string",
+                    "example": "mb"
+                },
+                "units_distance": {
+                    "type": "string",
+                    "example": "mi"
+                },
+                "units_direction": {
+                    "type": "string",
+                    "example": "cardinal"
+                },
+                "units_other": {
+                    "type": "string",
+                    "example": "imperial"
+                }
+            }
+        },
         "ObservationValuesArray": {
             "type": "array",
             "items": {
@@ -452,6 +485,9 @@
             "properties": {
                 "status": {
                     "$ref": "#/definitions/Status"
+                },
+                "station_units": {
+                    "$ref": "#/definitions/StationUnits"
                 },
                 "station_id": {
                     "type": "integer",
