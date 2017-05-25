@@ -12,12 +12,12 @@
     "basePath": "/swd/rest",
     "tags": [
         {
-            "name": "stations",
-            "description": "Stations with Smart Weather Devices"
-        },
-        {
             "name": "observations",
             "description": "Get observations for a Smart Weather Device."
+        },
+        {
+            "name": "stations",
+            "description": "Stations with Smart Weather Devices"
         }
     ],
     "schemes": [
@@ -146,7 +146,7 @@
                     {
                         "name": "day_offset",
                         "in": "query",
-                        "description": "TIME FILTER - Get an entire day of observations by UTC day offset. \n \n 0 - Current day UTC \n \n 1 - Yesterday UTC",
+                        "description": "TIME FILTER - Get an entire day of observations by UTC day offset.<br><br>0 - Current day UTC<br>1 - Yesterday UTC",
                         "required": false,
                         "type": "integer",
                         "format": "int64"
