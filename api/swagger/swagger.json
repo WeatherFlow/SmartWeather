@@ -467,6 +467,36 @@
                     "type": "number",
                     "format": "float",
                     "example": -80.88067
+                },
+                "timezone": {
+                    "type": "string",
+                    "example": "America/New_York"
+                },
+                "elevation": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 21.845
+                },
+                "obs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/StationObservationValues"
+                    }
+                }
+            }
+        },
+        "StationObservationValues": {
+            "type": "object",
+            "properties": {
+                "timestamp": {
+                    "type": "number",
+                    "format": "in32",
+                    "example": 1495732068
+                },
+                "timestamp": {
+                    "type": "air_temperature_indoor",
+                    "format": "float",
+                    "example": 29.1
                 }
             }
         },
