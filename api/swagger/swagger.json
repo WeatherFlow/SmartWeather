@@ -178,7 +178,7 @@
                 "tags": [
                     "observations"
                 ],
-                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary and that is the one used for this federated observation.",
+                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make federated observation.  A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.  ",
                 "summary": "Get the latest Station observation",
                 "operationId": "getStationObservation",
                 "security": [
@@ -609,6 +609,126 @@
                     "example": -2.8
                 },
                 "air_density": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1.18257
+                },
+                "air_temperature_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 29.1
+                },
+                "barometric_pressure_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1002.9
+                },
+                "sea_level_pressure_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1004.7
+                },
+                "relative_humidity_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 77
+                },
+                "precip_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.0
+                },
+                "precip_accum_last_1hr_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.0
+                },
+                "precip_accum_last_24hr_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0.0
+                },
+                "wind_avg_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 3.5
+                },
+                "wind_direction_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 289
+                },
+                "wind_gust_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 5.1
+                },
+                "wind_lull_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 2.2
+                },
+                "solar_radiation_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 330
+                },
+                "uv_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 8
+                },
+                "brightness_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 7000
+                },
+                "lightning_strike_last_epoch_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 1495652340
+                },
+                "lightning_strike_last_distance_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 22
+                },
+                "lightning_strike_count_last_3hr_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 0
+                },
+                "feels_like_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 21.4
+                },
+                "heat_index_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 21.4
+                },
+                "wind_chill_indoor: {
+                    "type": "number",
+                    "format": "float",
+                    "example": 21.4
+                },
+                "dew_point_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 17.2
+                },
+                "wet_bulb_temperature_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 18.6
+                },
+                "delta_t_indoor": {
+                    "type": "number",
+                    "format": "float",
+                    "example": -2.8
+                },
+                "air_density_indoor": {
                     "type": "number",
                     "format": "float",
                     "example": 1.18257
