@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  "Smart Weather for iOS - v1.21"
