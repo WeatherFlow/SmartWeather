@@ -53,7 +53,7 @@
                     "locations"
                 ],
                 "description": "Smart Weather Devices all belong to a Station.  This response contains Station metadata and metadata for the Devices in it.  Each user can create multiple Stations.  A Device can only be in one Station at a time.  Only devices with a serial_number value can send new observations.  A Device wihout a serial_number indicates that Device is no longer active.<br><br>PUBLIC API NOTE<br>The public API maps this service to /stations and converts all fields from location to station.",
-                "summary": "Find all Stations for a user",
+                "summary": "Get all Locations for a user",
                 "operationId": "getStations",
                 "security": [
                     {
@@ -124,13 +124,13 @@
                 }
             }
         },
-        "/locations/{station_id}": {
+        "/locations/{location_id}": {
             "get": {
                 "tags": [
                     "locations"
                 ],
                 "description": "Smart Weather Devices all belong to a Station.  This response contains Station metadata and metadata for the Devices in it.  Each user can create multiple Stations.  A Device can only be in one Station at a time.  Only devices with a serial_number value can send new observations.  A Device wihout a serial_number indicates that Device is no longer active.<br><br>PUBLIC API NOTE<br>The public API maps this service to /stations and converts all fields from location to station.",
-                "summary": "Find a Station by ID",
+                "summary": "Get a Location by ID",
                 "operationId": "getStationById",
                 "security": [
                     {
@@ -147,9 +147,9 @@
                 ],
                 "parameters": [
                     {
-                        "name": "station_id",
+                        "name": "location_id",
                         "in": "path",
-                        "description": "ID of Station to return",
+                        "description": "ID of Location to return",
                         "required": true,
                         "type": "integer",
                         "format": "int64"
@@ -189,7 +189,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "station_id",
+                        "name": "location_id",
                         "in": "path",
                         "description": "ID of Station to update",
                         "required": true,
@@ -240,7 +240,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "station_id",
+                        "name": "location_id",
                         "in": "path",
                         "description": "ID of Station to delete",
                         "required": true,
@@ -296,7 +296,7 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "$ref": "#/definitions/Status"
+                            "$ref": "#/definitions/LocationSharePost"
                         }
                     },
                     "404": {
@@ -333,7 +333,7 @@
                         "description": "The Location Item to create",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Status"
+                            "$ref": "#/definitions/LocationItemPost"
                         }
                     }
                 ],
@@ -1113,6 +1113,72 @@
                 "share_with_wu": {
                     "type": "boolean",
                     "example": true
+                }
+            }
+        },
+        "LocationItemPost": {
+            "type": "object",
+            "properties": {
+                "location_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 150
+                },
+                "device_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 150
+                },
+                "item": {
+                    "type": "string",
+                    "enum": [
+                        "air_temperature_humidity",
+                        "barometric_pressure",
+                        "lightning",
+                        "light",
+                        "rain",
+                        "wind",
+                        "diagnostics",
+                        "forecast"
+                    ],
+                    "example": "air_temperature_humidity"
+                }
+            }
+        },
+        "LocationSharePost": {
+            "type": "object",
+            "properties": {
+                "location_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 150
+                },
+                "public_name": {
+                    "type": "string",
+                    "example": "Bent Oaks Deland"
+                },
+                "share_type": {
+                    "type": "string",
+                    "enum": [
+                        "wu"
+                    ],
+                    "example": "wu"
+                },
+                "share_meta": {
+                    "$ref": "#/definitions/LocationSharePostShareMeta"
+                }
+            }
+        },
+        "LocationSharePostShareMeta": {
+            "type": "object",
+            "properties": {
+                "location_id": {
+                    "type": "string",
+                    "example": "KFLDEBAR21"
+                },
+                "station_key": {
+                    "type": "string",
+                    "example": "dsd54rse1"
                 }
             }
         }
