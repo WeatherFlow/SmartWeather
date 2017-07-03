@@ -16,8 +16,8 @@
             "description": "Get observations for a Smart Weather Device."
         },
         {
-            "name": "stations",
-            "description": "Get Stations with Smart Weather Devices"
+            "name": "locations",
+            "description": "Get Locations (Stations) with Smart Weather Devices"
         }
     ],
     "schemes": [
@@ -35,12 +35,12 @@
         }
     ],
     "paths": {
-        "/stations": {
+        "/locations": {
             "get": {
                 "tags": [
-                    "stations"
+                    "locations"
                 ],
-                "description": "Smart Weather Devices all belong to a Station.  This response contains Station metadata and metadata for the Devices in it.  Each user can create multiple Stations.  A Device can only be in one Station at a time.  Only devices with a serial_number value can send new observations.  A Device wihout a serial_number indicates that Device is no longer active.",
+                "description": "Smart Weather Devices all belong to a Station.  This response contains Station metadata and metadata for the Devices in it.  Each user can create multiple Stations.  A Device can only be in one Station at a time.  Only devices with a serial_number value can send new observations.  A Device wihout a serial_number indicates that Device is no longer active.<br><br>PUBLIC API NOTE<br>The public API maps this service to /stations and converts all fields from location to station.",
                 "summary": "Find all Stations for a user",
                 "operationId": "getStations",
                 "security": [
