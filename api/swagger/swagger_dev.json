@@ -18,6 +18,18 @@
         {
             "name": "locations",
             "description": "Locations (Stations)"
+        },
+        {
+            "name": "location_items",
+            "description": "Location Items (Cards)"
+        },
+        {
+            "name": "location_share",
+            "description": "Share Location with a third party"
+        },
+        {
+            "name": "location_configuration",
+            "description": "Set primary sensors for a Location"
         }
     ],
     "schemes": [
@@ -73,7 +85,7 @@
                     "locations"
                 ],
                 "description": "Create a Location (Station)",
-                "summary": "",
+                "summary": "Create a Location",
                 "operationId": "craeateLocation",
                 "security": [
                     {
@@ -115,7 +127,7 @@
         "/locations/{station_id}": {
             "get": {
                 "tags": [
-                    "stations"
+                    "locations"
                 ],
                 "description": "Smart Weather Devices all belong to a Station.  This response contains Station metadata and metadata for the Devices in it.  Each user can create multiple Stations.  A Device can only be in one Station at a time.  Only devices with a serial_number value can send new observations.  A Device wihout a serial_number indicates that Device is no longer active.<br><br>PUBLIC API NOTE<br>The public API maps this service to /stations and converts all fields from location to station.",
                 "summary": "Find a Station by ID",
@@ -160,7 +172,7 @@
                     "locations"
                 ],
                 "description": "Update a Location (Station)",
-                "summary": "",
+                "summary": "Update a Location",
                 "operationId": "updateLocation",
                 "security": [
                     {
@@ -211,7 +223,7 @@
                     "locations"
                 ],
                 "description": "Delete a Location (Station)",
-                "summary": "",
+                "summary": "Delete a Location",
                 "operationId": "deleteLocation",
                 "security": [
                     {
@@ -252,10 +264,10 @@
         "/location_share": {
             "get": {
                 "tags": [
-                    "locations"
+                    "location_share"
                 ],
                 "description": "Manage meta data used to share locations with third party systems such as WeatherUnderground.  A location only has a single public name.",
-                "summary": "Manage Location (Station) sharing",
+                "summary": "Manage Location (Station) sharing with third parties",
                 "operationId": "getSLocationShare",
                 "security": [
                     {
@@ -296,10 +308,10 @@
         "/location_items": {
             "post": {
                 "tags": [
-                    "locations"
+                    "location_items"
                 ],
-                "description": "Create Location Item",
-                "summary": "",
+                "description": "Create a Location Item(Card)",
+                "summary": "Create a Location Item(Card)",
                 "operationId": "craeateLocationItem",
                 "security": [
                     {
@@ -341,10 +353,10 @@
         "/location_configuration": {
             "get": {
                 "tags": [
-                    "locations"
+                    "location_configuration"
                 ],
                 "description": "Configure primary sensors for a Location(Station).  The Location could have multiple devices of the same type.",
-                "summary": "",
+                "summary": "Get primary sensors for a Location",
                 "operationId": "getLocationConfiguration",
                 "security": [
                     {
