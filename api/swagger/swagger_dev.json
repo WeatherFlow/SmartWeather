@@ -17,7 +17,7 @@
         },
         {
             "name": "locations",
-            "description": "Get Locations (Stations) with Smart Weather Devices"
+            "description": "Locations (Stations)"
         }
     ],
     "schemes": [
@@ -67,6 +67,49 @@
                         "description": "Station not found"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "locations"
+                ],
+                "description": "Create a Location (Station)",
+                "summary": "",
+                "operationId": "craeateLocation",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "location",
+                        "in": "body",
+                        "description": "The Location to create",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LocationPost"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Status"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
             }
         },
         "/locations/{station_id}": {
@@ -105,6 +148,99 @@
                         "description": "successful operation",
                         "schema": {
                             "$ref": "#/definitions/StationSet"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "locations"
+                ],
+                "description": "Update a Location (Station)",
+                "summary": "",
+                "operationId": "updateLocation",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "station_id",
+                        "in": "path",
+                        "description": "ID of Station to update",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "location",
+                        "in": "body",
+                        "description": "The Location to create",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LocationPost"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Status"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "locations"
+                ],
+                "description": "Delete a Location (Station)",
+                "summary": "",
+                "operationId": "deleteLocation",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "station_id",
+                        "in": "path",
+                        "description": "ID of Station to delete",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Status"
                         }
                     },
                     "404": {
@@ -930,6 +1066,41 @@
                 "status_message": {
                     "type": "string",
                     "example": "SUCCESS"
+                }
+            }
+        },
+        "LocationPost": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Home"
+                },
+                "latitude": {
+                    "type": "number",
+                    "format": "float",
+                    "example": 27.1
+                },
+                "longitude": {
+                    "type": "number",
+                    "format": "float",
+                    "example": -81.2
+                },
+                "location_meta": {
+                    "$ref": "#/definitions/LocationPostLocationMeta"
+                }
+            }
+        },
+        "LocationPostLocationMeta": {
+            "type": "object",
+            "properties": {
+                "share_with_wf": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "share_with_wu": {
+                    "type": "boolean",
+                    "example": true
                 }
             }
         }
