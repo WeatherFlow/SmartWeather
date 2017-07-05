@@ -348,7 +348,6 @@
                 }
             }
         },
-        },
         "/location_items": {
             "post": {
                 "tags": [
