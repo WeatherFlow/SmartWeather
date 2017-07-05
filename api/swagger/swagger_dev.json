@@ -348,13 +348,108 @@
                 }
             }
         },
+        "/location_share/{location_id}": {
+            "put": {
+                "tags": [
+                    "location_share"
+                ],
+                "description": "Update a location share record.  Update fields: share_meta, public_name",
+                "summary": "Update location share record",
+                "operationId": "updateLocationShare",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "location_id",
+                        "in": "path",
+                        "description": "Location (Station) ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "locationShare",
+                        "in": "body",
+                        "description": "The updated location share values",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LocationSharePut"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Status"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "location_share"
+                ],
+                "description": "Delete a location share record",
+                "summary": "Delete a location share record",
+                "operationId": "deleteLocationShare",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "location_id",
+                        "in": "path",
+                        "description": "Location (Station) ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Status"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            }
+        },
         "/location_items": {
             "post": {
                 "tags": [
                     "location_items"
                 ],
-                "description": "Create a Location Item(Card)",
-                "summary": "Create a Location Item(Card)",
+                "description": "Create a Location Item (Card). No getter is available.  The Location Items are included in the GET locations response.  <br><br>item list<br>air_temperature_humidity<br>barometric_pressure<br>lightning<br>light<br>rain<br>wind<br>diagnostics<br>forecast",
+                "summary": "Create a Location Item (Card)",
                 "operationId": "craeateLocationItem",
                 "security": [
                     {
@@ -378,6 +473,101 @@
                         "schema": {
                             "$ref": "#/definitions/LocationItemPost"
                         }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Status"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            }
+        },
+        "/location_items/{location_id}": {
+            "delete": {
+                "tags": [
+                    "location_share"
+                ],
+                "description": "Delete a Location Item record",
+                "summary": "Delete a Location Item record",
+                "operationId": "deleteLocationItem",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "location_id",
+                        "in": "path",
+                        "description": "Location (Station) ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Status"
+                        }
+                    },
+                    "404": {
+                        "description": "Station not found"
+                    }
+                }
+            }
+        },
+        "/location_items/sort": {
+            "get": {
+                "tags": [
+                    "location_items"
+                ],
+                "description": "Set the sort order for all Location Items (Cards) for a Location.  Submit a list containing all location_item_id values for a location in the order that you want them sorted in.",
+                "summary": "Set the sort order for all Location Items (Cards) for a Location.",
+                "operationId": "sortLocationItem",
+                "security": [
+                    {
+                        "swdImplicit": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "swdApiKey": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "description": "The Location that contains the Location Items to be sorted",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "location_item_id_order",
+                        "in": "query",
+                        "description": "Comma separated list of location_item_id values in the desired sort order.",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -1206,6 +1396,23 @@
                         "wu"
                     ],
                     "example": "wu"
+                },
+                "share_meta": {
+                    "$ref": "#/definitions/LocationSharePostShareMeta"
+                }
+            }
+        },
+        "LocationSharePut": {
+            "type": "object",
+            "properties": {
+                "location_id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "example": 150
+                },
+                "public_name": {
+                    "type": "string",
+                    "example": "Bent Oaks Deland"
                 },
                 "share_meta": {
                     "$ref": "#/definitions/LocationSharePostShareMeta"
