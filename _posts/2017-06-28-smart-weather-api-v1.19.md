@@ -6,7 +6,7 @@ categories: API
 ---
 
 **Enhancements**
-1. Added solar_radiation to Sky CSV response
-2. Added support for Hub debug messages
-3. Added GET service for sent notifications
-4. Added a better status message for a Station observation that does not have capabilities
+ - Added solar_radiation to Sky CSV response
+ - Added support for Hub debug messages
+ - Added GET service for sent notifications
+ - Added a better status message for a Station observation that does not have capabilities
