@@ -20,16 +20,20 @@
       "description": "Locations (Stations)"
     },
     {
+      "name": "location_configuration",
+      "description": "Set primary sensors for a Location"
+    },
+    {
+      "name": "location_integration",
+      "description": "Things integrated with a Location (Nest camera)"
+    },
+    {
       "name": "location_items",
       "description": "Location Items (Cards)"
     },
     {
       "name": "location_share",
       "description": "Share Location with a third party"
-    },
-    {
-      "name": "location_configuration",
-      "description": "Set primary sensors for a Location"
     }
   ],
   "schemes": [
@@ -348,7 +352,7 @@
         }
       }
     },
-    "/location_share/{location_id}": {
+    "/location_share/{location_share_id}": {
       "put": {
         "tags": [
           "location_share"
@@ -371,9 +375,9 @@
         ],
         "parameters": [
           {
-            "name": "location_id",
+            "name": "location_share_id",
             "in": "path",
-            "description": "Location (Station) ID",
+            "description": "ID of the LocationShare",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -422,9 +426,191 @@
         ],
         "parameters": [
           {
-            "name": "location_id",
+            "name": "location_share_id",
             "in": "path",
+            "description": "ID of the LocationShare",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      }
+    },
+    "/location_integration": {
+      "get": {
+        "tags": [
+          "location_integration"
+        ],
+        "description": "Manage meta data used to integration locations with third party systems such as WeatherUnderground.  A location only has a single public name.",
+        "summary": "Manage Location (Station) sharing with third parties",
+        "operationId": "getSLocationIntegration",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "location_id",
+            "in": "query",
             "description": "Location (Station) ID",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/LocationIntegrationPost"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "location_integration"
+        ],
+        "description": "Create a Location third party integration",
+        "summary": "Create a Location third party integration",
+        "operationId": "craeateLocationIntegration",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "locationIntegration",
+            "in": "body",
+            "description": "The Location to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationIntegrationPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      }
+    },
+    "/location_integration/{location_integration_id}": {
+      "put": {
+        "tags": [
+          "location_integration"
+        ],
+        "description": "Update a location integration record.  Update fields: integration_meta, public_name",
+        "summary": "Update location integration record",
+        "operationId": "updateLocationIntegration",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "location_integration_id",
+            "in": "path",
+            "description": "ID of the LocationIntegration",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "locationIntegration",
+            "in": "body",
+            "description": "The updated location integration values",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationIntegrationPut"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "location_integration"
+        ],
+        "description": "Delete a location integration record",
+        "summary": "Delete a location integration record",
+        "operationId": "deleteLocationIntegration",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "location_integration_id",
+            "in": "path",
+            "description": "ID of the LocationIntegration",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -488,7 +674,7 @@
         }
       }
     },
-    "/location_items/{location_id}": {
+    "/location_items/{location_item_id}": {
       "delete": {
         "tags": [
           "location_items"
@@ -511,9 +697,9 @@
         ],
         "parameters": [
           {
-            "name": "location_id",
+            "name": "location_item_id",
             "in": "path",
-            "description": "Location (Station) ID",
+            "description": "LocationItem ID",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -527,7 +713,7 @@
             }
           },
           "404": {
-            "description": "Station not found"
+            "description": "Not found"
           }
         }
       }
@@ -640,7 +826,7 @@
           "observations"
         ],
         "description": "Get observations for a Device(Air,Sky) by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).<br><br>**Air**  (type=\"obs_air\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - pressure (MB)<br>2 - air temperature (C)<br>3 - relative humidity (%)<br>4 - strike count<br>5 - average strike distance<br>6 - battery<br>7 - report interval<br><br><br>**Sky** (type=\"obs_sky\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - lux ()<br>2 - UV Index<br>3 - precipitation accumulation (mm)<br>4 - wind lull  (m/s)<br>5 - wind avg (m/s)<br>6 - wind gust (m/s)<br>7 - wind dir<br>8 - battery<br>9 - report interval<br>10 - solar radiation  ",
-        "summary": "Get observations for a single Smart Weather Device",
+        "summary": "(Public API) Get observations for a single Smart Weather Device",
         "operationId": "getObservationsByDeviceId",
         "security": [
           {
@@ -708,7 +894,7 @@
           "observations"
         ],
         "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make the federated observation.<br><br>A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.<br><br>The station_units values represent the units of the Station's owner, not the units of the observation values in the API response.<br><br>Units<br>temperature = C<br>pressure = MB<br>wind = mps<br>precip = <br>distance = km<br>lux = <br>solar radiation = ",
-        "summary": "Get the latest Station observation",
+        "summary": "(Public API) Get the latest Station observation",
         "operationId": "getStationObservation",
         "security": [
           {
@@ -1429,6 +1615,56 @@
         "station_key": {
           "type": "string",
           "example": "dsd54rse1"
+        }
+      }
+    },
+    "LocationIntegrationPost": {
+      "type": "object",
+      "properties": {
+        "location_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 150
+        },
+        "share_type": {
+          "type": "string",
+          "enum": [
+            "nest_camera"
+          ],
+          "example": "nest_camera"
+        },
+        "integration_meta": {
+          "$ref": "#/definitions/LocationIntegrationPostIntegrationMeta"
+        }
+      }
+    },
+    "LocationIntegrationPut": {
+      "type": "object",
+      "properties": {
+        "location_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 150
+        },
+        "integration_meta": {
+          "$ref": "#/definitions/LocationIntegrationPostIntegrationMeta"
+        }
+      }
+    },
+    "LocationIntegrationPostIntegrationMeta": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string",
+          "example": "c.7WyZkq1KAIevg1hCRp4Sq50aTQJeVLerVzV0SJysgzlIW1tr8k6JzD4DXXaKaOyBWyMoBckLpHsX8QY2JKtvbaS8WoCEcMqetaGxFerd9XJWh3GStMLNIeTFnVDNmYoh9RR8DCC08E4qYA6z"
+        },
+        "camera_id": {
+          "type": "string",
+          "example": "JXsk8Mkm0qqmZnk8SEmPQYHOHsyf6Ym-dw2xewcD-An1BbD7Sls1LQ"
+        },
+        "camera_name": {
+          "type": "string",
+          "example": "Backyard"
         }
       }
     }
