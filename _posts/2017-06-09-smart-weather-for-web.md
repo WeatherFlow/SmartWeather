@@ -5,5 +5,5 @@ date:   2017-06-09 12:00:01 -0500
 categories: Web
 ---
 
-- Added a parameter switcher to the graph view
-- Humidity added as separate graph
+- Parameter switcher added to the graph view
+- Added humidity graph
