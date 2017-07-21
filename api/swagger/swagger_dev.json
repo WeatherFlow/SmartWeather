@@ -24,6 +24,10 @@
       "description": "Set primary sensors for a Location"
     },
     {
+      "name": "location_image",
+      "description": "Location Images by location_integration_id"
+    },
+    {
       "name": "location_integration",
       "description": "Things integrated with a Location (Nest camera)"
     },
@@ -447,6 +451,137 @@
         }
       }
     },
+    "/location_image": {
+      "get": {
+        "tags": [
+          "location_image"
+        ],
+        "description": "Saved images for a Location.  The key for these images is a location_integration_id.",
+        "summary": "Get Location Images",
+        "operationId": "getLocationImage",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "location_id",
+            "in": "query",
+            "description": "Location (Station) ID",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "location_image"
+        ],
+        "description": "Create a Location Image",
+        "summary": "Create a Location image",
+        "operationId": "craeateLocationImage",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "locationImage",
+            "in": "body",
+            "description": "The Location image to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationImagePost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Location Integration not found"
+          }
+        }
+      }
+    },
+    "/location_image/{location_image_id}": {
+      "delete": {
+        "tags": [
+          "location_image"
+        ],
+        "description": "Delete a Location Image record",
+        "summary": "Delete a Location Image record",
+        "operationId": "deleteLocationImage",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "location_image_id",
+            "in": "path",
+            "description": "ID of the LocationImage",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      }
+    },
     "/location_integration": {
       "get": {
         "tags": [
@@ -482,7 +617,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/LocationIntegrationPost"
+              "$ref": "#/definitions/Status"
             }
           },
           "404": {
@@ -1665,6 +1800,37 @@
         "camera_name": {
           "type": "string",
           "example": "Backyard"
+        }
+      }
+    },
+    "LocationImagePost": {
+      "type": "object",
+      "properties": {
+        "location_integration_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 150
+        },
+        "url": {
+          "type": "string",
+          "example": "http://swdimages.weatherflow.com/image.jpg"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1500576213
+        },
+        "image_meta": {
+          "$ref": "#/definitions/LocationImagePostImageMeta"
+        }
+      }
+    },
+    "LocationImagePostImageMeta": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "example": "a good error message"
         }
       }
     }
