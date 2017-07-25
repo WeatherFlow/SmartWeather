@@ -21,7 +21,59 @@ title: Derived Metric Forumulas
 
 <div id="posts">
   <div class="post">
-	  <h1><a name="wet-bulb-temp">Wet Bulb Temperature</a></h1>
+    <h1><a name="wet-bulb-temp">Wet Bulb Temperature</a></h1>
+    {% highlight objective-c %}
+		//view-source:http://www.srh.noaa.gov/epz/?n=wxcalc_rh
+
+		if (temp > 100 || temp < -100) {
+        	return temp;
+    	}
+    
+    	float es = 6.112 * exp(17.67 * temp / (temp + 243.5));
+    	float e2 = es * (humidity/100.0);
+    
+    	float twguess = 0.0;
+    	float incr = 10.0;
+    	float previoussign = 1.0;
+    	float edifference = 1.0;
+    
+    	while (fabs(edifference) > 0.005)
+    	{
+        	float ewguess = 6.112 * exp((17.67 * twguess) / (twguess + 243.5));
+        	float eguess = ewguess - pres * (temp - twguess) * 0.00066 * (1.0 + (0.00115 * twguess));
+        	edifference = e2 - eguess;
+        
+        	if (edifference == 0)
+        	{
+            	break;
+        	} else {
+            	if (edifference < 0)
+            	{
+                	int cursign = -1;
+                	if (cursign != previoussign)
+                	{
+                    	previoussign = cursign;
+                    	incr = incr/10.0;
+                	} else {
+                    	incr = incr;
+                	}
+            	} else {
+                	int cursign = 1;
+                	if (cursign != previoussign)
+                	{
+                    	previoussign = cursign;
+                    	incr = incr/10.0;
+                	} else {
+                    	incr = incr;
+                	}
+            	}
+        	}
+        
+        	twguess = twguess + incr * previoussign;
+        
+    	}
+    	return twguess;
+    {% endhighlight %}
   </div>
 
   <div class="post">
