@@ -38,6 +38,14 @@
     {
       "name": "location_share",
       "description": "Share Location with a third party"
+    },
+    {
+      "name": "manufacturing",
+      "description": "Hardware and firmware"
+    },
+    {
+      "name": "nest",
+      "description": "Nest"
     }
   ],
   "schemes": [
@@ -1066,6 +1074,199 @@
           }
         }
       }
+    },
+    "/nest/access_token": {
+      "get": {
+        "tags": [
+          "nest"
+        ],
+        "description": "Get a Nest Access Token.  You must first get a one time use Nest Authorization Code to use this service.",
+        "summary": "Get a long lived Nest Access Token",
+        "operationId": "getNestAccessToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "description": "Nest Authorization Code (one time use)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/NestAccessToken"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      }
+    },
+    "/firmware": {
+      "get": {
+        "tags": [
+          "manufacturing"
+        ],
+        "description": "Get information for the latest firmware available for the Device's serial number.  The latest available version is controlled by the pending firmware revision value.",
+        "summary": "Get latest available firmware information",
+        "operationId": "getFirmware",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "serial_number",
+            "in": "query",
+            "description": "Device serial number",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Firmware"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/p_device": {
+      "get": {
+        "tags": [
+          "manufacturing"
+        ],
+        "description": "Create a new PDevice.",
+        "summary": "Create a new PDevice",
+        "operationId": "createPDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_type",
+            "in": "query",
+            "description": "Device type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "firmware_revision",
+            "in": "query",
+            "description": "Desired firmware revision",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "pending_firmware_revision",
+            "in": "query",
+            "description": "Desired pending firmware revision",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "hardware_revision",
+            "in": "query",
+            "description": "Desired hardware revision",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/PDevicePost"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/p_device/serial_number_burn_success": {
+      "get": {
+        "tags": [
+          "manufacturing"
+        ],
+        "description": "Adds a note to the PDevice after the serial number has been successfully burned to the device.",
+        "summary": "Confirm Serial Number burn to PDevice",
+        "operationId": "serialNumberBurnSuccess",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "serial_number",
+            "in": "query",
+            "description": "Device serial number",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
     }
   },
   "securityDefinitions": {
@@ -1831,6 +2032,83 @@
         "error": {
           "type": "string",
           "example": "a good error message"
+        }
+      }
+    },
+    "NestAccessToken": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "access_token": {
+          "type": "string"
+        }
+      }
+    },
+    "Firmware": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "firmware_revision": {
+          "type": "integer",
+          "format": "int32",
+          "example": 14
+        },
+        "hash": {
+          "type": "string",
+          "example": "05de6370238672314d9a2577df880a01ea581f3ef780371d7376ab5cfdda3ff3"
+        },
+        "signature": {
+          "type": "string",
+          "example": "b673d1f8197f501964ac833d02abfb75454b0f09"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32",
+          "example": 429236
+        },
+        "device_type": {
+          "type": "string",
+          "example": "HB"
+        },
+        "url": {
+          "type": "string",
+          "example": "http://s3.amazonaws.com/swd-shared/hub_2017-05-11T210333.img"
+        }
+      }
+    },
+    "PDevicePost": {
+      "type": "object",
+      "properties": {
+        "p_device_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 154
+        },
+        "device_key": {
+          "type": "string",
+          "example": "15b805121f004dbe5ce631569fcca116"
+        },
+        "serial_number": {
+          "type": "string",
+          "example": "HB-00000092"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32",
+          "example": 429236
+        },
+        "status_code": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0
+        },
+        "status_message": {
+          "type": "string",
+          "example": "SUCCESS"
         }
       }
     }
