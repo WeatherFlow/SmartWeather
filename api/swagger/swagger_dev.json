@@ -46,6 +46,10 @@
     {
       "name": "nest",
       "description": "Nest"
+    },
+    {
+      "name": "user_notifications",
+      "description": "Configure and Get User Notifications"
     }
   ],
   "schemes": [
@@ -63,6 +67,40 @@
     }
   ],
   "paths": {
+    "/notifications": {
+      "get": {
+        "tags": [
+          "notifications"
+        ],
+        "description": "Get a history of the notifications sent to a user.  Notification type and time filters are available.",
+        "summary": "Get a history of the notifications sent to a user",
+        "operationId": "getNotifications",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/locations": {
       "get": {
         "tags": [
