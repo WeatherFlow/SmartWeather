@@ -67,12 +67,184 @@
     }
   ],
   "paths": {
+    "/user_notifications": {
+      "get": {
+        "tags": [
+          "user_notifications"
+        ],
+        "description": "Get User Notification targets for a user.  Firebase Cloud Messaging (fcm) is the only type so far",
+        "summary": "Get User Notification targets for a user",
+        "operationId": "getUserNotifications",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user_notifications"
+        ],
+        "description": "Create a new User Notification target",
+        "summary": "Create a new User Notification target",
+        "operationId": "craeateUserNotification",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userNotification",
+            "in": "body",
+            "description": "The User Notification target to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserNotificationPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/user_notifications/{user_notification_id}": {
+      "put": {
+        "tags": [
+          "user_notifications"
+        ],
+        "description": "Update a User Notification target record.  Update fields: type, send_to, status, name",
+        "summary": "Update User Notification target record",
+        "operationId": "updateUserNotification",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_notification_id",
+            "in": "path",
+            "description": "ID of the UserNotification target",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "userNotification",
+            "in": "body",
+            "description": "The updated User Notification values",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserNotificationPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user_notifications"
+        ],
+        "description": "Delete a User Notification record",
+        "summary": "Delete a User Notification record",
+        "operationId": "deleteUserNotification",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user_notification_id",
+            "in": "path",
+            "description": "ID of the User Notification",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/notifications": {
       "get": {
         "tags": [
-          "notifications"
+          "user_notifications"
         ],
-        "description": "Get a history of the notifications sent to a user.  Notification type and time filters are available.",
+        "description": "Get a history of the notifications sent to a user.  Notification type and time filters are available.  The default time range is the last 28 days.  User Id is the key.  The uid for the user can be provided if you are using an Enterprise API Key.  If not the uid is pulled from the firebase token provided.<br><br>Types<br>evt_strike<br>evt_precip<br>evt_device_online<br>evt_device_offline<br>evt_station_online<br>evt_station_offline<br><br>The type filter is a wildcard.  For example, a value of station will return both evt_station_online and evt_station_offline types.",
         "summary": "Get a history of the notifications sent to a user",
         "operationId": "getNotifications",
         "security": [
@@ -87,6 +259,38 @@
         ],
         "produces": [
           "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "time_start",
+            "in": "query",
+            "description": "time range start in epoch seconds",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "time_end",
+            "in": "query",
+            "description": "time range end in epoch seconds",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "type_filter",
+            "in": "query",
+            "description": "time range end in epoch seconds",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "uid",
+            "in": "query",
+            "description": "User ID can be provided here if using Enterprise API Key",
+            "required": false,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
@@ -1935,6 +2139,30 @@
             "forecast"
           ],
           "example": "air_temperature_humidity"
+        }
+      }
+    },
+    "UserNotificationPost": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "fcm"
+          ],
+          "example": "wu"
+        },
+        "send_to": {
+          "type": "string",
+          "example": "asdfgeradfgbaafgghsfadfgafasreadfafeaad"
+        },
+        "status": {
+          "type": "string",
+          "example": "active"
+        },
+        "name": {
+          "type": "string",
+          "example": "My iPhone Name"
         }
       }
     },
