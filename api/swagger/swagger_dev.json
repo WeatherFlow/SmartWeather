@@ -50,6 +50,10 @@
     {
       "name": "user_notifications",
       "description": "Configure and Get User Notifications"
+    },
+    {
+      "name": "user_settings",
+      "description": "Set User Settings"
     }
   ],
   "schemes": [
@@ -67,6 +71,158 @@
     }
   ],
   "paths": {
+    "/user_settings": {
+      "get": {
+        "tags": [
+          "user_settings"
+        ],
+        "description": "Get the saved Settings for a user",
+        "summary": "Get the saved Settings for a user",
+        "operationId": "getUserSettings",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user_settings"
+        ],
+        "description": "Create User Settings for a user",
+        "summary": "Create User Settings for a user",
+        "operationId": "craeateUserSettings",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userNotification",
+            "in": "body",
+            "description": "The User Notification target to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserNotificationPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user_settings"
+        ],
+        "description": "Update a User Settings.  Must submit all settings.",
+        "summary": "Update User Settings",
+        "operationId": "updateUserSettings",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "userNotification",
+            "in": "body",
+            "description": "The updated User Notification values",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserNotificationPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user_settings"
+        ],
+        "description": "Delete a User Settings record",
+        "summary": "Delete a User Settings record",
+        "operationId": "deleteUserSettings",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/user_notifications": {
       "get": {
         "tags": [
