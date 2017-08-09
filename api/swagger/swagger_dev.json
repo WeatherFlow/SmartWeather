@@ -264,7 +264,7 @@
           {
             "name": "time_start",
             "in": "query",
-            "description": "time range start in epoch seconds",
+            "description": "Time range start in epoch seconds",
             "required": false,
             "type": "integer",
             "format": "int64"
@@ -272,7 +272,7 @@
           {
             "name": "time_end",
             "in": "query",
-            "description": "time range end in epoch seconds",
+            "description": "Time range end in epoch seconds",
             "required": false,
             "type": "integer",
             "format": "int64"
@@ -280,7 +280,7 @@
           {
             "name": "type_filter",
             "in": "query",
-            "description": "time range end in epoch seconds",
+            "description": "Wildcard String to filter",
             "required": false,
             "type": "string"
           },
@@ -1205,12 +1205,12 @@
         }
       }
     },
-    "/observations/device/{device_id}": {
+    "/observations": {
       "get": {
         "tags": [
           "observations"
         ],
-        "description": "Get observations for a Device(Air,Sky) by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).<br><br>**Air**  (type=\"obs_air\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - pressure (MB)<br>2 - air temperature (C)<br>3 - relative humidity (%)<br>4 - strike count<br>5 - average strike distance<br>6 - battery<br>7 - report interval<br><br><br>**Sky** (type=\"obs_sky\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - lux ()<br>2 - UV Index<br>3 - precipitation accumulation (mm)<br>4 - wind lull  (m/s)<br>5 - wind avg (m/s)<br>6 - wind gust (m/s)<br>7 - wind dir<br>8 - battery<br>9 - report interval<br>10 - solar radiation  ",
+        "description": "NOTE: This is the first generation endpoint for device observations.  It is only used by our applications.  The public API changes the URL and does not document buckets for now.<br><br>Get observations for a Device(Air,Sky) by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset, bucket).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).<br><br>**Air**  (type=\"obs_air\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - pressure (MB)<br>2 - air temperature (C)<br>3 - relative humidity (%)<br>4 - strike count<br>5 - average strike distance<br>6 - battery<br>7 - report interval<br><br><br>**Sky** (type=\"obs_sky\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - lux ()<br>2 - UV Index<br>3 - precipitation accumulation (mm)<br>4 - wind lull  (m/s)<br>5 - wind avg (m/s)<br>6 - wind gust (m/s)<br>7 - wind dir<br>8 - battery<br>9 - report interval<br>10 - solar radiation  ",
         "summary": "(Public API) Get observations for a single Smart Weather Device",
         "operationId": "getObservationsByDeviceId",
         "security": [
@@ -1229,8 +1229,8 @@
         "parameters": [
           {
             "name": "device_id",
-            "in": "path",
-            "description": "ID of device",
+            "in": "query",
+            "description": "ID of Device",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1258,6 +1258,13 @@
             "required": false,
             "type": "integer",
             "format": "int64"
+          },
+          {
+            "name": "bucket",
+            "in": "query",
+            "description": "Bucket a (1 minute data)<br> - Range max 1 day<br>Bucket b (5 minute data)<br> - Range max 5 day<br>Bucket c (30 minute data)<br> - Range max 30 day<br>Bucket d (180 minute data)<br> - Range max 180 day<br>Bucket e (1 day data)<br> - Range greater than 180 days<br><br>* bucket can override default only in one direction.  For example, it is valid to ask for bucket E for any time range but it is not possible to get bucket A if range greater than day.",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1273,12 +1280,12 @@
         }
       }
     },
-    "/observations/station/{station_id}": {
+    "/observations/location": {
       "get": {
         "tags": [
           "observations"
         ],
-        "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make the federated observation.<br><br>A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.<br><br>The station_units values represent the units of the Station's owner, not the units of the observation values in the API response.<br><br>Units<br>temperature = C<br>pressure = MB<br>wind = mps<br>precip = <br>distance = km<br>lux = <br>solar radiation = ",
+        "description": "IMPORTANT NOTE: This is the first generation Location Observation currently only used by our applications.  The public version of this service changes location to station.  The endpoint is also changed and some items are removed to simplify.  See the public API documentation for details.<br><br>Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make the federated observation.<br><br>A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.<br><br>The station_units values represent the units of the Station's owner, not the units of the observation values in the API response.<br><br>Units<br>temperature = C<br>pressure = MB<br>wind = mps<br>precip = <br>distance = km<br>lux = <br>solar radiation = ",
         "summary": "(Public API) Get the latest Station observation",
         "operationId": "getStationObservation",
         "security": [
@@ -1296,12 +1303,19 @@
         ],
         "parameters": [
           {
-            "name": "station_id",
-            "in": "path",
-            "description": "ID of Station to return",
+            "name": "location_id",
+            "in": "query",
+            "description": "ID of Location(Station) to return",
             "required": true,
             "type": "integer",
             "format": "int64"
+          },
+          {
+            "name": "verbose",
+            "in": "query",
+            "description": "Add extra data to the response including the raw observations that made the station observation.  This exists to help debug issues with the final location observation values.<br><br>verbose=true",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1312,7 +1326,7 @@
             }
           },
           "404": {
-            "description": "Station not found"
+            "description": "Not found"
           }
         }
       }
@@ -2150,7 +2164,7 @@
           "enum": [
             "fcm"
           ],
-          "example": "wu"
+          "example": "fcm"
         },
         "send_to": {
           "type": "string",
