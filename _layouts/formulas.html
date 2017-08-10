@@ -1,19 +1,19 @@
 <!doctype html>
 <html>
-  <head>
-    {% include meta.html %}
-    <title>{{page.title}}</title>
+	<head>
+    	{% include meta.html %}
+    	<title>{{page.title}}</title>
 		<link rel="stylesheet" href="{{site.url}}/css/base.css">
 		<link rel="stylesheet" href="{{site.url}}/css/release.css?v2">
-	  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+	  	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 	</head>
 	<body>
-	  <div id="app-menu"></div>
-		  {% include header.html %}
-
-		  <div id="main-content">
-			  {{content}}        
-			</div>
+		<div id="app-menu"></div>
+		{% include header.html %}
+		
+		<div id="main-content">
+			{{content}}        
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="{{site.url}}/js/releases.js"></script>
