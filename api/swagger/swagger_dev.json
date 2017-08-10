@@ -12,8 +12,8 @@
   "basePath": "/swd/rest",
   "tags": [
     {
-      "name": "observations",
-      "description": "Get observations for a Smart Weather Device."
+      "name": "devices",
+      "description": "Manage User Devices"
     },
     {
       "name": "locations",
@@ -46,6 +46,10 @@
     {
       "name": "nest",
       "description": "Nest"
+    },
+    {
+      "name": "observations",
+      "description": "Get observations for a Smart Weather Device."
     },
     {
       "name": "user",
@@ -333,6 +337,178 @@
         ],
         "produces": [
           "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/devices": {
+      "get": {
+        "tags": [
+          "devices"
+        ],
+        "description": "Get all Devices for a user.  Devices are also returned in the Locations(Stations) response.",
+        "summary": "Get all Devices for a user",
+        "operationId": "getDevices",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "devices"
+        ],
+        "description": "Create a new Device for a User",
+        "summary": "Create a new Device for a User",
+        "operationId": "craeateDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device",
+            "in": "body",
+            "description": "The Device to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DevicePost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/devices/{device_id}": {
+      "put": {
+        "tags": [
+          "devices"
+        ],
+        "description": "Update a Device",
+        "summary": "Update a Device",
+        "operationId": "updateDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "ID of the Device target",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "device",
+            "in": "body",
+            "description": "The Device values",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DevicePost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "devices"
+        ],
+        "description": "Delete a Device record",
+        "summary": "Delete a Device record",
+        "operationId": "deleteDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "ID of the Device",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
         ],
         "responses": {
           "200": {
@@ -2520,6 +2696,41 @@
         "station_key": {
           "type": "string",
           "example": "dsd54rse1"
+        }
+      }
+    },
+    "DevicePost": {
+      "type": "object",
+      "properties": {
+        "location_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 150
+        },
+        "serial_number": {
+          "type": "string",
+          "example": "AR-00000134"
+        },
+        "device_meta": {
+          "$ref": "#/definitions/DevicePostDeviceMeta"
+        }
+      }
+    },
+    "DevicePostDeviceMeta": {
+      "type": "object",
+      "properties": {
+        "agl": {
+          "type": "integer",
+          "format": "int32",
+          "example": 15
+        },
+        "name": {
+          "type": "string",
+          "example": "Pool Air"
+        },
+        "environment": {
+          "type": "string",
+          "example": "indoor"
         }
       }
     },
