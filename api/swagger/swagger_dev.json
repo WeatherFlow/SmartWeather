@@ -52,6 +52,10 @@
       "description": "Get observations for a Smart Weather Device."
     },
     {
+      "name": "support",
+      "description": "Services for Support and Customer Service Tools"
+    },
+    {
       "name": "user",
       "description": "Users"
     },
@@ -337,6 +341,92 @@
         ],
         "produces": [
           "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/report": {
+      "get": {
+        "tags": [
+          "support"
+        ],
+        "description": "Get a custom report.  Use a JSON string to define the desired report.<br><br>Example:<br>{\"report_name\":\"get_user\",\"user_id\":\"SctOdpF8bdYP54OSrTWq93QSBzD3\"}",
+        "summary": "Get a custom report",
+        "operationId": "getReport",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "options",
+            "in": "query",
+            "description": "JSON report properties",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "support"
+        ],
+        "description": "Get a custom report.  Use a JSON string to define the desired report.",
+        "summary": "Get a custom report",
+        "operationId": "getReportPost",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device",
+            "in": "body",
+            "description": "Report properties",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReportPost"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2645,6 +2735,19 @@
         }
       }
     },
+    "ReportPost": {
+      "type": "object",
+      "properties": {
+        "report_name": {
+          "type": "string",
+          "example": "get_user"
+        },
+        "user_id": {
+          "type": "string",
+          "example": "SctOdpF8bdYP54OSrTWq93QSBzD3"
+        }
+      }
+    },
     "LocationSharePost": {
       "type": "object",
       "properties": {
@@ -2731,6 +2834,10 @@
         "environment": {
           "type": "string",
           "example": "indoor"
+        },
+        "wifi_network_name": {
+          "type": "string",
+          "example": ""
         }
       }
     },
