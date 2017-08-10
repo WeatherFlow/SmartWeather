@@ -145,6 +145,10 @@ header {
 	border-radius: 3px;
 }
 
+.monospace {
+	font-family: monospace;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 	#header-ctn {
 		background-size: auto 90px;
