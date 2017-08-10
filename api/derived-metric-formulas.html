@@ -4,83 +4,13 @@ title: Derived Metric Forumulas
 ---
 <div id="sidebar">
   <ul class="category-list">
-    <li><a href="#wet-bulb-temp">Web Bulb Temperature</a></li>
-    <li><a href="#wind-chill">Web Chill</a></li>
-    <li><a href="#heat-index">Heat Index</a></li>
-    <li><a href="#dew-point">Dew Point</a></li>
-    <li><a href="#vapor-pressure">Vapor Pressure</a></li>
-    <li><a href="#feel-like">Apparent Temperature (Feels Like)</a></li>
-    <li><a href="#pressure-altitude">Pressure Altitude</a></li>
-    <li><a href="#air-density">Air Density</a></li>
-    <li><a href="#delta-t">Delta-T</a></li>
-    <li><a href="#true-wind-speed-and-angle">True Wind Speed & Angle</a></li>
-    <li><a href="#headwind-tailwind">Headwind / Tailwind</a></li>
-    <li><a href="#crosswind">Crosswind</a></li>
+    <li><a href="#temp">Temperature</a></li>    
   </ul>
 </div>
 
 <div id="posts">
   <div class="post">
-    <h1><a name="wet-bulb-temp">Wet Bulb Temperature</a></h1>
-    {% highlight objective-c %}
-		//view-source:http://www.srh.noaa.gov/epz/?n=wxcalc_rh
-
-		if (temp > 100 || temp < -100) {
-        	return temp;
-    	}
-    
-    	float es = 6.112 * exp(17.67 * temp / (temp + 243.5));
-    	float e2 = es * (humidity/100.0);
-    
-    	float twguess = 0.0;
-    	float incr = 10.0;
-    	float previoussign = 1.0;
-    	float edifference = 1.0;
-    
-    	while (fabs(edifference) > 0.005)
-    	{
-        	float ewguess = 6.112 * exp((17.67 * twguess) / (twguess + 243.5));
-        	float eguess = ewguess - pres * (temp - twguess) * 0.00066 * (1.0 + (0.00115 * twguess));
-        	edifference = e2 - eguess;
-        
-        	if (edifference == 0)
-        	{
-            	break;
-        	} else {
-            	if (edifference < 0)
-            	{
-                	int cursign = -1;
-                	if (cursign != previoussign)
-                	{
-                    	previoussign = cursign;
-                    	incr = incr/10.0;
-                	} else {
-                    	incr = incr;
-                	}
-            	} else {
-                	int cursign = 1;
-                	if (cursign != previoussign)
-                	{
-                    	previoussign = cursign;
-                    	incr = incr/10.0;
-                	} else {
-                    	incr = incr;
-                	}
-            	}
-        	}
-        
-        	twguess = twguess + incr * previoussign;
-        
-    	}
-    	return twguess;
-    {% endhighlight %}
-  </div>
-
-  <div class="post">
-    <h1><a name="wind-chill">Wind Chill</a></h1>
-  </div>
-  
-  <div class="post">
-    <h1><a name="heat-index">Heat Index</a></h1>
-  </div>
+    <h1><a name="temp">Temperature</a></h1>
+    <p>$$T_{c} = (\frac{5}{9})\times{}(T_{f}-32)$$ $$T_{f} = (\frac{9}{5})\times{}T_{c}+32$$</p>
+  </div> 
 </div>
