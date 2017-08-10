@@ -48,6 +48,10 @@
       "description": "Nest"
     },
     {
+      "name": "user",
+      "description": "Users"
+    },
+    {
       "name": "user_notifications",
       "description": "Configure and Get User Notifications"
     },
@@ -71,6 +75,126 @@
     }
   ],
   "paths": {
+    "/user": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "description": "SUPPORT SERVICE ONLY.  Must user Enerprise API Key.  Get all users in the system.",
+        "summary": "Get Users",
+        "operationId": "getUsers",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "description": "Create a new User.<br><br>Fields from Firebase Token<br>uid<br>name<br>email_address<br>provider",
+        "summary": "Create a new User",
+        "operationId": "craeateUser",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "The User to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "description": "Update a User.<br><br>Fields from Firebase Token<br>uid<br>name<br>email_address<br>provider",
+        "summary": "Update a User",
+        "operationId": "updateUser",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "The updated User values",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/user_settings": {
       "get": {
         "tags": [
@@ -108,7 +232,7 @@
         "tags": [
           "user_settings"
         ],
-        "description": "Create User Settings for a user",
+        "description": "Create User Settings for a user.<br><br>units_temp [f,c]<br>units_wind [mps,mph,kph,kts,bft,lmf]<br>units_other [imperial,metric]<br>units_precip [in,mm,cm]<br>units_distanct [mi,km]<br>units_pressure [inhg,mb]<br>units_direction [degrees,cardinal]<br>events_status [true,false]<br>events_lightning [true,false]<br>events_rain_start [true,false]<br>current_location [location_id]<br>location_name",
         "summary": "Create User Settings for a user",
         "operationId": "craeateUserSettings",
         "security": [
@@ -128,10 +252,10 @@
           {
             "name": "userNotification",
             "in": "body",
-            "description": "The User Notification target to create",
+            "description": "The User Settings to create",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserNotificationPost"
+              "$ref": "#/definitions/UserSettingsPost"
             }
           }
         ],
@@ -151,7 +275,7 @@
         "tags": [
           "user_settings"
         ],
-        "description": "Update a User Settings.  Must submit all settings.",
+        "description": "Update a User Settings.  Must submit all settings.<br><br>units_temp [f,c]<br>units_wind [mps,mph,kph,kts,bft,lmf]<br>units_other [imperial,metric]<br>units_precip [in,mm,cm]<br>units_distanct [mi,km]<br>units_pressure [inhg,mb]<br>units_direction [degrees,cardinal]<br>events_status [true,false]<br>events_lightning [true,false]<br>events_rain_start [true,false]<br>current_location [location_id]<br>location_name",
         "summary": "Update User Settings",
         "operationId": "updateUserSettings",
         "security": [
@@ -171,10 +295,10 @@
           {
             "name": "userNotification",
             "in": "body",
-            "description": "The updated User Notification values",
+            "description": "The updated User Settings values",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserNotificationPost"
+              "$ref": "#/definitions/UserSettingsPost"
             }
           }
         ],
@@ -2336,6 +2460,15 @@
         }
       }
     },
+    "UserPost": {
+      "type": "object",
+      "properties": {
+        "locale": {
+          "type": "string",
+          "example": "en-US"
+        }
+      }
+    },
     "LocationSharePost": {
       "type": "object",
       "properties": {
@@ -2387,6 +2520,59 @@
         "station_key": {
           "type": "string",
           "example": "dsd54rse1"
+        }
+      }
+    },
+    "UserSettingsPost": {
+      "type": "object",
+      "properties": {
+        "units_temp": {
+          "type": "string",
+          "example": "f"
+        },
+        "units_wind": {
+          "type": "string",
+          "example": "mph"
+        },
+        "units_other": {
+          "type": "string",
+          "example": "imperial"
+        },
+        "units_precip": {
+          "type": "string",
+          "example": "in"
+        },
+        "units_distance": {
+          "type": "string",
+          "example": "mi"
+        },
+        "units_pressure": {
+          "type": "string",
+          "example": "mb"
+        },
+        "units_direction": {
+          "type": "string",
+          "example": "cardinal"
+        },
+        "events_status": {
+          "type": "boolean",
+          "example": true
+        },
+        "events_lightning": {
+          "type": "boolean",
+          "example": true
+        },
+        "events_rain_start": {
+          "type": "boolean",
+          "example": true
+        },
+        "current_location": {
+          "type": "string",
+          "example": "690"
+        },
+        "location_name": {
+          "type": "string",
+          "example": "My Home"
         }
       }
     },
