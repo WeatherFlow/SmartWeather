@@ -135,7 +135,7 @@ header {
 	margin: 0 auto;
 }
 
-.code-highlight {
+.code-highlight, .source {
 	font-family: monospace, Arial;
 	background-color: #eee;
 	border: 1px solid #ccc;
@@ -147,6 +147,10 @@ header {
 
 .monospace {
 	font-family: monospace;
+}
+
+.source {
+	font-size: .8em;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
