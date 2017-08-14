@@ -6,6 +6,7 @@ title: Derived Metric Formulas
   <ul class="category-list">
     <li><a href="#feels-like">Feels Like</a></li>	  
     <li><a href="#heat-index">Heat Index</a></li>
+		<li><a href="#station-pressure">Station Pressure</a></li>
     <li><a href="#wind-chill">Wind Chill</a></li>
   </ul>
 </div>
@@ -14,7 +15,6 @@ title: Derived Metric Formulas
   <div class="post">
 		<h1><a name="feels-like">Feels Like</a></h1>
 		<p>If the temperature is at or above 80&degF the Feels Like temperature equals the <a href="#heat-index">Heat Index</a>.  Otherwise, the Feels Like temperature equals the Dew Point.</p>
-		<p class="source"></p>
 	</div>
   <div class="post">
     <h1><a name="heat-index">Heat Index</a></h1>
@@ -25,6 +25,11 @@ title: Derived Metric Formulas
 		\\+(8.5282\times{}10^{-4}\times{}T\times{}rh^2)-(1.99\times{}10^{-6}\times{}T^2\times{}rh^2)$$</p>
     <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/heatIndex.pdf">Weather.gov</a></p>
   </div>
+	<div class="post">
+		<h1><a name="station-pressure">Station Pressure</h1>
+		<p>$$P_{stn} = P_{a}\times{} \bigg(\frac{(288-0.0065\times{}h_{m}}{288}\bigg)^{5.2561}$$</p>
+		<p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/stationPressure.pdf">Weather.gov</a></p>
+	</div>
   <div class="post">
     <h1><a name="wind-chill">Wind Chill</a></h1>
     <p>Wind Chill is calculated for temperatures at or below 50&degF and wind speeds above 5mph.</p>
