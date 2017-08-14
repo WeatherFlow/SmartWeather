@@ -4,12 +4,20 @@ title: Derived Metric Formulas
 ---
 <div id="sidebar">
   <ul class="category-list">
+    <li><a href="#heat-index">Heat Index</a></li>    
     <li><a href="#wind-chill">Wind Chill</a></li>
-    <li><a href="#pressure">Pressure</a></li>
   </ul>
 </div>
 
 <div id="posts">
+  <div class="post">
+    <h1><a name="heat-index">Heat Index</a></h1>
+    <p>$$Index_{heat} = -42.379 + (2.04901523\times{}T) + (10.1433127\times{}rh)
+		\\- (0.22475541\times{}T\times{}rh)-(6.83783\times{}10^{-3}\times{}T^2)
+		\\-(5.481717\times{}10^{-2}\times{}rh^2)+(1.22874\times{}10^{-3}\times{}T^2\times{}rh)
+		\\+(8.5282\times{}10^{-4}\times{}T\times{}rh^2)-(1.99\times{}10^{-6}\times{}T^2\times{}rh^2)$$</p>
+    <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/heatIndex.pdf">Weather.gov</a></p>
+  </div>
   <div class="post">
     <h1><a name="wind-chill">Wind Chill</a></h1>
     <p>Wind Chill is calculated for temperatures at or below 50&degF and wind speeds above 5mph.</p>
@@ -17,10 +25,5 @@ title: Derived Metric Formulas
     <p>\(T\) = temperature in degrees Fahrenheit (&degF)</p>
     <p>\(WindSpeed_{sfc}\) = wind speed in mph</p>
     <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/windChill.pdf">https://www.weather.gov/media/epz/wxcalc/windChill.pdf</a>
-  </div>
-  <div class="post">
-    <h1><a name="pressure">Pressure</a></h1>
-    <p>The Smart Weather API returns pressure values in millibars <span class="monospace">(mb)</span>.  Use the formula below to convert to inches of mercury <span class="monospace">(inHG)</span>.</p>
-    <p class="source">Source: <a href=""></a></p>
-  </div>
+  </div>  
 </div>
