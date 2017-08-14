@@ -47,6 +47,12 @@ table {
 	border-spacing: 0;
 }
 
+th, td {
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+}
+
 html, body {
 	height: 100%;
 	font-size: 16px;
