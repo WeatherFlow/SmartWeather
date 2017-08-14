@@ -135,7 +135,7 @@ header {
 	margin: 0 auto;
 }
 
-.code-highlight, .source {
+.code-highlight {
 	font-family: monospace, Arial;
 	background-color: #eee;
 	border: 1px solid #ccc;
