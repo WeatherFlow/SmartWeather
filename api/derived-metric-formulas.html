@@ -4,17 +4,18 @@ title: Derived Metric Formulas
 ---
 <div id="sidebar">
   <ul class="category-list">
-    <li><a href="#temp">Temperature</a></li>
+    <li><a href="#wind-chill">Wind Chill</a></li>
     <li><a href="#pressure">Pressure</a></li>
   </ul>
 </div>
 
 <div id="posts">
   <div class="post">
-    <h1><a name="temp">Temperature</a></h1>
-    <p>The Smart Weather API returns temperature values in degrees Celcius <span class="monospace">(&deg;C)</span>.  Use the formula below to convert the returned temperature values to Farenheit <span class="monospace">(&deg;F)</span>.</p>
-    <p>$$T_{f} = (\frac{9}{5})\times{}T_{c}+32$$</p>
-    <p class="source">Source: <a href="http://www.crh.noaa.gov/Image/epz/wxcalc/tempConvert.pdf">http://www.crh.noaa.gov/Image/epz/wxcalc/tempConvert.pdf</a>
+    <h1><a name="wind-chill">Wind Chill</a></h1>
+    <p>$$WindChill = 35.74 + (0.6215\times{} T) - \Big(35.75\times{}Wind_{sfc}^{0.16}\Big) + \Big(0.4275\times{}T\times{}Wind_{sfc}^{0.16}\Big)$$</p>
+    <p>\(T\) = degrees Fahrenheit <span class="monospace">(&degF)</p>
+    <p>\(WindSpeed_{sfc}\) = mph</p>
+    <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/windChill.pdf">https://www.weather.gov/media/epz/wxcalc/windChill.pdf</a>
   </div>
   <div class="post">
     <h1><a name="pressure">Pressure</a></h1>
