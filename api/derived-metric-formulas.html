@@ -18,24 +18,24 @@ title: Derived Metric Formulas
 	</div>
   <div class="post">
     <h1><a name="heat-index">Heat Index</a></h1>
+    <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/heatIndex.pdf">Weather.gov</a></p>
 	  <p>Heat Index is calculated for temperatures at or above 80&degF and a relative hummidity at or above 40%.</p>
     <p>$$Index_{heat} = -42.379 + (2.04901523\times{}T) + (10.1433127\times{}rh)
 		\\- (0.22475541\times{}T\times{}rh)-(6.83783\times{}10^{-3}\times{}T^2)
 		\\-(5.481717\times{}10^{-2}\times{}rh^2)+(1.22874\times{}10^{-3}\times{}T^2\times{}rh)
 		\\+(8.5282\times{}10^{-4}\times{}T\times{}rh^2)-(1.99\times{}10^{-6}\times{}T^2\times{}rh^2)$$</p>
-    <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/heatIndex.pdf">Weather.gov</a></p>
   </div>
 	<div class="post">
-		<h1><a name="station-pressure">Station Pressure</h1>
+		<h1><a name="station-pressure">Station Pressure</a></h1>
+		<p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/stationPressure.pdf">Weather.gov</a></p>			
 		<p>$$P_{stn} = P_{a}\times{} \bigg(\frac{(288-0.0065\times{}h_{m}}{288}\bigg)^{5.2561}$$</p>
-		<p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/stationPressure.pdf">Weather.gov</a></p>
 	</div>
   <div class="post">
     <h1><a name="wind-chill">Wind Chill</a></h1>
+    <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/windChill.pdf">Weather.gov</a></p>		
     <p>Wind Chill is calculated for temperatures at or below 50&degF and wind speeds above 5mph.</p>
     <p>$$WindChill = 35.74 + (0.6215\times{} T) - \Big(35.75\times{}Wind_{sfc}^{0.16}\Big) + \Big(0.4275\times{}T\times{}Wind_{sfc}^{0.16}\Big)$$</p>
     <p>\(T\) = temperature in degrees Fahrenheit (&degF)</p>
     <p>\(WindSpeed_{sfc}\) = wind speed in mph</p>
-    <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/windChill.pdf">https://www.weather.gov/media/epz/wxcalc/windChill.pdf</a>
   </div>  
 </div>
