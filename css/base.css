@@ -49,8 +49,15 @@ table {
 
 th, td {
 	padding: 5px;
+	text-align: left;
+}
+
+th {
+	border-bottom: 1px solid #999;
+}
+
+td {
 	border-bottom: 1px solid #ccc;
-	text-align: center;
 }
 
 html, body {
