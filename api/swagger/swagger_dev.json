@@ -355,6 +355,50 @@
         }
       }
     },
+    "/diagnostics/{location_id}": {
+      "get": {
+        "tags": [
+          "support"
+        ],
+        "description": "Diagnostic data for all Devices in a Station",
+        "summary": "Get Station Diagnostics",
+        "operationId": "getStationDiagnosticsById",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "location_id",
+            "in": "path",
+            "description": "ID of Location to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Station not found"
+          }
+        }
+      }
+    },
     "/report": {
       "get": {
         "tags": [
