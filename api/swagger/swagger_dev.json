@@ -16,6 +16,10 @@
       "description": "Manage User Devices"
     },
     {
+      "name": "events",
+      "description": "Get time series Event data"
+    },
+    {
       "name": "locations",
       "description": "Locations (Stations)"
     },
@@ -83,6 +87,81 @@
     }
   ],
   "paths": {
+    "/events/device/{device_id}": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "description": "NOTE: Get time series Event data.<br><br>Response Array Layout<br><br>evt_strike<br>0 timestamp<br>1 distance (km)<br>2 energy<br><br>All others<br>0 timestamp  ",
+        "summary": "Get time series Event data",
+        "operationId": "getEventsByDeviceId",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "ID of Device",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "description": "CSV list of event types that you want data for.<br><br>AVAILABLE TYPES<br>evt_strike<br>evt_precip<br>evt_device_online<br>evt_device_offline",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "day_offset",
+            "in": "query",
+            "description": "TIME FILTER - Get an entire day of Events by UTC day offset.<br><br>0 - Current day UTC<br>1 - Yesterday UTC",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "time_start",
+            "in": "query",
+            "description": "TIME FILTER - Time range start time epoch seconds UTC.",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "time_end",
+            "in": "query",
+            "description": "TIME FILTER - Time range start time epoch seconds UTC.",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Device not found"
+          }
+        }
+      }
+    },
     "/user": {
       "get": {
         "tags": [
