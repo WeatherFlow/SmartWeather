@@ -1296,7 +1296,7 @@
         "tags": [
           "location_image"
         ],
-        "description": "Saved images for a Location.  The key for these images is a location_integration_id.",
+        "description": "Get saved images for a Station.  The key for these images is a location_integration_id.  You can get the latest image or a range by using the minutes_offset parameter.",
         "summary": "Get Location Images",
         "operationId": "getLocationImage",
         "security": [
@@ -1318,6 +1318,14 @@
             "in": "query",
             "description": "Location (Station) ID",
             "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "minutes_offset",
+            "in": "query",
+            "description": "Get all records within the last number of minutes.  If omitted only the latest record is returned.",
+            "required": false,
             "type": "integer",
             "format": "int64"
           }
