@@ -4,13 +4,14 @@ title: Derived Metric Formulas
 ---
 <div id="sidebar">
   <ul class="category-list">
-		<li><a href="#delta-t">Delta T</a></li>
-		<li><a href="#dew-point">Dew Point</a></li>
+    <li><a href="#delta-t">Delta T</a></li>
+    <li><a href="#dew-point">Dew Point</a></li>
     <li><a href="#feels-like">Feels Like</a></li>	  
     <li><a href="#heat-index">Heat Index</a></li>
-		<li><a href="#rain-rate">Rain Rate</a></li>
-		<li><a href="#sea-level-pressure">Sea Level Pressure</a></li>
-		<li><a href="#wet-bulb">Wet Bulb Temperature</a></li>
+    <li><a href="#rain-rate">Rain Rate</a></li>
+    <li><a href="#sea-level-pressure">Sea Level Pressure</a></li>
+    <li><a href="#vapor-pressure">Vapor Pressure</a></li>
+    <li><a href="#wet-bulb">Wet Bulb Temperature</a></li>
     <li><a href="#wind-chill">Wind Chill</a></li>
   </ul>
 </div>
@@ -84,6 +85,16 @@ title: Derived Metric Formulas
 		<p>\(h_{el}\) = ground elevation in meters</p>
 		<p>\(h_{ag}\) = station height above ground in meters</p>
 	</div>
+	
+	<div class="post">
+		<h1><a name="vapor-pressure">Vapor Pressure</a></h1>
+		<p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/vaporPressure.pdf">Weather.gov</a></p>
+		<p>Vapor pressure, \(P_{v}\) can be estimated in units of millibar (mbar) as follows:</p>
+		<p>$$P_{v} = \frac{RH}{100} \times{} 6.112 \times{} e\Big(\frac{17.67 \times{} T}{T + 243.5}\Big)$$</p>
+		<p>\(T\) = temperature in degrees Celsius (&degC)</p>
+		<p>\(RH\) = relative humidity (%)</p>
+	</div>
+	
 	<div class="post">
 		<h1><a name="wet-bulb">Wet Bulb Temperature</a></h1>
 		<p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/rhTdFromWetBulb.pdf">Weather.gov</a></p>
