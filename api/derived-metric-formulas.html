@@ -84,13 +84,15 @@ title: Derived Metric Formulas
 	<div class="post">
 		<h1><a name="sea-level-pressure">Sea Level Pressure</a></h1>
 		<p class="source">Source: <a href="http://journals.ametsoc.org/doi/full/10.1175/1520-0434%281998%29013%3C0833%3AAEOUIS%3E2.0.CO%3B2">AMS</a></p>
-		<p>$$P_{sl} = P_{sta}\Big[1 + \frac{P_{0}}{P_{sta}}^{\frac{R_{d}\gamma_{s}}{g}}\frac{\gamma_{s}Z_{sta}}{T_{0}}\Big]^{\frac{g}{R_{d}\gamma_{s}}}$$</p>		
+		<p>$$P_{sl} = P_{sta}\Big[1 + \frac{P_{0}}{P_{sta}}^{\frac{R_{d}\gamma_{s}}{g}}\frac{\gamma_{s}(h_{el} + h_{ag})}{T_{0}}\Big]^{\frac{g}{R_{d}\gamma_{s}}}$$</p>		
 		<p>\(P_{sta}\) = station pressure in millibars (mb)</p>
 		<p>\(P_{0}\) = standard sea level pressure (1013.25mb)</p>
 		<p>\(R_{d}\) = gas constant for dry air (\(287.05 \frac{J}{kg \cdot K}\))</p>
 		<p>\(\gamma_{s}\) = standard atmosphere lapse rate (\(0.0065 \frac{K}{m}\))</p>
 		<p>\(g\) = gravity (\(9.80665 \frac{m}{s^{-2}}\))
 		<p>\(Z_{sta}\) = station elevation in meters</p>
+		<p>\(h_{el}\) = ground elevation in meters (m)</p>
+		<p>\(h_{ag}\) = station height above ground in meters (m)</p>
 		<p>\(T_{0}\) = standard sea level temperature (\(288.15 K\))</p>
 	</div>
 	
