@@ -5,14 +5,14 @@ title: Derived Metric Formulas
 <div id="sidebar">
   <ul class="category-list">
     <li><a href="#delta-t">Delta T</a></li>
-    <li><a href="#dew-point">Dew Point</a></li>
-    <li><a href="#feels-like">Feels Like</a></li>	  
-    <li><a href="#heat-index">Heat Index</a></li>
+    <li><a href="#dew-point">Dew Point Temperature</a></li>
+    <li><a href="#feels-like">Feels Like Temperature</a></li>	  
+    <li><a href="#heat-index">Heat Index Temperature</a></li>
     <li><a href="#rain-rate">Rain Rate</a></li>
     <li><a href="#sea-level-pressure">Sea Level Pressure</a></li>
     <li><a href="#vapor-pressure">Vapor Pressure</a></li>
     <li><a href="#wet-bulb">Wet Bulb Temperature</a></li>
-    <li><a href="#wind-chill">Wind Chill</a></li>
+    <li><a href="#wind-chill">Wind Chill Temperature</a></li>
   </ul>
 </div>
 
@@ -23,18 +23,18 @@ title: Derived Metric Formulas
 		<p>$$\Delta T = T - T_{wb}$$</p>
 	</div>
 	<div class="post">
-		<h1><a name="dew-point">Dew Point</a></h1>
+		<h1><a name="dew-point">Dew Point Temperature</a></h1>
 		<p>$$T_{d} = \frac{243.04 \bigg[\log\big(\frac{RH}{100}\big) + \frac{17.625 \times{} T}{243.04 + T}\bigg]}{17.625 - \log\big(\frac{RH}{100}\big) - \frac{17.625 \times{} T}{243.04 + T}}$$</p>
 		<p>\(T_{d}\) = dew point in degrees Celsius (&degC)</p>
 		<p>\(T\) = temperature in degrees Celsius (&degC)</p>
 		<p>\(RH\) = relative humidity %</p>
 	</div>
   <div class="post">
-		<h1><a name="feels-like">Feels Like</a></h1>
+		<h1><a name="feels-like">Feels Like Temperature</a></h1>
 		<p>If the temperature is at or above 80&degF the Feels Like temperature equals the <a href="#heat-index">Heat Index</a>.  If temperature is below 50&degF, Feels Like temperature equals the <a href="#wind-chill">Wind Chill</a>.</p>
 	</div>
   <div class="post">
-    <h1><a name="heat-index">Heat Index</a></h1>
+    <h1><a name="heat-index">Heat Index Temperature</a></h1>
     <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/heatIndex.pdf">Weather.gov</a></p>
 	  <p>Heat Index is calculated for temperatures at or above 80&degF and a relative hummidity at or above 40%.</p>
     <p>$$Index_{heat} = -42.379 + (2.04901523\times{}T) + (10.1433127\times{}rh)
@@ -107,7 +107,7 @@ title: Derived Metric Formulas
 		<p>Note, the above equations can't be solved for \(T_{wb}\) directly, but several iterative methods my be used to determine \(T_{wb}\).</p>
 	</div>	
   <div class="post">
-    <h1><a name="wind-chill">Wind Chill</a></h1>
+    <h1><a name="wind-chill">Wind Chill Temperature</a></h1>
     <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/windChill.pdf">Weather.gov</a></p>		
     <p>Wind Chill is calculated for temperatures at or below 50&degF and wind speeds above 5mph.</p>
     <p>$$WindChill = 35.74 + (0.6215\times{} T) - \Big(35.75\times{}Wind_{sfc}^{0.16}\Big)
