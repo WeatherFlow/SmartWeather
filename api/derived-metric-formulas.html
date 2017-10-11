@@ -85,7 +85,7 @@ title: Derived Metric Formulas
 		<h1><a name="sea-level-pressure">Sea Level Pressure</a></h1>
 		<p class="source">Source: <a href="http://journals.ametsoc.org/doi/full/10.1175/1520-0434%281998%29013%3C0833%3AAEOUIS%3E2.0.CO%3B2">AMS</a></p>
 		<p>$$P_{sl} = P_{sta}\Big[1 + \frac{P_{0}}{P_{sta}}^{\frac{R_{d}\gamma_{s}}{g}}\frac{\gamma_{s}Z_{sta}}{T_{0}}\Big]^{\frac{g}{R_{d}\gamma_{s}}}$$</p>		
-		<p>\(P_{sta}\) = station pressure in millibars (mbar)</p>
+		<p>\(P_{sta}\) = station pressure in millibars (mb)</p>
 		<p>\(P_{0}\) = standard sea level pressure (1013.25mb)</p>
 		<p>\(R_{d}\) = gas constant for dry air (\(287.05 \frac{J}{kg \times{} K}\))</p>
 		<p>\(\gamma_{s}\) = standard atmosphere lapse rate (\(0.0065 \frac{K}{m}\))</p>
@@ -97,7 +97,7 @@ title: Derived Metric Formulas
 	<div class="post">
 		<h1><a name="vapor-pressure">Vapor Pressure</a></h1>
 		<p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/vaporPressure.pdf">Weather.gov</a></p>
-		<p>Vapor pressure, \(P_{v}\) can be estimated in units of millibar (mbar) as follows:</p>
+		<p>Vapor pressure, \(P_{v}\) can be estimated in units of millibar (mb) as follows:</p>
 		<p>$$P_{v} = \frac{RH}{100} \times{} 6.112 \times{} e^{\Big(\frac{17.67 \times{} T}{T + 243.5}\Big)}$$</p>
 		<p>\(T\) = temperature in degrees Celsius (&degC)</p>
 		<p>\(RH\) = relative humidity (%)</p>
@@ -106,12 +106,12 @@ title: Derived Metric Formulas
 	<div class="post">
 		<h1><a name="wet-bulb">Wet Bulb Temperature</a></h1>
 		<p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/rhTdFromWetBulb.pdf">Weather.gov</a></p>
-		<p>Wet Bulb Temperature (\(T_{wb}\)), is determined using the following formulas for actual vapor pressure (\(P_{v}\)) and the vapor pressure related to wet bulb temperature (\(P_{v,wb}\)) in millibar (mbar):</p>
+		<p>Wet Bulb Temperature (\(T_{wb}\)), is determined using the following formulas for actual vapor pressure (\(P_{v}\)) and the vapor pressure related to wet bulb temperature (\(P_{v,wb}\)) in millibar (mb):</p>
 		<p>$$P_{v} = P_{v,wb} - P_{stn} \times (T - T_{wb}) \times 0.00066 \times (1 + (0.00115 \times T_{wb}))$$</p>
 		<p>$$P_{v,wb} = 6.112\times{}e\Big(\frac{17.67\times{}T_{wb}}{T_{wb}+243.5}\Big)$$</p>
 		<p>\(T\) = temperature in degrees Celsius (&degC)</p>
 		<p>\(RH\) = relative humidity (%)</p>
-		<p>\(P_{stn}\) = station pressure in millibar (mbar)</p>
+		<p>\(P_{stn}\) = station pressure in millibar (mb)</p>
 		<p>Note, the above equations can't be solved for \(T_{wb}\) directly, but several iterative methods may be used to determine \(T_{wb}\).</p>
 	</div>	
   <div class="post">
