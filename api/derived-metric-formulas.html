@@ -49,26 +49,26 @@ title: Derived Metric Formulas
 	
 	<div class="post">
 		<h1><a name="pressure-trend">Pressure Trend</a></h1>
-		<p>The Pressure Trend is determined by the hourly rate of change over the past 3 hours.</p>
-		<p>$$\Delta P = \frac{P_{latest} - P_{3hours}}{3}$$</p>
-		<p>\(P_{latest}\) = the latest pressure reading in millibars (mb)</p>
-		<p>\(P_{3hours}\) = pressure reading 3 hours ago in millibars (mb)</p>
+		<p>The Pressure Trend description is determined by the hourly rate of change over the past 3 hours.</p>
+		<p>$$\Delta P = \frac{P_{0h} - P_{3}}{3h}$$</p>
+		<p>\(P_{0h}\) = the latest pressure reading in millibars (mb)</p>
+		<p>\(P_{3h}\) = pressure reading 3 hours ago in millibars (mb)</p>
 		<table style="width: 100%">
 			<tr>
 				<th>Description</th>
-				<th>\(\Delta P\)</th>
+				<th>Rate</th>
 			</tr>
 			<tr>
 				<td>Steady</td>
-				<td>\(< 1 mb \)</td>
+				<td>\(-1 mb/h < \Delta P < 1 mb/h \)</td>
 			</tr>
 			<tr>
 				<td>Falling</td>
-				<td>\(\le 1 mb\)</td>
+				<td>\(\Delta P \le -1 mb/h\)</td>
 			</tr>
 			<tr>
 				<td>Rising</td>
-				<td>\(\ge 1 mb\)</td>
+				<td>\(\Delta P \ge 1 mb/h \)</td>
 			</tr>
 		</table>
 	</div>
