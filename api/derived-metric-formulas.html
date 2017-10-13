@@ -8,6 +8,7 @@ title: Derived Metric Formulas
     <li><a href="#dew-point">Dew Point Temperature</a></li>
     <li><a href="#feels-like">Feels Like Temperature</a></li>	  
     <li><a href="#heat-index">Heat Index Temperature</a></li>
+    <li><a href="#pressure-trend">Pressure Trend</a></li>
     <li><a href="#rain-rate">Rain Rate</a></li>
     <li><a href="#sea-level-pressure">Sea Level Pressure</a></li>
     <li><a href="#vapor-pressure">Vapor Pressure</a></li>
@@ -45,6 +46,28 @@ title: Derived Metric Formulas
 	  <p>\(T\) = temperature in degrees Fahrenheit (&deg;F)</p>
 	  <p>\(RH\) = relative humidity (%)</p>
   </div>
+	
+	<div class="post">
+		<h1><a name="pressure-trend">Pressure Trend</a></h1>
+		<p>$$\Delta P = P_{latest} - P_{3hours}$$</p>
+		<p>\(P_{latest}\) = the latest pressure reading in millibars (mb)</p>
+		<p>\(P_{3hours}\) = pressure reading 3 hours ago in millibars (mb)</p>
+		<table style="width: 100%">
+			<tr>
+				<td>Steady</td>
+				<td>\(\Delta P < 1 \)</td>
+			</tr>
+			<tr>
+				<td>Falling</td>
+				<td>\(\Delta P \le 1 \)</td>
+			</tr>
+			<tr>
+				<td>Rising</td>
+				<td>\(\Delta P \ge 1 \)</td>
+			</tr>
+		</table>
+	</div>
+	
 	<div class="post">
 		<h1><a name="rain-rate">Rain Rate</a></h1>
 		<table style="width:100%">
