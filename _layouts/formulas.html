@@ -26,8 +26,9 @@
 		<script src="{{site.url}}/js/releases.js"></script>
 		<script>
 			$(document).ready(function () {
-				$(".category-list a").on("click touchend", function () {
-					$("#sidebar").toggle();
+				$("html").on("click touchend", function () {
+					console.log("hiding menu on event bubble up");
+					$("#sidebar").hide();
 				});
 			});
 		</script>
