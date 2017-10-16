@@ -113,7 +113,9 @@
 	}
 
 	.post h2 a {
+		display: inline-block;
 		font-size: 1.6em;
-		line-height: 1.6em;
+		line-height: 1.2em;
+		text-align: center;
 	}
 }
