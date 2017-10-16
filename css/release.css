@@ -112,7 +112,7 @@
 		padding: 0 15px 0 15px;
 	}
 
-	.post h2 a {
+	.post h1, .post h2 a {
 		display: inline-block;
 		font-size: 1.6em;
 		line-height: 1.2em;
