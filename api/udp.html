@@ -85,7 +85,7 @@ Observation Value Layout
 </table>
 
 <br><br>
-<h3>Observation (SKY) [type = obs_sky]</h3>
+<h3>Observation (Sky) [type = obs_sky]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
 {
@@ -99,17 +99,18 @@ Observation Value Layout
 <table>
   <tr><th>Index</th><th>Field</th><th>Units</th></tr>
   <tr><td>0</td><td>Time Epoch</td><td>Seconds</td></tr>
-  <tr><td>1</td><td>Lux</td><td></td></tr>
-  <tr><td>2</td><td>UV</td><td>Index 1-10</td></tr>
-  <tr><td>3</td><td>Precip Accumulated</td>mm<td></td></tr>
-  <tr><td>4</td><td>Wind Lull</td><td>mps</td></tr>
-  <tr><td>5</td><td>Wind Avg</td><td>mps</td></tr>
-  <tr><td>6</td><td>Wind Gust</td><td>mps</td></tr>
+  <tr><td>1</td><td>Illuminance</td><td>Lux</td></tr>
+  <tr><td>2</td><td>UV</td><td>Index</td></tr>
+  <tr><td>3</td><td>Precip Accumulated</td><td>mm</td></tr>
+  <tr><td>4</td><td>Wind Lull (minimum 3 second sample)</td><td>m/s</td></tr>
+  <tr><td>5</td><td>Wind Avg (average over report interval)</td><td>m/s</td></tr>
+  <tr><td>6</td><td>Wind Gust (maximum 3 second sample)</td><td>m/s</td></tr>
   <tr><td>7</td><td>Wind Direction</td><td>Degrees</td></tr>
-  <tr><td>8</td><td>Battery</td><td></td></tr>
+  <tr><td>8</td><td>Battery</td><td>Volts</td></tr>
   <tr><td>9</td><td>Report Interval</td><td>Minutes</td></tr>
-  <tr><td>10</td><td>Solar Radiation</td><td></td></tr>
+  <tr><td>10</td><td>Solar Radiation</td><td>W/m^2</td></tr>
 </table>
+
 
 <br/><br/>
 <h3>Status (device) [type = station_status]</h3>
