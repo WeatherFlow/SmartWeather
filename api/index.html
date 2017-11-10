@@ -18,35 +18,6 @@ title: WeatherFlow Smart Weather API
 
 <p>You can learn more about WeatherFlow Smart Weather at <a href="http://www.weatherflow.com/smart-home-weather-stations/">http://www.weatherflow.com/smart-home-weather-stations/</a> . To see an example of what you can do with this API visit the <a href="https://smartweather.weatherflow.com/share/690/grid">Smart Weather website</a>.</p>
 
-<h2>Object Model</h2>
-<img src="{{site.url}}/images/swd_object_model.jpg" alt="WeatherFlow Smart Weather API Object Model" style="width:100%" />
-
-<h2><a name="security">Security</a></h2>
-<p>Smart Weather Station users have the option of setting the data for each of their stations as either public or private. The API has two access levels (Public and User).</p>
-
-<ul>
-	<li>Public Access Level with API Key
-		<ul>
-			<li>Access to all Stations currently set as "public"</li>
-			<li>REST - Send your API Key as "api_key" in the query string with all API requests</li>
-			<li>Websocket - Send your API Key as "api_key" in the query string when opening the websocket connection</li>
-		</ul>
-	</li>
-	<li>User Access Level with Oauth2 Access Token
-		<ul>
-			<li>Access to all data owned by the user's access token</li>
-			<li>Access to all Stations currently set as "public"</li>
-			<li>Oauth2 Implicit Flow
-				<ul>
-					<li>Use this flow to get an access token that never expires. This is the token you send with all API requests.</li>
-				</ul>
-			</li>
-			<li>REST - Send the Access Token as "token" in the query string with all API requests</li>
-			<li>Websocket - Send the Access Token as "token" in the query string when opening the websocket connection</li>
-		</ul>
-	</li>
-</ul>
-
 <h2><a name="getting-started">Getting Started</a></h2>
 
 <ul>
@@ -123,6 +94,35 @@ title: WeatherFlow Smart Weather API
 		</ul>
 	</li>
 
+</ul>
+
+<h2>Object Model</h2>
+<img src="{{site.url}}/images/swd_object_model.jpg" alt="WeatherFlow Smart Weather API Object Model" style="width:100%" />
+
+<h2><a name="security">Security</a></h2>
+<p>Smart Weather Station users have the option of setting the data for each of their stations as either public or private. The API has two access levels (Public and User).</p>
+
+<ul>
+	<li>Public Access Level with API Key
+		<ul>
+			<li>Access to all Stations currently set as "public"</li>
+			<li>REST - Send your API Key as "api_key" in the query string with all API requests</li>
+			<li>Websocket - Send your API Key as "api_key" in the query string when opening the websocket connection</li>
+		</ul>
+	</li>
+	<li>User Access Level with Oauth2 Access Token
+		<ul>
+			<li>Access to all data owned by the user's access token</li>
+			<li>Access to all Stations currently set as "public"</li>
+			<li>Oauth2 Implicit Flow
+				<ul>
+					<li>Use this flow to get an access token that never expires. This is the token you send with all API requests.</li>
+				</ul>
+			</li>
+			<li>REST - Send the Access Token as "token" in the query string with all API requests</li>
+			<li>Websocket - Send the Access Token as "token" in the query string when opening the websocket connection</li>
+		</ul>
+	</li>
 </ul>
 
 <h2><a name="api-reference">REST API Reference</a></h2>
