@@ -147,16 +147,18 @@ Sensor Status (sensor_status) is an encoded enumeration as follows
 </table>
 
 <br/><br/>
-<h3>Status (hub) [type = hub-status]</h3>
+<h3>Status (hub) [type = hub_status]</h3>
 <div class="code-highlight">
 {% highlight javascript %}
 {
-  “serial_number”:“HB-00000001",
-  “type”:“hub-status”,
-  “firmware_version”:“13",
-  “uptime”:1670133,
-  “rssi”:-62,
-  “timestamp”:1495724691
+  "serial_number":“HB-00000001",
+  "type":“hub_status”,
+  "firmware_revision":"13",
+  "uptime”:1670133,
+  "rssi”:-62,
+  "timestamp":1495724691,
+  "reset_flags": 234881026,
+  "stack": "1616,1608"
 }
 {% endhighlight %}
 </div>
