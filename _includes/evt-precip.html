@@ -1,29 +1,11 @@
 <h3>Rain Start Event [type = evt_precip]</h3>
-{% if include.v >= 29 %}
-	<div class="code-highlight">
+
+<div class="code-highlight">
 	{% highlight javascript %}
-	{
-	  "serial_number": "SK-00008453",
-	  "type":"evt_precip",
-	  "hub_sn": "HB-00000001",
-	  "evt":[1493322445]
-	}
+	{% include evt-precip-json v=include.v %}
 	{% endhighlight %}
-	</div>
-	Evt Value Layout
-	<table>
-		<tr><th>Index</th><th>Field</th><th>Units</th></tr>
-		<tr><td>0</td><td>Time Epoch</td><td>Seconds</td></tr>
-	</table>
-{% else %}
-	<div class="code-highlight">
-	{% highlight javascript %}
-	{
-	  "type":"evt_precip",
-	  "device_id":1110
-	}
-	{% endhighlight %}
-	</div>
-{% endif %}
+</div>
+
+{% include evt-precip-json v=include.v %}
 
 
