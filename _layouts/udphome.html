@@ -5,15 +5,19 @@
 	<title>{{page.title}}</title>
 	<link rel="stylesheet" href="{{site.url}}/css/base.css">
 	<link rel="stylesheet" href="{{site.url}}/css/homepage.css">
+	<link rel="stylesheet" href="{{site.url}}/css/release.css?v2">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
 </head>
 <body>
 	{% include header.html %}
+
+	{% include udp-version-selector.html %}
 
 	<div id="main-content">
 		{{content}}
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="{{site.url}}/js/releases.js"></script>
 </body>
 </html>
