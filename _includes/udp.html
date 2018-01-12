@@ -1,3 +1,9 @@
+<select id="udp-versions">
+{% for version in site.data.udp-versions %}
+	<option>{{ version.name }}</option>
+{% endfor %}
+</select>
+
 <h2><a name="endpoints">UDP Basics</a></h2>
 The WeatherFlow Smart Weather Station's hub broadcasts UDP messages over port 50222 on the local network.
 
