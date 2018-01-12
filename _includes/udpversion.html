@@ -35,11 +35,38 @@
 			font-size: 1.1em;
 			margin: 15px 0 0 0;
 		}
+
+		.doc-section {
+			margin: 40px 0;
+		}
+
+		.doc-section h3 {
+			color: #1b75d5;
+		}
+
+		#udp-version-selector {
+			background-color: #dedede;
+			padding: 10px;
+		}
+
+		#udp-version-selector select {
+			display: block;
+			margin: 0 auto;
+		}
 	</style>
 	</head>
 	<body class="api-home">
 		<div id="app-menu"></div>
 		{% include header.html %}
+
+		<div id="udp-version-selector">
+			<select id="udp-versions">
+				<option val="---">UDP Versions</option>
+				{% for version in site.data.udp-versions %}
+				<option>{{ version.name }}</option>
+				{% endfor %}
+			</select>
+		</div>
 
 		<div id="main-content">
 			<div id="page-full">
