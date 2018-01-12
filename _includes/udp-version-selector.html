@@ -1,5 +1,15 @@
-<select>
+<select id="udp-versions">
 {% for version in site.data.udp-versions %}
 	<option>{{ version.name }}</option>
 {% endfor %}
 </select>
+
+<script>
+	$(document).ready(function () {
+		$("#udp-versions").change(function () {
+			var version = $(this).val();
+			// https://weatherflow.github.io/SmartWeather/api/udp/v29/
+			window.location = "/SmartWeather/api/udp/" + version;
+		});
+	});
+</script>
