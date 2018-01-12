@@ -1,7 +1,8 @@
 <select id="udp-versions">
-{% for version in site.data.udp-versions %}
+	<option val="---">UDP Versions</option>
+	{% for version in site.data.udp-versions %}
 	<option>{{ version.name }}</option>
-{% endfor %}
+	{% endfor %}
 </select>
 
 <h2><a name="endpoints">UDP Basics</a></h2>

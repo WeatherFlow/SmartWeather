@@ -6,6 +6,8 @@ $(document).ready(function () {
 	$("#udp-versions").change(function () {
 		var version = $(this).val();
 		// https://weatherflow.github.io/SmartWeather/api/udp/v29/
-		window.location = "/SmartWeather/api/udp/" + version;
+		if (version != "---") {
+			window.location = "/SmartWeather/api/udp/" + version;
+		}
 	});
 })
