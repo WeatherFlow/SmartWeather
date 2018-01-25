@@ -2,7 +2,7 @@
 layout: post
 title:  "Smart Weather for Google Home"
 date:   2017-01-04 12:00:01 -0500
-categories: Google Home
+categories: "Google Home"
 ---
 
 The WeatherFlow Smart Weather Google Action is now live!
