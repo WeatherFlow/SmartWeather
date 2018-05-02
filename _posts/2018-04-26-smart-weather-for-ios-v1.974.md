@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Smart Weather for iOS - v1.974"
-date:   2018-04-26 12:00:02 -0500
+title:  "Smart Weather for iOS - v1.981"
+date:   2018-05-02 12:00:02 -0500
 categories: iOS
 ---
 
