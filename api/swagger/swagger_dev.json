@@ -12,6 +12,10 @@
   "basePath": "/swd/rest",
   "tags": [
     {
+      "name": "calibration",
+      "description": "Manage Calibrations"
+    },
+    {
       "name": "devices",
       "description": "Manage User Devices"
     },
@@ -87,6 +91,40 @@
     }
   ],
   "paths": {
+    "/calibrations": {
+      "get": {
+        "tags": [
+          "calibration"
+        ],
+        "description": "Get all non confirmed Hub Calibration Settings",
+        "summary": "Get all non confirmed calibrations.  This is the starting point for the Hub Calibrations Settings sync system.",
+        "operationId": "getCalibrations",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+    },
     "/events/device/{device_id}": {
       "get": {
         "tags": [
