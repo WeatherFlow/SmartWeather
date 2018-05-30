@@ -162,7 +162,50 @@
             "description": "Not found"
           }
         }
-      }
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "description": "Updates Hub Calibration Settings for a Device.",
+        "summary": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response if will fall into the job work list for the sync system.",
+        "operationId": "updateHubCalibrationSettings",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "settings",
+            "in": "body",
+            "description": "All fields posted in the body will be updated in the database.  It is not necessary to post all fields.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/HubCalibrationSettingsPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }      
     },
     "/calibration_push_to_hub": {
       "get": {
@@ -3383,6 +3426,91 @@
         "status_message": {
           "type": "string",
           "example": "SUCCESS"
+        }
+      }
+    },
+    "HubCalibrationSettingsPost": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 154
+        },
+        "debug_state": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0
+        },
+        "sky_rain_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "sky_wind_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "sky_direction_offset": {
+          "type": "integer",
+          "format": "int32",
+          "example": 154
+        },
+        "sky_lux_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "sky_uv_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "sky_solar_radiation_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "air_rh_offset": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "air_rh_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "air_temp_offset": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "air_temp_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "air_pressure_offset": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "air_pressure_scale": {
+          "type": "number",
+          "format": "float",
+          "example": 1.0
+        },
+        "air_suppress_lightning": {
+          "type": "integer",
+          "format": "int32",
+          "example": 154
+        },
+        "power_saving_mode": {
+          "type": "integer",
+          "format": "int32",
+          "example": 154
         }
       }
     }
