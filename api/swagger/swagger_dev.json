@@ -97,8 +97,37 @@
           "calibration"
         ],
         "description": "Get all non confirmed Hub Calibration Settings",
-        "summary": "Get all non confirmed calibrations.  This is the starting point for the Hub Calibrations Settings sync system.",
+        "summary": "Get all non confirmed Hub Calibration Settings.  This is the starting point for the Hub Calibrations Settings sync system.",
         "operationId": "getCalibrations",
+        "security": [
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/calibration/{device_id}": {
+      "get": {
+        "tags": [
+          "calibration"
+        ],
+        "description": "Get all Hub Calibration Settings for a Device",
+        "summary": "Get all Hub Calibration Settings for a Device.",
+        "operationId": "getCalibrationByDeviceId",
         "security": [
           {
             "swdImplicit": [
@@ -111,6 +140,16 @@
         ],
         "produces": [
           "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "ID of Device",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
         ],
         "responses": {
           "200": {
