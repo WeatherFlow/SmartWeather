@@ -162,10 +162,12 @@
             "description": "Not found"
           }
         }
-      },
+      }
+    },
+    "/calibration": {
       "post": {
         "tags": [
-          "user"
+          "calibration"
         ],
         "description": "Updates Hub Calibration Settings for a Device.",
         "summary": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response if will fall into the job work list for the sync system.",
