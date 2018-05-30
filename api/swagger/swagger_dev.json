@@ -16,6 +16,10 @@
       "description": "Manage Calibrations"
     },
     {
+      "name": "device_learning",
+      "description": "Manage Device Learning values."
+    },
+    {
       "name": "devices",
       "description": "Manage User Devices"
     },
@@ -91,6 +95,123 @@
     }
   ],
   "paths": {
+    "/device_learning_reset": {
+      "get": {
+        "tags": [
+          "device_learning"
+        ],
+        "description": "Reset Device Learning status",
+        "summary": "Reset Device Learning status so it will start over.",
+        "operationId": "getDeviceLearning",
+        "security": [
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "query",
+            "description": "ID of Device",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/device_learning_setup_complete": {
+      "get": {
+        "tags": [
+          "device_learning"
+        ],
+        "description": "Set Device Learning to Setup Complete",
+        "summary": "Sets the status of Device Learning for a Device to Setup Complete",
+        "operationId": "getDeviceLearning",
+        "security": [
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "device_id",
+            "in": "query",
+            "description": "ID of Device",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/device_learning": {
+      "get": {
+        "tags": [
+          "device_learning"
+        ],
+        "description": "Get Device Learning by station_id",
+        "summary": "Get Device Learning values for all Devices in a Station",
+        "operationId": "getDeviceLearning",
+        "security": [
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "station_id",
+            "in": "query",
+            "description": "Station ID",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/calibrations": {
       "get": {
         "tags": [
@@ -170,7 +291,7 @@
           "calibration"
         ],
         "description": "Updates Hub Calibration Settings for a Device.",
-        "summary": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response if will fall into the job work list for the sync system.",
+        "summary": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response it will fall into the job work list for the sync system.",
         "operationId": "updateHubCalibrationSettings",
         "security": [
           {
