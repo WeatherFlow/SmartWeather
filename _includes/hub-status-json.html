@@ -1,4 +1,18 @@
-{% if include.v >= 65 %}
+{% if include.v >= 70 %}
+	{
+	  "serial_number":"HB-00000001",
+	  "type":"hub_status",
+	  "firmware_revision":"35",
+	  "uptime":1670133,
+	  "rssi":-62,
+	  "timestamp":1495724691,
+	  "reset_flags": "BOR,PIN,POR",
+	  "seq": 48,
+	  "fs": "0,0",
+          "radio_stats": [1, 1],
+          "mqtt_stats": [1]
+	}
+{% elsif include.v >= 65 %}
 	{
 	  "serial_number":"HB-00000001",
 	  "type":"hub_status",
