@@ -49,7 +49,7 @@
     },
     {
       "name": "location_share",
-      "description": "Share Location with a third party"
+      "description": "Public Location meta data and third party sharing"
     },
     {
       "name": "manufacturing",
@@ -1562,8 +1562,8 @@
         "tags": [
           "location_share"
         ],
-        "description": "Manage meta data used to share locations with third party systems such as WeatherUnderground.  A location only has a single public name.",
-        "summary": "Manage Location (Station) sharing with third parties",
+        "description": "Get Public field meta data for a Location. Manage meta data used to share locations with third party systems such as WeatherUnderground.  A location only has a single public name.",
+        "summary": "Get Public field meta data for a Location and manage Location (Station) sharing with third parties",
         "operationId": "getSLocationShare",
         "security": [
           {
@@ -1604,7 +1604,7 @@
         "tags": [
           "location_share"
         ],
-        "description": "Create a Location third party share",
+        "description": "Create a Location third party share<br>location_id<br>public_name<br>share_type<br>share_meta.location_id<br>share_meta.station_key<br><br>Update public_name<br>location_id<br>public_name<br><br>Update public lat lon<br>location_id<br>public_latitude<br>public_longitude<br><br>Update share_with_wf (is_public)<br>location_id<br>share_with_wf",
         "summary": "Create a Location third party share",
         "operationId": "craeateLocationShare",
         "security": [
