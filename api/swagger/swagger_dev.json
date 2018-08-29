@@ -104,8 +104,8 @@
         "tags": [
           "cl"
         ],
-        "description": "Get the latest Countuous Learning analysis for a station or get the entire analysis.",
-        "summary": "The Continuous Learning analysis is a generated json file on S3.",
+        "description": "The Continuous Learning analysis is a generated json file on S3.",
+        "summary": "Get the latest Countuous Learning analysis for a station or get the entire analysis.",
         "operationId": "getCLAnalysis",
         "security": [
           {
@@ -121,6 +121,45 @@
             "in": "query",
             "description": "ID of Station",
             "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/cl_analysis_set": {
+      "get": {
+        "tags": [
+          "cl"
+        ],
+        "description": "The Continuous Learning analysis is a generated json file on S3.",
+        "summary": "Get the last 10 Countuous Learning analysis for a station.",
+        "operationId": "getCLAnalysisSet",
+        "security": [
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "station_id",
+            "in": "query",
+            "description": "ID of Station",
+            "required": true,
             "type": "integer",
             "format": "int64"
           }
