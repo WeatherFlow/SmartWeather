@@ -16,6 +16,10 @@
       "description": "Manage Calibrations"
     },
     {
+      "name": "cl",
+      "description": "Continuous Learning"
+    },
+    {
       "name": "device_learning",
       "description": "Manage Device Learning values."
     },
@@ -95,6 +99,45 @@
     }
   ],
   "paths": {
+    "/cl_analysis": {
+      "get": {
+        "tags": [
+          "cl"
+        ],
+        "description": "Get the latest Countuous Learning analysis for a station or get the entire analysis.",
+        "summary": "The Continuous Learning analysis is a generated json file on S3.",
+        "operationId": "getCLAnalysis",
+        "security": [
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "station_id",
+            "in": "query",
+            "description": "ID of Station",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/device_learning_reset": {
       "get": {
         "tags": [
