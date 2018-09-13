@@ -3650,12 +3650,12 @@
         "sky_rain_scale": {
           "type": "number",
           "format": "float",
-          "example": .2122
+          "example": 0.2122
         },
         "sky_rain_scale_b": {
           "type": "number",
           "format": "float",
-          "example": -.5395
+          "example": -0.5395
         },
         "sky_wind_scale": {
           "type": "number",
