@@ -373,7 +373,7 @@
           "calibration"
         ],
         "description": "Updates Hub Calibration Settings for a Device.",
-        "summary": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response it will fall into the job work list for the sync system.",
+        "summary": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response it will fall into the job work list for the sync system.<br><br>Hub v94 added two new fields (do not send these if hub < v94)<br>sky_rain_scale_b<br>sky_gust_lull_factor",
         "operationId": "updateHubCalibrationSettings",
         "security": [
           {
@@ -3650,12 +3650,22 @@
         "sky_rain_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": .2122
+        },
+        "sky_rain_scale_b": {
+          "type": "number",
+          "format": "float",
+          "example": -.5395
         },
         "sky_wind_scale": {
           "type": "number",
           "format": "float",
           "example": 1.0
+        },
+        "sky_gust_lull_factor": {
+          "type": "number",
+          "format": "float",
+          "example": 1.6
         },
         "sky_direction_offset": {
           "type": "integer",
