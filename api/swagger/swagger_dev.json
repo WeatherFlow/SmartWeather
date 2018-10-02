@@ -155,7 +155,50 @@
             "description": "Not found"
           }
         }
-      }
+      },
+      "post": {
+        "tags": [
+          "application"
+        ],
+        "description": "Create Oauth Application",
+        "summary": "Create a new Oauth Application",
+        "operationId": "createOauthApplication",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "application_in",
+            "in": "body",
+            "description": "All fields posted in the body will be inserted in the database.  It is not necessary to post all fields. Default values will be used.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }      
     },
     "/cl_analysis": {
       "get": {
@@ -3533,6 +3576,50 @@
           "example": "My Home"
         }
       }
+    },
+    "ApplicationPost": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "My Application"
+        },
+        "note": {
+          "type": "string",
+          "example": "Weather data display"
+        },
+        "redirect_url": {
+          "type": "string",
+          "example": ""
+        },
+        "referrers": {
+          "type": "string",
+          "example": ""
+        }
+    },
+    "ApplicationPut": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "string",
+          "example": "My Application"
+        },
+        "name": {
+          "type": "string",
+          "example": "My Application"
+        },
+        "note": {
+          "type": "string",
+          "example": "Weather data display"
+        },
+        "redirect_url": {
+          "type": "string",
+          "example": ""
+        },
+        "referrers": {
+          "type": "string",
+          "example": ""
+        }
     },
     "LocationIntegrationPost": {
       "type": "object",
