@@ -3484,50 +3484,6 @@
         }
       }
     },
-    "ApplicationPost": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "My Application"
-        },
-        "note": {
-          "type": "string",
-          "example": "Weather data display"
-        },
-        "redirect_url": {
-          "type": "string",
-          "example": ""
-        },
-        "referrers": {
-          "type": "string",
-          "example": ""
-        }
-    },
-    "ApplicationPut": {
-      "type": "object",
-      "properties": {
-        "application_id": {
-          "type": "string",
-          "example": "My Application"
-        },
-        "name": {
-          "type": "string",
-          "example": "My Application"
-        },
-        "note": {
-          "type": "string",
-          "example": "Weather data display"
-        },
-        "redirect_url": {
-          "type": "string",
-          "example": ""
-        },
-        "referrers": {
-          "type": "string",
-          "example": ""
-        }
-    },
     "LocationIntegrationPost": {
       "type": "object",
       "properties": {
