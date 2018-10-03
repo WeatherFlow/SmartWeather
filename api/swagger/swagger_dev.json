@@ -267,7 +267,7 @@
             "name": "application_in",
             "in": "body",
             "description": "All fields posted in the body will be inserted in the database.  It is not necessary to post all fields. Default values will be used.",
-            "required": true,
+            "required": false,
             "schema": {
               "$ref": "#/definitions/ApplicationPost"
             }
