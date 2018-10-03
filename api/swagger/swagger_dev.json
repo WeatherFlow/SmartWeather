@@ -358,7 +358,7 @@
         "parameters": [
           {
             "name": "application_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the Application",
             "required": true,
             "type": "String"
