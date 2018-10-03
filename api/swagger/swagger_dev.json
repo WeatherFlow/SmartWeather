@@ -174,7 +174,7 @@
         "parameters": [
           {
             "name": "token_to_delete",
-            "in": "path",
+            "in": "query",
             "description": "Token to delete",
             "required": true,
             "type": "String"
