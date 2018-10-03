@@ -104,6 +104,9 @@
     },
     {
       "swdApiKey": []
+    },
+    {
+      "token": []
     }
   ],
   "paths": {
@@ -120,6 +123,9 @@
             "swdImplicit": [
               "user"
             ]
+          },
+          {
+            "token": []
           },
           {
             "swdApiKey": []
@@ -165,6 +171,9 @@
             ]
           },
           {
+            "token": []
+          },
+          {
             "swdApiKey": []
           }
         ],
@@ -206,6 +215,9 @@
             "swdImplicit": [
               "user"
             ]
+          },
+          {
+            "token": []
           },
           {
             "swdApiKey": []
@@ -254,6 +266,9 @@
             "swdImplicit": [
               "user"
             ]
+          },
+          {
+            "token": []
           },
           {
             "swdApiKey": []
@@ -306,6 +321,9 @@
             ]
           },
           {
+            "token": []
+          },
+          {
             "swdApiKey": []
           }
         ],
@@ -347,6 +365,9 @@
             "swdImplicit": [
               "user"
             ]
+          },
+          {
+            "token": []
           },
           {
             "swdApiKey": []
@@ -2944,6 +2965,11 @@
       "type": "apiKey",
       "in": "query",
       "name": "api_key"
+    },
+    "token": {
+      "type": "token",
+      "in": "query",
+      "name": "token"
     }
   },
   "definitions": {
