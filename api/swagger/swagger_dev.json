@@ -107,6 +107,92 @@
     }
   ],
   "paths": {
+    "/token": {
+      "post": {
+        "tags": [
+          "token"
+        ],
+        "description": "Create Oauth Application Access Token",
+        "summary": "Create a new Oauth Application Access Token",
+        "operationId": "createOauthApplicationAccessToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "application_in",
+            "in": "body",
+            "description": "Send the application_id of the Oauth Application in the body that you want to make a token for.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TokenPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "token"
+        ],
+        "description": "Delete an Oauth Application Access Token",
+        "summary": "Delete an Oauth Application Access Token",
+        "operationId": "deleteToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token_to_delete",
+            "in": "path",
+            "description": "Token to delete",
+            "required": true,
+            "type": "String"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/application": {
       "get": {
         "tags": [
@@ -3840,12 +3926,21 @@
         }
       }
     },
+    "TokenPost": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "string",
+          "example": "idididididididididididididid"
+        }
+      }
+    },
     "ApplicationPut": {
       "type": "object",
       "properties": {
         "application_id": {
           "type": "string",
-          "example": "My Application"
+          "example": "idididididididididididididid"
         },
         "name": {
           "type": "string",
