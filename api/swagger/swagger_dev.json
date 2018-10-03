@@ -107,6 +107,99 @@
     }
   ],
   "paths": {
+      "/application": {
+      "get": {
+        "tags": [
+          "application"
+        ],
+        "description": "Get Oauth Applications",
+        "summary": "",
+        "operationId": "getApplication",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "include_all_applications",
+            "in": "query",
+            "description": "Support switch for getting all Oauth Applications and nested Access Tokens.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "include_all_token_accepting_applications",
+            "in": "query",
+            "description": "Used to get a list of all Oauth Applications that allow a user to hand enter their Access Token.  This response is used for the use case where a token is needed for this type of application.  This response is used in a pick list for the user.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "application"
+        ],
+        "description": "Create Oauth Application",
+        "summary": "Create a new Oauth Application",
+        "operationId": "createOauthApplication",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "application_in",
+            "in": "body",
+            "description": "All fields posted in the body will be inserted in the database.  It is not necessary to post all fields. Default values will be used.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationPost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }      
+    },
     "/cl_analysis": {
       "get": {
         "tags": [
@@ -418,7 +511,7 @@
             "description": "Not found"
           }
         }
-      }      
+      }
     },
     "/calibration_push_to_hub": {
       "get": {
@@ -3642,6 +3735,52 @@
         }
       }
     },
+    "ApplicationPost": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "My Application"
+        },
+        "note": {
+          "type": "string",
+          "example": "Weather data display"
+        },
+        "redirect_url": {
+          "type": "string",
+          "example": ""
+        },
+        "referrers": {
+          "type": "string",
+          "example": ""
+        }
+      }
+    },
+    "ApplicationPut": {
+      "type": "object",
+      "properties": {
+        "application_id": {
+          "type": "string",
+          "example": "My Application"
+        },
+        "name": {
+          "type": "string",
+          "example": "My Application"
+        },
+        "note": {
+          "type": "string",
+          "example": "Weather data display"
+        },
+        "redirect_url": {
+          "type": "string",
+          "example": ""
+        },
+        "referrers": {
+          "type": "string",
+          "example": ""
+        }
+      }
+    },
     "HubCalibrationSettingsPost": {
       "type": "object",
       "properties": {
@@ -3668,7 +3807,7 @@
         "sky_wind_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "sky_gust_lull_factor": {
           "type": "number",
@@ -3683,47 +3822,47 @@
         "sky_lux_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "sky_uv_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "sky_solar_radiation_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "air_rh_offset": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "air_rh_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "air_temp_offset": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "air_temp_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "air_pressure_offset": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "air_pressure_scale": {
           "type": "number",
           "format": "float",
-          "example": 1.0
+          "example": 1
         },
         "air_suppress_lightning": {
           "type": "integer",
