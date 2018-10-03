@@ -107,7 +107,7 @@
     }
   ],
   "paths": {
-      "/application": {
+    "/application": {
       "get": {
         "tags": [
           "application"
@@ -198,7 +198,91 @@
             "description": "Not found"
           }
         }
-      }      
+      },
+      "put": {
+        "tags": [
+          "application"
+        ],
+        "description": "Update Oauth Application",
+        "summary": "Update Oauth Application. Send the changed items in the body with the application_id.",
+        "operationId": "updateOauthApplication",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "application_in",
+            "in": "body",
+            "description": "All fields put in the body will be updated in the database.  It is not necessary to put all fields.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApplicationPut"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "application"
+        ],
+        "description": "Delete an Oauth Application",
+        "summary": "Delete an Oauth Application",
+        "operationId": "deleteApplication",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "application_id",
+            "in": "path",
+            "description": "ID of the Application",
+            "required": true,
+            "type": "String"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
     },
     "/cl_analysis": {
       "get": {
