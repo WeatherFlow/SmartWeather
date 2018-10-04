@@ -122,9 +122,6 @@
             ]
           },
           {
-            "token": []
-          },
-          {
             "swdApiKey": []
           }
         ],
@@ -168,9 +165,6 @@
             ]
           },
           {
-            "token": []
-          },
-          {
             "swdApiKey": []
           }
         ],
@@ -212,9 +206,6 @@
             "swdImplicit": [
               "user"
             ]
-          },
-          {
-            "token": []
           },
           {
             "swdApiKey": []
@@ -263,9 +254,6 @@
             "swdImplicit": [
               "user"
             ]
-          },
-          {
-            "token": []
           },
           {
             "swdApiKey": []
@@ -318,9 +306,6 @@
             ]
           },
           {
-            "token": []
-          },
-          {
             "swdApiKey": []
           }
         ],
@@ -362,9 +347,6 @@
             "swdImplicit": [
               "user"
             ]
-          },
-          {
-            "token": []
           },
           {
             "swdApiKey": []
@@ -2959,7 +2941,7 @@
       "authorizationUrl": "https://smartweather.weatherflow.com/authorize.html"
     },
     "swdApiKey": {
-      "type": "token",
+      "type": "apiKey",
       "in": "query",
       "name": "token"
     }
