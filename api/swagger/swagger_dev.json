@@ -2959,7 +2959,7 @@
       "authorizationUrl": "https://smartweather.weatherflow.com/authorize.html"
     },
     "swdApiKey": {
-      "type": "apiKey",
+      "type": "token",
       "in": "query",
       "name": "token"
     }
