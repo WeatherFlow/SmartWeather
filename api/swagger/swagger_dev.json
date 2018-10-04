@@ -104,9 +104,6 @@
     },
     {
       "swdApiKey": []
-    },
-    {
-      "token": []
     }
   ],
   "paths": {
@@ -2963,11 +2960,6 @@
     },
     "swdApiKey": {
       "type": "apiKey",
-      "in": "query",
-      "name": "api_key"
-    },
-    "token": {
-      "type": "token",
       "in": "query",
       "name": "token"
     }
