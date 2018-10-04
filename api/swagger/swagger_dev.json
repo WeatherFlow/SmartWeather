@@ -112,8 +112,8 @@
         "tags": [
           "token"
         ],
-        "description": "Create Oauth Application Access Token",
-        "summary": "Create a new Oauth Application Access Token.  Our system has two types of Access Tokens.<br><br>1. User Tokens<br> - Connect a real user to an Oauth Application.<br><br>2. Application Tokens<br>All of these connect the same special user to an Oauth Application.  The result is guest level access.<br>To create this type you must send the type=application field/value in the POST body.",
+        "summary": "Create Oauth Application Access Token",
+        "description": "Create a new Oauth Application Access Token.  Our system has two types of Access Tokens.<br><br>1. User Tokens<br> - Connect a real user to an Oauth Application.<br><br>2. Application Tokens<br>All of these connect the same special user to an Oauth Application.  The result is guest level access.<br>To create this type you must send the type=application field/value in the POST body.",
         "operationId": "createOauthApplicationAccessToken",
         "security": [
           {
