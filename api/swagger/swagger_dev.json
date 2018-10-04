@@ -113,7 +113,7 @@
           "token"
         ],
         "description": "Create Oauth Application Access Token",
-        "summary": "Create a new Oauth Application Access Token",
+        "summary": "Create a new Oauth Application Access Token.  Our system has two types of Access Tokens.<br><br>1. User Tokens<br> - Connect a real user to an Oauth Application.<br><br>2. Application Tokens<br>All of these connect the same special user to an Oauth Application.  The result is guest level access.<br>To create this type you must send the type=application field/value in the POST body.",
         "operationId": "createOauthApplicationAccessToken",
         "security": [
           {
@@ -273,13 +273,19 @@
             }
           },
           {
-            "name": "create_access_token",
+            "name": "create_user_access_token",
             "in": "query",
-            "description": "Also create an Access Token if the Application is successfully created.",
+            "description": "Also create a User Access Token if the Application is successfully created.  This associates the token to the new application as the user submitting the request.",
             "required": false,
             "type": "boolean"
-          }
-        ],
+          },
+          {
+            "name": "create_application_access_token",
+            "in": "query",
+            "description": "Also create an Application Access Token if the Application is successfully created.  This associates the token to the new application as a special user in the system that will result in Guest access.",
+            "required": false,
+            "type": "boolean"
+          }        ],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -3939,6 +3945,14 @@
         "application_id": {
           "type": "string",
           "example": "idididididididididididididid"
+        },
+        "type": {
+          "type": "string",
+          "example": "user",
+          "enum": [
+            "user",
+            "application"
+          ]
         }
       }
     },
