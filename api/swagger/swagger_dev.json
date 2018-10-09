@@ -108,6 +108,38 @@
   ],
   "paths": {
     "/token": {
+      "get": {
+        "tags": [
+          "token"
+        ],
+        "description": "Get All tokens for a user",
+        "summary": "",
+        "operationId": "getToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
       "post": {
         "tags": [
           "token"
