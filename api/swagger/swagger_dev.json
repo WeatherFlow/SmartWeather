@@ -2709,7 +2709,15 @@
             "description": "Bucket a (1 minute data)<br> - Range max 1 day<br>Bucket b (5 minute data)<br> - Range max 5 day<br>Bucket c (30 minute data)<br> - Range max 30 day<br>Bucket d (180 minute data)<br> - Range max 180 day<br>Bucket e (1 day data)<br> - Range greater than 180 days<br><br>* bucket can override default only in one direction.  For example, it is valid to ask for bucket E for any time range but it is not possible to get bucket A if range greater than day.",
             "required": false,
             "type": "string"
-          }
+          },
+          {
+            "name": "raw",
+            "in": "query",
+            "description": "Used to replace AIS adjusted values with raw data.  This option is only available for the one minute bucket.<br>false (default)<br>true (replace adjusted records with raw records)<br>only (only return raw records saved when AIS updates records.",
+            "required": false,
+            "enum": ["true","false","only"],
+            "type": "string"
+          }          
         ],
         "responses": {
           "200": {
