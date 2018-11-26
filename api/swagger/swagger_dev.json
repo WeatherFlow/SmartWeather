@@ -708,7 +708,7 @@
           {
             "name": "settings",
             "in": "body",
-            "description": "All fields posted in the body will be updated in the database.  It is not necessary to post all fields.",
+            "description": "All fields posted in the body will be updated in the database.  It is not necessary to post all fields. (power_saving_mode 0 = off, 1 = on)",
             "required": true,
             "schema": {
               "$ref": "#/definitions/HubCalibrationSettingsPost"
@@ -4107,12 +4107,12 @@
         "air_suppress_lightning": {
           "type": "integer",
           "format": "int32",
-          "example": 154
+          "example": 0
         },
         "power_saving_mode": {
           "type": "integer",
           "format": "int32",
-          "example": 154
+          "example": 0
         }
       }
     }
