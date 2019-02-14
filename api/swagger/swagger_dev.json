@@ -317,7 +317,8 @@
             "description": "Also create an Application Access Token if the Application is successfully created.  This associates the token to the new application as a special user in the system that will result in Guest access.",
             "required": false,
             "type": "boolean"
-          }        ],
+          }
+        ],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -2715,9 +2716,13 @@
             "in": "query",
             "description": "Used to replace AIS adjusted values with raw data.  This option is only available for the one minute bucket.<br>false (default)<br>true (replace adjusted records with raw records)<br>only (only return raw records saved when AIS updates records.",
             "required": false,
-            "enum": ["true","false","only"],
+            "enum": [
+              "true",
+              "false",
+              "only"
+            ],
             "type": "string"
-          }          
+          }
         ],
         "responses": {
           "200": {
@@ -2822,6 +2827,51 @@
           },
           "404": {
             "description": "Station not found"
+          }
+        }
+      }
+    },
+    "/audit_duplicate_device": {
+      "post": {
+        "tags": [
+          "manufacturing"
+        ],
+        "description": "Insert audit_duplicate_device record. This data is used to find hubs with duplicate serial numbers",
+        "summary": "Create a audit_duplicate_device record.",
+        "operationId": "craeateAuditDuplicateDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "audit_duplicate_device",
+            "in": "body",
+            "description": "device_type, serial_number, tag",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AuditDuplicateDevicePost"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
           }
         }
       }
@@ -3605,6 +3655,23 @@
             "forecast"
           ],
           "example": "air_temperature_humidity"
+        }
+      }
+    },
+    "AuditDuplicateDevicePost": {
+      "type": "object",
+      "properties": {
+        "device_type": {
+          "type": "string",
+          "example": "HB"
+        },
+        "serial_number": {
+          "type": "string",
+          "example": "00003333"
+        },
+        "tag": {
+          "type": "string",
+          "example": "tag value"
         }
       }
     },
