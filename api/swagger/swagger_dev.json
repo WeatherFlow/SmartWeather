@@ -231,7 +231,7 @@
           "application"
         ],
         "description": "Get Oauth Applications",
-        "summary": "",
+        "summary": "Applications belong to users.  Some support switches are available when using an enterprise key.",
         "operationId": "getApplication",
         "security": [
           {
@@ -250,14 +250,14 @@
           {
             "name": "include_all_applications",
             "in": "query",
-            "description": "Support switch for getting all Oauth Applications and nested Access Tokens.",
+            "description": "Support (Enterprise only) switch for getting all Oauth Applications and nested Access Tokens.",
             "required": false,
             "type": "boolean"
           },
           {
-            "name": "include_all_token_accepting_applications",
+            "name": "include_all_tokens",
             "in": "query",
-            "description": "Used to get a list of all Oauth Applications that allow a user to hand enter their Access Token.  This response is used for the use case where a token is needed for this type of application.  This response is used in a pick list for the user.",
+            "description": "Support (Enterprise only) switch to return all tokens when using include_all_applications",
             "required": false,
             "type": "boolean"
           }
@@ -303,20 +303,6 @@
             "schema": {
               "$ref": "#/definitions/ApplicationPost"
             }
-          },
-          {
-            "name": "create_user_access_token",
-            "in": "query",
-            "description": "Also create a User Access Token if the Application is successfully created.  This associates the token to the new application as the user submitting the request.",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "create_application_access_token",
-            "in": "query",
-            "description": "Also create an Application Access Token if the Application is successfully created.  This associates the token to the new application as a special user in the system that will result in Guest access.",
-            "required": false,
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -396,9 +382,9 @@
         ],
         "parameters": [
           {
-            "name": "application_id",
+            "name": "client_id",
             "in": "query",
-            "description": "ID of the Application",
+            "description": "client_id of the Application to delete",
             "required": true,
             "type": "String"
           }
@@ -4049,9 +4035,13 @@
     "TokenPost": {
       "type": "object",
       "properties": {
-        "application_id": {
+        "client_id": {
           "type": "string",
           "example": "idididididididididididididid"
+        },
+        "name": {
+          "type": "string",
+          "example": "my token"
         },
         "type": {
           "type": "string",
@@ -4066,7 +4056,7 @@
     "ApplicationPut": {
       "type": "object",
       "properties": {
-        "application_id": {
+        "client_id": {
           "type": "string",
           "example": "idididididididididididididid"
         },
