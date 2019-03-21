@@ -230,8 +230,8 @@
         "tags": [
           "application"
         ],
-        "description": "Get Oauth Applications",
-        "summary": "Applications belong to users.  Some support switches are available when using an enterprise key.",
+        "summary": "Get Oauth Applications",
+        "description": "Applications belong to users.  Some support switches are available when using an enterprise key.",
         "operationId": "getApplication",
         "security": [
           {
