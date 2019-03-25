@@ -112,8 +112,8 @@
         "tags": [
           "token"
         ],
-        "description": "Get All tokens for a user",
-        "summary": "",
+        "description": "Get All tokens for a user.  Application data is also included with each token.  Personal Use tokens are not included in this set.  They have their own getter.",
+        "summary": "Get All tokens for a user",
         "operationId": "getToken",
         "security": [
           {
@@ -142,11 +142,11 @@
       },
       "post": {
         "tags": [
-          "token"
+          "token_personal_use"
         ],
-        "summary": "Create Oauth Application Access Token",
-        "description": "Create a new Oauth Application Access Token.  Our system has two types of Access Tokens.<br><br>1. User Tokens<br> - Connect a real user to an Oauth Application.<br><br>2. Application Tokens<br>All of these connect the same special user to an Oauth Application.  The result is guest level access.<br>To create this type you must send the type=application field/value in the POST body.",
-        "operationId": "createOauthApplicationAccessToken",
+        "summary": "Create a Personal Use Access Token",
+        "description": "Create a new Personal Use Access Token.  These tokens are the easiest way an API user can get started.  They are connected to a hidden Personal Use application that is owned by the user.  A user can create multiple Personal Use tokens and are all limited at the User level using the hidden application that they belong to.",
+        "operationId": "createPersonalUseAccessToken",
         "security": [
           {
             "swdImplicit": [
@@ -162,13 +162,18 @@
         ],
         "parameters": [
           {
-            "name": "application_in",
-            "in": "body",
-            "description": "Send the application_id of the Oauth Application in the body that you want to make a token for.",
+            "name": "client_id",
+            "in": "query",
+            "description": "The client_id of the application that you want to create a token for.",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/TokenPost"
-            }
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "An optional name that can be added to a token",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -183,13 +188,61 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "token_personal_use"
+        ],
+        "summary": "Update a Personal Use Access Token",
+        "description": "Update the name associated with a Personal Use Token",
+        "operationId": "updatePersonalUseAccessToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token_to_update",
+            "in": "query",
+            "description": "The token you want to update.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A Name that can be added to a token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },      
       "delete": {
         "tags": [
-          "token"
+          "token_personal_use"
         ],
-        "description": "Delete an Oauth Application Access Token",
-        "summary": "Delete an Oauth Application Access Token",
-        "operationId": "deleteToken",
+        "description": "Delete a Personal Use Access Token",
+        "summary": "Delete a Personal Use Access Token",
+        "operationId": "deletePersonalUseToken",
         "security": [
           {
             "swdImplicit": [
