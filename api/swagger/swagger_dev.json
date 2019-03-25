@@ -77,7 +77,7 @@
     },
     {
       "name": "token",
-      "description": "Manage Oauth Access Tokens"
+      "description": "Manage Access Tokens"
     },
     {
       "name": "user",
