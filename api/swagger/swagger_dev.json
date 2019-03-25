@@ -107,7 +107,7 @@
     }
   ],
   "paths": {
-    "/token": {
+    "/token_personal_use": {
       "get": {
         "tags": [
           "token"
@@ -142,7 +142,7 @@
       },
       "post": {
         "tags": [
-          "token_personal_use"
+          "token"
         ],
         "summary": "Create a Personal Use Access Token",
         "description": "Create a new Personal Use Access Token.  These tokens are the easiest way an API user can get started.  They are connected to a hidden Personal Use application that is owned by the user.  A user can create multiple Personal Use tokens and are all limited at the User level using the hidden application that they belong to.",
@@ -190,7 +190,7 @@
       },
       "put": {
         "tags": [
-          "token_personal_use"
+          "token"
         ],
         "summary": "Update a Personal Use Access Token",
         "description": "Update the name associated with a Personal Use Token",
@@ -238,7 +238,7 @@
       },      
       "delete": {
         "tags": [
-          "token_personal_use"
+          "token"
         ],
         "description": "Delete a Personal Use Access Token",
         "summary": "Delete a Personal Use Access Token",
