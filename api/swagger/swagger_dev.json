@@ -197,16 +197,9 @@
         ],
         "parameters": [
           {
-            "name": "client_id",
-            "in": "query",
-            "description": "The client_id of the application that you want to create a token for.",
-            "required": true,
-            "type": "string"
-          },
-          {
             "name": "name",
             "in": "query",
-            "description": "An optional name that can be added to a token",
+            "description": "An optional name that can be added to a token.",
             "required": false,
             "type": "string"
           }
