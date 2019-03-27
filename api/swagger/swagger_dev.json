@@ -306,6 +306,186 @@
         }
       }
     },
+  "/token_application": {
+      "get": {
+        "tags": [
+          "token"
+        ],
+        "description": "Get all Application Tokens for an application.  All application tokens belong to a common user_id = application.  These tokens have application specific access.  The default access is guest access to public data.",
+        "summary": "Get All Application Tokens for an application",
+        "operationId": "getApplicationTokens",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+       "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "description": "The client_id of the application that you want to get Application tokens for.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "token"
+        ],
+        "summary": "Create an Application Access Token",
+        "description": "Create a new Application Access Token.  These tokens allow an application owner to access the API without attaching a token to their user.  By default they will get access to public data.  Application specific access rules can be applied to these tokens.",
+        "operationId": "createApplicationAccessToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "client_id",
+            "in": "query",
+            "description": "The client_id of the application that you want to create an Application token for.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "An optional name that can be added to a token.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "token"
+        ],
+        "summary": "Update an Application Access Token",
+        "description": "Update the name associated with an Application Token",
+        "operationId": "updateApplicationAccessToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token_to_update",
+            "in": "query",
+            "description": "The token you want to update.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "A Name that can be added to a token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },      
+      "delete": {
+        "tags": [
+          "token"
+        ],
+        "description": "Delete an Application Access Token",
+        "summary": "Delete an Application Use Access Token",
+        "operationId": "deleteApplicationUseToken",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token_to_delete",
+            "in": "query",
+            "description": "Token to delete",
+            "required": true,
+            "type": "String"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/application": {
       "get": {
         "tags": [
