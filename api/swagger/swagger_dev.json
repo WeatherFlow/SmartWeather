@@ -311,7 +311,7 @@
         "tags": [
           "token"
         ],
-        "description": "Get all Application Tokens for an application.  All application tokens belong to a common user_id = application.  These tokens have application specific access.  The default access is guest access to public data.",
+        "description": "Get all Application Tokens for an application.  All application tokens belong to the common user apps@weatherflow.com.  These tokens have application specific access.  The default access is guest access to public data.",
         "summary": "Get All Application Tokens for an application",
         "operationId": "getApplicationTokens",
         "security": [
