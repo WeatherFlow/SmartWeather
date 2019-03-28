@@ -238,9 +238,9 @@
         ],
         "parameters": [
           {
-            "name": "token_to_update",
+            "name": "token_id",
             "in": "query",
-            "description": "The token you want to update.",
+            "description": "The token_id for the token that you want to update.",
             "required": true,
             "type": "string"
           },
@@ -286,9 +286,9 @@
         ],
         "parameters": [
           {
-            "name": "token_to_delete",
+            "name": "token_id",
             "in": "query",
-            "description": "Token to delete",
+            "description": "The token_id for the token that you want to delete.",
             "required": true,
             "type": "String"
           }
@@ -418,9 +418,9 @@
         ],
         "parameters": [
           {
-            "name": "token_to_update",
+            "name": "token_id",
             "in": "query",
-            "description": "The token you want to update.",
+            "description": "The token_id for the token that you want to update.",
             "required": true,
             "type": "string"
           },
@@ -466,9 +466,9 @@
         ],
         "parameters": [
           {
-            "name": "token_to_delete",
+            "name": "token_id",
             "in": "query",
-            "description": "Token to delete",
+            "description": "The token_id for the token that you want to delete.",
             "required": true,
             "type": "String"
           }
