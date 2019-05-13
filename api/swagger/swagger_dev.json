@@ -4438,6 +4438,11 @@
           "type": "integer",
           "format": "int32",
           "example": 0
+        },
+        "rain_check": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0
         }
       }
     }
