@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Smart Weather for Android - v3.01"
-date:   2019-04-23 12:00:01 -0500
+date:   2019-05-23 12:00:01 -0500
 categories: Android
 ---
 
