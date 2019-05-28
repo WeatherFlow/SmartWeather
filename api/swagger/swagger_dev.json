@@ -775,8 +775,8 @@
         "tags": [
           "cl"
         ],
-        "description": "Get the latest RainCheck QC for a Device",
-        "summary": "The QC data is always in the latest RainCheck file.",
+        "description": "The QC data is always in the latest RainCheck file.",
+        "summary": "Get the latest RainCheck QC for a Device",
         "operationId": "getCLDeviceQC",
         "security": [
           {
@@ -814,8 +814,8 @@
         "tags": [
           "cl"
         ],
-        "description": "Get the latest RainCheck QC for all Devices",
-        "summary": "The QC data is always in the latest RainCheck file.",
+        "description": "The QC data is always in the latest RainCheck file.",
+        "summary": "Get the latest RainCheck QC for all Devices",
         "operationId": "getCLDeviceQC",
         "security": [
           {
@@ -826,6 +826,13 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "This services supports a csv response option.  Use format=csv",
+            "required": false,
+            "type": "string"
+          }
         ],
         "responses": {
           "200": {
