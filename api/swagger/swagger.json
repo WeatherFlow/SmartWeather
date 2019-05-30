@@ -118,7 +118,7 @@
                 "tags": [
                     "observations"
                 ],
-                "description": "Get observations for a Device(Air,Sky) by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).<br><br>**Air**  (type=\"obs_air\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - pressure (MB)<br>2 - air temperature (C)<br>3 - relative humidity (%)<br>4 - strike count<br>5 - average strike distance<br>6 - battery<br>7 - report interval<br><br><br>**Sky** (type=\"obs_sky\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - lux ()<br>2 - UV Index<br>3 - precipitation accumulation (mm)<br>4 - wind lull  (m/s)<br>5 - wind avg (m/s)<br>6 - wind gust (m/s)<br>7 - wind dir<br>8 - battery<br>9 - report interval<br>10 - solar radiation<br>11 - local day precipitation accumulation (mm) ",
+                "description": "Get observations for a Device(Air,Sky) by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).<br><br>**Air**  (type=\"obs_air\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - pressure (MB)<br>2 - air temperature (C)<br>3 - relative humidity (%)<br>4 - strike count<br>5 - average strike distance<br>6 - battery<br>7 - report interval<br><br><br>**Sky** (type=\"obs_sky\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - lux ()<br>2 - UV Index<br>3 - precipitation (mm)<br>4 - wind lull  (m/s)<br>5 - wind avg (m/s)<br>6 - wind gust (m/s)<br>7 - wind dir<br>8 - battery<br>9 - report interval<br>10 - solar radiation<br>11 - local day precipitation accumulation (mm)<br>12 - precipitation type<br>13 - wind sample interval (s)<br>14 - precipitation final (mm)<br>15 - local day precipitation accumulation final (mm)<br>16 - precipitation analysis type ",
                 "summary": "Get observations for a single Smart Weather Device",
                 "operationId": "getObservationsByDeviceId",
                 "security": [
@@ -563,11 +563,6 @@
                     "example": 0.0
                 },
                 "precip_accum_last_1hr": {
-                    "type": "number",
-                    "format": "float",
-                    "example": 0.0
-                },
-                "precip_accum_last_24hr": {
                     "type": "number",
                     "format": "float",
                     "example": 0.0
