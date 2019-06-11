@@ -118,7 +118,7 @@
                 "tags": [
                     "observations"
                 ],
-                "description": "Get observations for a Device(Air,Sky) by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).<br><br>**Air**  (type=\"obs_air\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - pressure (MB)<br>2 - air temperature (C)<br>3 - relative humidity (%)<br>4 - strike count<br>5 - average strike distance<br>6 - battery<br>7 - report interval<br><br><br>**Sky** (type=\"obs_sky\")<br>Observation Layout<br>0 - epoch (seconds UTC)<br>1 - lux ()<br>2 - UV Index<br>3 - precipitation (mm)<br>4 - wind lull  (m/s)<br>5 - wind avg (m/s)<br>6 - wind gust (m/s)<br>7 - wind dir<br>8 - battery<br>9 - report interval<br>10 - solar radiation<br>11 - local day precipitation accumulation (mm)<br>12 - precipitation type<br>13 - wind sample interval (s)<br>14 - precipitation final (mm)<br>15 - local day precipitation accumulation final (mm)<br>16 - precipitation analysis type ",
+                "description": "Get observations for a Device(Air,Sky) by using the device_id as the key.  You can find device_id values in the response from the Stations service  You can get observations using several filters (latest, time range, day offset).  \n  \nUse the \"type\" value to determine the layout of the observations values.  The \"obs\" object is an array of observations.  Each observation is an array of observation values (see layout below).<br><br>**Air**  (type=\"obs_air\")<br>Observation Layout<br>0 - Epoch (seconds UTC)<br>1 - Station Pressure (MB)<br>2 - Air Temperature (C)<br>3 - Relative Humidity (%)<br>4 - Lightning Strike Count<br>5 - Lightning Strike Average Distance (km)<br>6 - Battery (volts)<br>7 - Report Interval (minutes)<br><br><br>**Sky** (type=\"obs_sky\")<br>Observation Layout<br>0 - Epoch (seconds UTC)<br>1 - Illuminance (lux)<br>2 - UV (index)<br>3 - Rain Accumulation (mm)<br>4 - Wind Lull  (m/s)<br>5 - Wind Avg (m/s)<br>6 - Wind Gust (m/s)<br>7 - Wind Direction (degrees)<br>8 - Battery (volts)<br>9 - Report Interval (minutes)<br>10 - Solar Radiation (W/m^2)<br>11 - Local Day Rain Accumulation (mm)<br>12 - Precipitation Type (0 = none, 1 = rain, 2 = hail)<br>13 - Wind Sample Interval (seconds)<br>14 - Rain Accumulation Final (Rain Check) (mm)<br>15 - Local Day Rain Accumulation Final (Rain Check) (mm)<br>16 - Precipitation Analysis Type (0 = none, 1 = Rain Check with user display on, 2 = Rain Check with user display off) ",
                 "summary": "Get observations for a single Smart Weather Device",
                 "operationId": "getObservationsByDeviceId",
                 "security": [
@@ -186,7 +186,7 @@
                 "tags": [
                     "observations"
                 ],
-                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make the federated observation.<br><br>A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.<br><br>The station_units values represent the units of the Station's owner, not the units of the observation values in the API response.<br><br>Units<br>temperature = C<br>pressure = MB<br>wind = mps<br>precip = <br>distance = km<br>lux = <br>solar radiation = ",
+                "description": "Get the latest federated observation for a Station.  This observation is made from the latest Device observations that belong to the Station.  If a user has multiple Devices of the same type they are able to designate one of them as primary. This is the one used to make the federated observation.<br><br>A user can also designate each device as either indoor or outdoor.  All indoor observation value fields will end with an \"_indoor\" suffix.  Outdoor observations fields do not have a suffix.<br><br>The station_units values represent the units of the Station's owner, not the units of the observation values in the API response. ",
                 "summary": "Get the latest Station observation",
                 "operationId": "getStationObservation",
                 "security": [
@@ -678,11 +678,6 @@
                     "example": 0.0
                 },
                 "precip_accum_last_1hr_indoor": {
-                    "type": "number",
-                    "format": "float",
-                    "example": 0.0
-                },
-                "precip_accum_last_24hr_indoor": {
                     "type": "number",
                     "format": "float",
                     "example": 0.0
