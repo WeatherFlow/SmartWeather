@@ -2403,7 +2403,7 @@
         "tags": [
           "location_share"
         ],
-        "description": "Update a location share record.  Update fields: share_meta, public_name",
+        "description": "Update a location share record.  Update fields: share_meta, send_rain.  The location_share post and put are a bit confusing as they have evolved over time.  This PUT is used to update the fields of the location share table and requires a location_share_id.  The POST is used to update fields in other tables related to public and private data.  The POST can also be used to create a new location_share record.",
         "summary": "Update location share record",
         "operationId": "updateLocationShare",
         "security": [
@@ -4103,14 +4103,9 @@
     "LocationSharePut": {
       "type": "object",
       "properties": {
-        "location_id": {
-          "type": "integer",
-          "format": "int32",
-          "example": 150
-        },
-        "public_name": {
-          "type": "string",
-          "example": "Bent Oaks Deland"
+        "send_rain": {
+          "type": "boolean",
+          "example": true
         },
         "share_meta": {
           "$ref": "#/definitions/LocationSharePostShareMeta"
