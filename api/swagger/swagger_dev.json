@@ -2358,8 +2358,8 @@
         "tags": [
           "location_share"
         ],
-        "description": "Create a Location third party share<br>location_id<br>public_name<br>share_type<br>share_meta.location_id<br>share_meta.station_key<br><br>Update public_name<br>location_id<br>public_name<br><br>Update public lat lon<br>location_id<br>public_latitude<br>public_longitude<br><br>Update share_with_wf (is_public)<br>location_id<br>share_with_wf",
-        "summary": "Create a Location third party share",
+        "description": "The location_share POST and PUT are a bit confusing as they have evolved over time. This PUT is used to update the fields of the location share table and requires a location_share_id. The POST is used to update fields in other tables related to public and private data. The POST can also be used to create a new location_share record. Send the field below as json fields in the POST body for the action that you need<br><br><b>Create a Location third party share</b><br>location_id<br>public_name<br>share_type<br>share_meta.station_id<br>share_meta.station_key<br><br><b>Update public_name</b><br>location_id<br>public_name<br><br><b>Update public lat lon</b><br>location_id<br>public_latitude<br>public_longitude<br><br><b>Update share_with_wf (is_public)</b><br>location_id<br>share_with_wf",
+        "summary": "Create a Location third party share or update Public/Private data",
         "operationId": "craeateLocationShare",
         "security": [
           {
@@ -4115,7 +4115,7 @@
     "LocationSharePostShareMeta": {
       "type": "object",
       "properties": {
-        "location_id": {
+        "station_id": {
           "type": "string",
           "example": "KFLDEBAR21"
         },
