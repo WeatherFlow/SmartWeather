@@ -2358,7 +2358,7 @@
         "tags": [
           "location_share"
         ],
-        "description": "The location_share POST and PUT are a bit confusing as they have evolved over time. This PUT is used to update the fields of the location share table and requires a location_share_id. The POST is used to update fields in other tables related to public and private data. The POST can also be used to create a new location_share record. Send the field below as json fields in the POST body for the action that you need<br><br><b>Create a Location third party share</b><br>location_id<br>public_name<br>share_type<br>share_meta.station_id<br>share_meta.station_key<br><br><b>Update public_name</b><br>location_id<br>public_name<br><br><b>Update public lat lon</b><br>location_id<br>public_latitude<br>public_longitude<br><br><b>Update share_with_wf (is_public)</b><br>location_id<br>share_with_wf",
+        "description": "The location_share POST and PUT are a bit confusing as they have evolved over time. This PUT is used to update the fields of the location share table and requires a location_share_id. The POST is used to update fields in other tables related to public and private data. The POST can also be used to create a new location_share record. Send the fields below as json fields in the POST body for the action that you need<br><br><b>Create a Location third party share</b><br>location_id<br>public_name<br>share_type<br>share_meta.station_id<br>share_meta.station_key<br><br><b>Update public_name</b><br>location_id<br>public_name<br><br><b>Update public lat lon</b><br>location_id<br>public_latitude<br>public_longitude<br><br><b>Update share_with_wf (is_public)</b><br>location_id<br>share_with_wf",
         "summary": "Create a Location third party share or update Public/Private data",
         "operationId": "craeateLocationShare",
         "security": [
@@ -2403,7 +2403,7 @@
         "tags": [
           "location_share"
         ],
-        "description": "Update a location share record.  Update fields: share_meta, send_rain.  The location_share post and put are a bit confusing as they have evolved over time.  This PUT is used to update the fields of the location share table and requires a location_share_id.  The POST is used to update fields in other tables related to public and private data.  The POST can also be used to create a new location_share record.",
+        "description": "Update a location share record.  Update fields: share_meta, send_rain.  The location_share POST and PUT are a bit confusing as they have evolved over time.  This PUT is used to update the fields of the location share table and requires a location_share_id.  The POST is used to update fields in other tables related to public and private data.  The POST can also be used to create a new location_share record.",
         "summary": "Update location share record",
         "operationId": "updateLocationShare",
         "security": [
@@ -4087,6 +4087,20 @@
         "public_name": {
           "type": "string",
           "example": "Bent Oaks Deland"
+        },
+        "public_latitude": {
+          "type": "integer",
+          "format": "int32",
+          "example": 29.1
+        },
+        "public_longitude": {
+          "type": "integer",
+          "format": "int32",
+          "example": -81.1
+        },
+        "share_with_wf": {
+          "type": "boolean",
+          "example": true
         },
         "share_type": {
           "type": "string",
