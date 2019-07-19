@@ -2036,7 +2036,7 @@
         "tags": [
           "user_notifications"
         ],
-        "description": "Get a history of the notifications sent to a user.  Notification type and time filters are available.  The default time range is the last 28 days.  User Id is the key.  The uid for the user can be provided if you are using an Enterprise API Key.  If not the uid is pulled from the firebase token provided.<br><br>Types<br>evt_strike<br>evt_precip<br>evt_device_online<br>evt_device_offline<br>evt_station_online<br>evt_station_offline<br><br>The type filter is a wildcard.  For example, a value of station will return both evt_station_online and evt_station_offline types.",
+        "description": "Get a history of the notifications sent to a user for a Station.  Notification type and time filters are available.  The default time range is the last 28 days.  The key is station_id.<br><br>Types<br>evt_strike<br>evt_precip<br>evt_device_online<br>evt_device_offline<br>evt_station_online<br>evt_station_offline<br>evt_qc_alert_rain<br><br>The type filter is a wildcard.  For example, a value of station will return both evt_station_online and evt_station_offline types.",
         "summary": "Get a history of the notifications sent to a user",
         "operationId": "getNotifications",
         "security": [
@@ -2053,6 +2053,13 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "name": "station_id",
+            "in": "query",
+            "description": "The station_id for the Station.",
+            "required": true,
+            "type": "int64"
+          },
           {
             "name": "time_start",
             "in": "query",
@@ -2073,13 +2080,6 @@
             "name": "type_filter",
             "in": "query",
             "description": "Wildcard String to filter",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "uid",
-            "in": "query",
-            "description": "User ID can be provided here if using Enterprise API Key",
             "required": false,
             "type": "string"
           }
