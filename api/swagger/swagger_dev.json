@@ -1776,7 +1776,7 @@
           {
             "name": "sensor_status",
             "in": "query",
-            "description": "Filter by sensor status<br><br>Possible values<br>OK<br>AIR_LIGHTNING_FAILED<br>AIR_LIGHTNING_NOISE<br>AIR_LIGHTNING_DISTURBER<br>AIR_PRESSURE_FAILED<br>AIR_TEMPERATURE_FAILED<br>AIR_RH_FAILED<br>SKY_WIND_FAILED<br>SKY_PRECIP_FAIL<br>SKY_LIGHT_UV_FAIL",
+            "description": "Filter by sensor status<br><br>Possible values<br>OK<br>AIR_LIGHTNING_FAIL<br>AIR_LIGHTNING_NOISE<br>AIR_LIGHTNING_DISTURBER<br>AIR_PRESSURE_FAIL<br>AIR_TEMPERATURE_FAIL<br>AIR_RH_FAIL<br>SKY_WIND_FAIL<br>SKY_PRECIP_FAIL<br>SKY_LIGHT_UV_FAIL",
             "required": false,
             "type": "string"
           }
