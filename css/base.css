@@ -55,6 +55,7 @@ th, td {
 th {
 	border-bottom: 1px solid #999;
 	color: #666;
+	vertical-align: baseline;
 }
 
 td {
