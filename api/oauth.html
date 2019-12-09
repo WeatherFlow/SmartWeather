@@ -1,0 +1,38 @@
+---
+layout: apihome
+title: WeatherFlow Smart Weather OAuth 2.0 Support
+---
+
+<h2><a name="overview">Overview</a></h2>
+<p>The Smart Weather API supports the Authorization Code grant type and the Authorization Code with PKCE grant type for  public clients that are unable to maintain the confidentiality of the client secret in their application.</p>
+
+<h2><a name="overview">Creating a Client Application</a></h2>
+<p>To register your application with WeatherFlow, please <a href="mailto:support@weatherflow.com?subject=Smart Weather API Key Request">contact us</a>.</p>
+
+<h2><a name="authorization-code-grant">Authorization Code Grant</a></h2>
+
+<h3>Authorization URL</h3>
+<p>Request authorization from the user using the authorization endpoint below.</p>
+<p><span class="code-highlight">https://smartweather.weatherflow.com/authorize.html</span></p>
+<p>With the request include the following query string parameters:</p>
+<table>
+    <tr>
+        <th>Query String Parameter</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>client_id</td>
+        <td>Provided to you when registering your application</td>
+    </tr>
+    <tr>
+        <td>response_type</td>
+        <td>Set this value to <span class="code-highlight">code</span> to indicate that you would like an authorization code returned.</td>
+    </tr>
+    <tr>
+        <td>redirect_uri</td>
+        <td>The url you want the user to be redirected to after the authorization is completed.  This url must be registered with WeatherFlow.</td>
+    </tr>
+</table>
+
+
+<h2><a name="authorization-code-grant">Authorization Code Grant with PKCE</a></h2>
