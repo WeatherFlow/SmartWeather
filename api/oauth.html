@@ -12,7 +12,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <h2><a name="authorization-code-grant">Authorization Code Grant</a></h2>
 <p class="step">Step 1:</p>
 <p>Request authorization from the user using the authorization endpoint below.</p>
-<p><span class="code-highlight">https://smartweather.weatherflow.com/authorize.html</span></p>
+<p><span class="code-highlight code-highlight-extra-padding">https://smartweather.weatherflow.com/authorize.html</span></p>
 <p>With the request include the following query string parameters:</p>
 <table>
     <tr>
@@ -36,7 +36,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <p class="step">Step 2:</p>
 <p>Once redirected to the authorization page, the user will approve or deny the authorization request.  If they approve the request they will be redirected back to the redirect URL you provided along with an authorization code.</p>
 <p>Exchange the authorization code for an access token by making a <span class="code-highlight">POST</span> request to the API endpoint below.</p>
-<p><span class="code-highlight">https://swd.weatherflow.com/id/oauth2/token</span></p>
+<p><span class="code-highlight code-highlight-extra-padding">https://swd.weatherflow.com/id/oauth2/token</span></p>
 
 <p>In the URL Encoded Form body of the <span class="code-highlight">POST</span> request include:</p>
 <table>
