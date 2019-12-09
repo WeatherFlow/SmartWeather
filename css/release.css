@@ -124,7 +124,7 @@
 .hint {
 	border: 1px solid #1b75d5;
     background: rgba(27, 117, 213, .2) url(../images/star.svg) no-repeat 10px 17px;
-    background-size: 50px;
+    background-size: 16px;
     padding: 10px 10px 10px 40px;
     color: #1b75d5;
 }
