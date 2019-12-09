@@ -124,6 +124,7 @@
 .hint {
 	border: 1px solid #1b75d5;
 	background-color: rgba(27, 117, 213, .3);
+	background: url(../images/star.svg) no-repeat;
 }
 
 .step {
