@@ -123,8 +123,10 @@
 /* OAuth */
 .hint {
 	border: 1px solid #1b75d5;
-	background-color: rgba(27, 117, 213, .3);
-	background: url(../images/star.svg) no-repeat;
+    background: rgba(27, 117, 213, .2) url(../images/star.svg) no-repeat 10px 50%;
+    background-size: 50px;
+    padding: 10px 10px 10px 75px;
+    color: #1b75d5;
 }
 
 .step {
