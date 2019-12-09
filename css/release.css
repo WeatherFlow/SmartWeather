@@ -119,3 +119,20 @@
 		text-align: center;
 	}
 }
+
+/* OAuth */
+.hint {
+	border: 1px solid #1b75d5;
+	background-color: rgba(27, 117, 213, .3);
+}
+
+.step {
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #666;
+	margin: 25px 0 10px 0;
+}
+
+.code-highlight {
+	padding: 10px;
+}

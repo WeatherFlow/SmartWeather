@@ -10,7 +10,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <p>Before you can begin using OAuth with the Smart Weather API, you must register your application with WeatherFlow. To do so, please <a href="mailto:support@weatherflow.com?subject=Smart Weather API Key Request">contact us</a>.</p>
 
 <h2><a name="authorization-code-grant">Authorization Code Grant</a></h2>
-<p class="strong">Step 1:</p>
+<p class="step">Step 1:</p>
 <p>Request authorization from the user using the authorization endpoint below.</p>
 <p><span class="code-highlight">https://smartweather.weatherflow.com/authorize.html</span></p>
 <p>With the request include the following query string parameters:</p>
@@ -33,7 +33,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
     </tr>
 </table>
 
-<p class="strong">Step 2:</p>
+<p class="step">Step 2:</p>
 <p>Once redirected to the authorization page, the user will approve or deny the authorization request.  If they approve the request they will be redirected back to the redirect URL you provided along with an authorization code.</p>
 <p>Exchange the authorization code for an access token by making a <span class="code-highlight">POST</span> request to the API endpoint below.</p>
 <p><span class="code-highlight">https://swd.weatherflow.com/id/oauth2/token</span></p>
@@ -57,5 +57,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
         <td>Send the client secret provided when your application was created. </td>
     </tr>
 </table>
+
+<p class="hint">If you are not using a server application and cannot properly secure the client secret use the Authorization Code Grant with PKCE method.</p>
 
 <h2><a name="authorization-code-grant">Authorization Code Grant with PKCE</a></h2>
