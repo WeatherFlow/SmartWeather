@@ -20,15 +20,15 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
         <th>Description</th>
     </tr>
     <tr>
-        <td>client_id</td>
+        <td class="monospace">client_id</td>
         <td>Provided to you when registering your application</td>
     </tr>
     <tr>
-        <td>response_type</td>
+        <td class="monospace">response_type</td>
         <td>Set this value to <span class="code-highlight">code</span> to indicate that you would like an authorization code returned.</td>
     </tr>
     <tr>
-        <td>redirect_uri</td>
+        <td class="monospace">redirect_uri</td>
         <td>The url you want the user to be redirected to after the authorization is completed.  This url must be registered with WeatherFlow.</td>
     </tr>
 </table>
@@ -45,19 +45,19 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
         <th>Description</th>
     </tr>
     <tr>
-        <td>grant_type</td>
+        <td class="monospace">grant_type</td>
         <td>Set this value to <span class="code-highlight">authorization_code</span></td>
     </tr>
     <tr>
-        <td>code</td>
-        <td>Send the authorization code received from the authorization server.  This is the <span class="code-highlight">code</span query string parameter.></td>
+        <td class="monospace">code</td>
+        <td>The authorization code received from the authorization server.  This is the <span class="code-highlight">code</span query string parameter.></td>
     </tr>
     <tr>
-        <td>client_secret</td>
-        <td>Send the client secret provided when your application was created. </td>
+        <td class="monospace">client_secret</td>
+        <td>The client secret provided when your application was created. </td>
     </tr>
 </table>
 
-<p class="hint">If you are not using a server application and cannot properly secure the client secret use the Authorization Code Grant with PKCE method.</p>
+<p class="hint">If you are not using a server application and cannot properly secure the client secret use the Authorization Code Grant with PKCE method instead.</p>
 
 <h2><a name="authorization-code-grant">Authorization Code Grant with PKCE</a></h2>

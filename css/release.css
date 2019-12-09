@@ -126,16 +126,18 @@
     background: rgba(27, 117, 213, .2) url(../images/star.svg) no-repeat 10px 17px;
     background-size: 16px;
     padding: 10px 10px 10px 40px;
-    color: #1b75d5;
+	color: #1b75d5;
+	margin: 35px 0;
 }
 
 .step {
 	text-transform: uppercase;
 	font-weight: 700;
 	color: #666;
-	margin: 25px 0 10px 0;
+	margin: 25px 0 0 0;
 }
 
 .code-highlight-extra-padding {
 	padding: 10px;
+	display: block;
 }
