@@ -9,7 +9,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <h2><a name="overview">Creating a Client Application</a></h2>
 <p>Before you can begin using OAuth with the Smart Weather API, you must register your application with WeatherFlow. To do so, please <a href="mailto:support@weatherflow.com?subject=Smart Weather API Key Request">contact us</a>.</p>
 
-<h2><a name="authorization-code-grant">Authorization Code Grant</a></h2>
+<h2><a name="authorization-code-grant">Authorization Code Grant Type</a></h2>
 <p class="step">Step 1:</p>
 <p>Request authorization from the user using the authorization endpoint below.</p>
 <p><span class="code-highlight code-highlight-extra-padding">https://smartweather.weatherflow.com/authorize.html</span></p>
@@ -21,7 +21,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
     </tr>
     <tr>
         <td class="monospace">client_id</td>
-        <td>Provided to you when registering your application</td>
+        <td>Provided when your application was created.</td>
     </tr>
     <tr>
         <td class="monospace">response_type</td>
@@ -29,9 +29,12 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
     </tr>
     <tr>
         <td class="monospace">redirect_uri</td>
-        <td>The url you want the user to be redirected to after the authorization is completed.  This url must be registered with WeatherFlow.</td>
+        <td>The url you want the user to be redirected to after the authorization is completed.</td>
     </tr>
 </table>
+
+<p class="hint">The redirect URL provided in the query string must be registered with the Smart Weather API.  If needed, you may register more than one redirect URL</p>
+
 
 <p class="step">Step 2:</p>
 <p>Once redirected to the authorization page, the user will approve or deny the authorization request.  If they approve the request they will be redirected back to the redirect URL you provided along with an authorization code.</p>
@@ -54,10 +57,10 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
     </tr>
     <tr>
         <td class="monospace">client_secret</td>
-        <td>The client secret provided when your application was created. </td>
+        <td>Provided when your application was created.</td>
     </tr>
 </table>
 
 <p class="hint">If you are not using a server application and cannot properly secure the client secret use the Authorization Code Grant with PKCE method instead.</p>
 
-<h2><a name="authorization-code-grant">Authorization Code Grant with PKCE</a></h2>
+<h2><a name="authorization-code-grant-pkce">Authorization Code Grant Type with PKCE</a></h2>
