@@ -8,7 +8,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 
 <h2><a name="overview">Creating a Client Application</a></h2>
 <p>Before you can begin using OAuth with the Smart Weather API, you must register your application with WeatherFlow. To do so, sign in to your Smart Weather account on the <a href="https://smartweather.weatherflow.com">Smart Weather Website</a>, navigate to Settings and then to Developers.</p>
-<p>To register your application you will need the following information:</p>
+<p>The information below is required to register your application.</p>
 
 <p class="step">Application Name</p>
 <p>The name of your application.  This name will be displayed on the authorization page and should be a name that users will recognize and trust.</p>
@@ -26,24 +26,15 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <p>Request authorization from the user using the authorization endpoint below.</p>
 <p><span class="code-highlight code-highlight-extra-padding">https://smartweather.weatherflow.com/authorize.html</span></p>
 <p>With the request include the following query string parameters:</p>
-<table>
-    <tr>
-        <th>Query String Parameter</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td class="monospace">client_id</td>
-        <td>Provided when your application was created.</td>
-    </tr>
-    <tr>
-        <td class="monospace">response_type</td>
-        <td>Set this value to <span class="code-highlight">code</span> to indicate that you would like an authorization code returned.</td>
-    </tr>
-    <tr>
-        <td class="monospace">redirect_uri</td>
-        <td>The url you want the user to be redirected to after the authorization is completed.</td>
-    </tr>
-</table>
+
+<p class="step monospace">client_id</p>
+<p>Provided when your application was created.</p>
+
+<p class="step monospace">response_type</p>
+<p>Set this value to <span class="code-highlight">code</span> to indicate that you would like an authorization code returned.</p>
+
+<p class="step monospace">redirect_uri</p>
+<p>The url you want the user to be redirected to after the authorization is completed.</p>>
 
 <p class="hint">The redirect URL provided in the query string must be registered with the Smart Weather API.  If needed, you may register more than one redirect URL.</p>
 
@@ -54,24 +45,15 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <p><span class="code-highlight code-highlight-extra-padding">https://swd.weatherflow.com/id/oauth2/token</span></p>
 
 <p>In the URL Encoded Form body of the <span class="code-highlight">POST</span> request include:</p>
-<table>
-    <tr>
-        <th>Form Field</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td class="monospace">grant_type</td>
-        <td>Set this value to <span class="code-highlight">authorization_code</span></td>
-    </tr>
-    <tr>
-        <td class="monospace">code</td>
-        <td>The authorization code received from the authorization server.  This is the <span class="code-highlight">code</span query string parameter.></td>
-    </tr>
-    <tr>
-        <td class="monospace">client_secret</td>
-        <td>Provided when your application was created.</td>
-    </tr>
-</table>
+
+<p class="step monospace">grant_type</p>
+<p>Set this value to <span class="code-highlight">authorization_code</span></p>
+
+<p class="step monospace"></p>
+<p>The authorization code received from the authorization server.  This is the <span class="code-highlight">code</span query string parameter.</p>
+
+<p class="step monospace"></p>
+<p>Provided when your application was created.</p>
 
 <p class="hint">If you are not using a server application and cannot properly secure the client secret use the Authorization Code Grant with PKCE method instead.</p>
 
