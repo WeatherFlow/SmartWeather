@@ -137,6 +137,10 @@
 	margin: 25px 0 0 0;
 }
 
+.step + p {
+    margin: 0 0 14px 0;
+}
+
 .code-highlight-extra-padding {
 	padding: 10px;
 	display: block;
