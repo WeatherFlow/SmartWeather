@@ -5,13 +5,15 @@ $(document).ready(function () {
 function attachEventHandlers() {
 
     $("#generate-code-verifier").on("click touchend", function () {
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        $("#code-verifier").val(random_string(48));
 
-        for (var i = 0; i < length; i++) {
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
+        return false;
+    });
 
-        $("#code-verifier").val(text);
+    $("#code-verifier").on("change", function () {
+        var verifier = $("#code-verifier").val();
+        var challenge = base64_urlencode(sha256bin(verifier));
+
+        $("#code-challenge").html(challenge);
     });
 }
