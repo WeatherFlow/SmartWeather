@@ -12,7 +12,7 @@ function attachEventHandlers() {
         return false;
     });
 
-    $("#code-verifier").on("change", function () {
+    $("#code-verifier").on("input", function () {
         console.log("on change");
         var verifier = $("#code-verifier").val();
         var challenge = base64_urlencode(sha256bin(verifier));
