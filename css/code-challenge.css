@@ -4,3 +4,14 @@ input {
     width: 100%;
     box-sizing: border-box;
 }
+
+#generate-code-verifier {
+    text-decoration: none;
+    color: #666;
+    border: 1px solid#666;
+    background-color: #ccc;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 5px 0 0 0;
+}
