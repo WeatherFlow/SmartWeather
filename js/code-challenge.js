@@ -6,17 +6,21 @@ $(document).ready(function () {
 function attachEventHandlers() {
     console.log("attach event handlers");
     $("#generate-code-verifier").on("click touchend", function () {
-        console.log("generate code");
         $("#code-verifier").val(random_string(48));
+        createCodeChallenge();
+
 
         return false;
     });
 
     $("#code-verifier").on("input paste", function () {
-        console.log("on change");
-        var verifier = $("#code-verifier").val();
-        var challenge = base64_urlencode(sha256bin(verifier));
-
-        $("#code-challenge").html(challenge);
+        createCodeChallenge();
     });
+}
+
+function createCodeChallenge() {
+    var verifier = $("#code-verifier").val();
+    var challenge = base64_urlencode(sha256bin(verifier));
+
+    $("#code-challenge").html(challenge);
 }
