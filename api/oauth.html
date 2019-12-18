@@ -17,7 +17,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <p>A brief description of your application.</p>
 
 <p class="step">Authorization Callback URL</p>
-<p>The endpoint that will receive authorization codes.  Each application may have muiltiple callback URLs.  For mobile applications a customer URL scheme can be registered.</p>
+<p>The endpoint that will receive authorization codes.  Each application may have muiltiple callback URLs.  For mobile applications a custom URL scheme can be registered.</p>
 
 <p class="hint">To register an appliction, you must have a Smart Weather account.</p>
 
@@ -50,7 +50,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <p>Set this value to <span class="code-highlight">authorization_code</span></p>
 
 <p class="step monospace">code</p>
-<p>The authorization code received from the authorization server.  This is the <span class="code-highlight">code</span query string parameter.</p>
+<p>The authorization code received in the query string from the authorization server.</p>
 
 <p class="step monospace">client_secret</p>
 <p>Provided when your application was created.</p>
@@ -59,10 +59,10 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 
 <h2><a name="authorization-code-grant-pkce">Authorization Code with PKCE Grant Type</a></h2>
 
-<p>The Authorization Code with PKCE (Proof Key for Code Exchange) grant type is for applications that are not able to protect their client secret (browser-based apps).</p>
+<p>The Authorization Code with PKCE (Proof Key for Code Exchange) grant type is for applications that are not able to protect their client secret.</p>
 
 <p class="step">Step 1:</p>
-<p>Generate a code verifier.  This is a random string using the characters A-Z, a-z, 0-9 and the characters -._~ that is between 43 to 128 characters long.</p>
+<p>Generate a code verifier.  This is a random string using the characters <span class="monospace">A-Z</span>, <span class="monospace">a-z</span>, <span class="monospace">0-9</span> and the characters <span class="monospace">-._~</span> that is between 43 to 128 characters long.</p>
 
 <p class="step">Step 2:</p>
 <p>Create a code challenge using the code verifier generated in Step 1.  The code challenge is a BASE64-URL-encoded string of the SHA256 hash of the code verifier.</p>
@@ -103,7 +103,7 @@ title: WeatherFlow Smart Weather OAuth 2.0 Support
 <p>Set this value to <span class="code-highlight">authorization_code</span></p>
 
 <p class="step monospace">code</p>
-<p>The authorization code received from the authorization server.  This is the <span class="code-highlight">code</span> query string parameter.</p>
+<p>The authorization code received in the query string from the authorization server.</p>
 
 <p class="step monospace">code_verifier</p>
-<p>This is the random string generated in Step 1.</p>
+<p>The random string generated in Step 1.</p>
