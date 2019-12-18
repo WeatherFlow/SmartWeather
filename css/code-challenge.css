@@ -1,12 +1,6 @@
 input {
     font-size: 1em;
     padding: 10px;
-    width: 100px;
+    width: 100%;
     box-sizing: border-box;
-}
-
-.label {
-    font-weight: 900;
-    padding: 10px 0 0 0;
-    margin: 15px 0 0 0;
 }
