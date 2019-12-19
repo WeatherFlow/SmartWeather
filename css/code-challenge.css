@@ -11,6 +11,16 @@ input {
     font-weight: normal;
 }
 
+#character-count {
+    color: #666;
+    text-align: right;
+    padding: 0 4px 0 0;
+    margin: 0;
+    font-size: .85em;
+}
+
 #error-msg {
     color: red;
+    min-height: 1em;
+    margin: 35px 0 10px 0;
 }
