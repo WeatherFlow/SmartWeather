@@ -21,6 +21,6 @@ input {
 
 #error-msg {
     color: red;
-    min-height: 1em;
+    min-height: 2em;
     margin: 35px 0 10px 0;
 }
