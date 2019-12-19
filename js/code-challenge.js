@@ -15,6 +15,10 @@ function attachEventHandlers() {
     $("#code-verifier").on("input paste", function () {
         createCodeChallenge();
     });
+
+    $("#code-verifier").on("keyup", function () {
+        $("#character-count").html($(this).val().length);
+    });
 }
 
 function createCodeChallenge() {
@@ -29,6 +33,8 @@ function createCodeChallenge() {
         $("#error-msg").html("Code verifier contains invalid characters.");
     } else {
         var challenge = base64_urlencode(sha256bin(verifier));
+
+        $("#error-msg").html("");
         $("#code-challenge").html(challenge);
     }
 }
