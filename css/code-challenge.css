@@ -10,3 +10,7 @@ input {
     text-transform: none;
     font-weight: normal;
 }
+
+#error-msg {
+    color: red;
+}
