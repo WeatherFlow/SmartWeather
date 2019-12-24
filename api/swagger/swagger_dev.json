@@ -8,7 +8,7 @@
       "email": "jforare@weatherflow.com"
     }
   },
-  "host": "dev.swd.weatherflow.com",
+  "host": "dev-swd.weatherflow.com",
   "basePath": "/swd/rest",
   "tags": [
     {
