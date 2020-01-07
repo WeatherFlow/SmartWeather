@@ -41,12 +41,12 @@ title: Derived Metric Formulas
 	</div>
   <div class="post">
 		<h1><a name="feels-like">Feels Like Temperature</a></h1>
-		<p>If the temperature is at or above 80&degF the Feels Like temperature equals the <a href="#heat-index">Heat Index</a>.  If temperature is below 50&degF, Feels Like temperature equals the <a href="#wind-chill">Wind Chill</a>.</p>
+	  	<p>The Feels Like temperature is equal to the <a href="#heat-index">Heat Index</a> if the temperatures is at or above 80&degF and a relative humidity at or above 40%.  Alternatively, the Feels Like temperature is equal to <a href="#wind-chill">Wind Chill</a> if the temperature is at or below 50&degF and wind speeds are above 3mph.  If neither condition applies, the Feels Like temperature is equal to the air temperature.</p>
 	</div>
   <div class="post">
     <h1><a name="heat-index">Heat Index Temperature</a></h1>
     <p class="source">Source: <a href="https://www.weather.gov/media/epz/wxcalc/heatIndex.pdf">Weather.gov</a></p>
-	  <p>Heat Index is calculated for temperatures at or above 80&degF and a relative hummidity at or above 40%.</p>
+	  <p>Heat Index is calculated for temperatures at or above 80&degF and a relative humidity at or above 40%.</p>
     <p>$$T_{hi} = -42.379 + (2.04901523\times{}T) 
 	        \\+ (10.1433127\times{}RH) - (0.22475541\times{}T\times{}RH)
 	        \\-(6.83783\times{}10^{-3}\times{}T^2) -(5.481717\times{}10^{-2}\times{}RH^2)
