@@ -1,9 +1,10 @@
 #sections {
-	text-align: center;
 	margin: 25px 0 0 0;
+	display: flex;
+	justify-content: stretch;
 }
 
-.doc-section {
+/*.doc-section {
 	display: inline-block;
 	background-position: 50% 10px;
 	background-size: auto 150px;
@@ -14,6 +15,16 @@
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 1.25em;
+}*/
+
+.doc-section {
+	width: 50%;
+	box-sizing: border-box;
+	margin: 0 50px 0 0;
+}
+
+.doc-section:last-child {
+	margin: 0 0 0 50px;
 }
 
 #release-notes {
