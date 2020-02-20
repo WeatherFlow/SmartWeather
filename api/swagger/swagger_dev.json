@@ -517,14 +517,14 @@
             "in": "query",
             "description": "Latitude",
             "required": true,
-            "type": "float"
+            "type": "long"
           },
           {
             "name": "lon",
             "in": "query",
             "description": "Longitude",
             "required": true,
-            "type": "float"
+            "type": "long"
           }
         ],
         "responses": {
@@ -540,14 +540,14 @@
         }
       }
     },
-    "/forecast_better": {
+    "/better_forecast": {
       "get": {
         "tags": [
           "forecast"
         ],
         "summary": "Get all Better Forecast Data",
         "description": "The better forecast includes current conditions, daily forecast and hourly forecast.",
-        "operationId": "getForecast",
+        "operationId": "getBetterForecast",
         "security": [
           {
             "swdImplicit": [
@@ -567,14 +567,14 @@
             "in": "query",
             "description": "Latitude",
             "required": true,
-            "type": "float"
+            "type": "long"
           },
           {
             "name": "lon",
             "in": "query",
             "description": "Longitude",
             "required": true,
-            "type": "float"
+            "type": "long"
           },
           {
             "name": "station_id",
@@ -586,7 +586,7 @@
           {
             "name": "units_temp",
             "in": "query",
-            "description": "Temperature units (default = c)",
+            "description": "default = c",
             "required": false,
             "enum": [
               "c",
@@ -597,7 +597,7 @@
           {
             "name": "units_wind",
             "in": "query",
-            "description": "Wind units (default = mps)",
+            "description": "default = mps",
             "required": false,
             "enum": [
               "mph",
@@ -612,7 +612,7 @@
           {
             "name": "units_pressure",
             "in": "query",
-            "description": "Pressure units (default = mb)",
+            "description": "default = mb",
             "required": false,
             "enum": [
               "mb",
@@ -625,7 +625,7 @@
           {
             "name": "units_precip",
             "in": "query",
-            "description": "Precip units (default = mm)",
+            "description": "default = mm",
             "required": false,
             "enum": [
               "mm",
@@ -637,7 +637,7 @@
           {
             "name": "units_distance",
             "in": "query",
-            "description": "Distance units (default = km)",
+            "description": "default = km",
             "required": false,
             "enum": [
               "km",
