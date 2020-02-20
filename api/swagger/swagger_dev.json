@@ -36,6 +36,10 @@
       "description": "Get time series Event data"
     },
     {
+      "name": "forecast",
+      "description": "Get forecast data"
+    },
+    {
       "name": "locations",
       "description": "Locations (Stations)"
     },
@@ -471,6 +475,189 @@
             "description": "The token_id for the token that you want to delete.",
             "required": true,
             "type": "String"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/forecast": {
+      "get": {
+        "tags": [
+          "forecast"
+        ],
+        "summary": "Get a Simple Daily Forecast",
+        "description": "This is the daily forecast used by the forecast card in the v1 apps",
+        "operationId": "getForecast",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude",
+            "required": true,
+            "type": "float"
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "Longitude",
+            "required": true,
+            "type": "float"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/forecast_better": {
+      "get": {
+        "tags": [
+          "forecast"
+        ],
+        "summary": "Get all Better Forecast Data",
+        "description": "The better forecast includes current conditions, daily forecast and hourly forecast.",
+        "operationId": "getForecast",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude",
+            "required": true,
+            "type": "float"
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "Longitude",
+            "required": true,
+            "type": "float"
+          },
+          {
+            "name": "station_id",
+            "in": "query",
+            "description": "The station_id to use in the current conditions response object.  If the Station has a recent observation it will be used.  Any fields not available from the Station will get their values from the another source. If a station_id is not provided all current condition data will come from another source",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "units_temp",
+            "in": "query",
+            "description": "Temperature units (default = c)",
+            "required": false,
+            "enum": [
+              "c",
+              "f"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "units_wind",
+            "in": "query",
+            "description": "Wind units (default = mps)",
+            "required": false,
+            "enum": [
+              "mph",
+              "kph",
+              "kts",
+              "mps",
+              "bft",
+              "lfm"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "units_pressure",
+            "in": "query",
+            "description": "Pressure units (default = mb)",
+            "required": false,
+            "enum": [
+              "mb",
+              "inhg",
+              "mmhg",
+              "hpa"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "units_precip",
+            "in": "query",
+            "description": "Precip units (default = mm)",
+            "required": false,
+            "enum": [
+              "mm",
+              "cm",
+              "in"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "units_distance",
+            "in": "query",
+            "description": "Distance units (default = km)",
+            "required": false,
+            "enum": [
+              "km",
+              "mi"
+            ],
+            "type": "string"
+          },
+          {
+            "name": "numbers_as_strings",
+            "in": "query",
+            "description": "All number fields in the response object will be Strings.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "verbose",
+            "in": "query",
+            "description": "Add a debug root level object to the response.  This object will contain all source data used and other useful information.",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
