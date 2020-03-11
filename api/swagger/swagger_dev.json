@@ -1229,8 +1229,8 @@
         "tags": [
           "calibration"
         ],
-        "description": "Updates Hub Calibration Settings for a Device.",
-        "summary": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response it will fall into the job work list for the sync system.<br><br>Hub v94 added two new fields (do not send these if hub < v94)<br>sky_rain_scale_b<br>sky_gust_lull_factor",
+        "summary": "Updates settings for a Device stored on the Hub and/or the Device",
+        "description": "This will update the values in the database and immediately push the values to the Hub.  If confirmation does not happen with a Hub response it will fall into the job work list for the sync system.<br><br>Hub v94 added two new fields (do not send these if hub < v94)<br>sky_rain_scale_b<br>sky_gust_lull_factor<br><br>2020.3.11 Added as3935* support",
         "operationId": "updateHubCalibrationSettings",
         "security": [
           {
@@ -4847,6 +4847,31 @@
           "type": "integer",
           "format": "int32",
           "example": 0
+        },
+        "as3935_afe_gain_boost": {
+          "type": "integer",
+          "format": "int32",
+          "example": 14
+        },
+        "as3935_noise_floor_level": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
+        },
+        "as3935_watchdog_threshold": {
+          "type": "integer",
+          "format": "int32",
+          "example": 3
+        },
+        "as3935_min_strike_count": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0
+        },
+        "as3935_spike_rejection_factor": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2
         }
       }
     }
