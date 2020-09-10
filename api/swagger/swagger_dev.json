@@ -2188,8 +2188,7 @@
             "in": "path",
             "description": "ID of the External App",
             "required": true,
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2230,71 +2229,7 @@
             "in": "path",
             "description": "ID of the External App",
             "required": true,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "refresh_token",
-            "in": "path",
-            "description": "refresh_token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "refresh_token_url",
-            "in": "path",
-            "description": "refresh_token_url",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data_push_url",
-            "in": "path",
-            "description": "data_push_url",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/Status"
-            }
-          },
-          "404": {
-            "description": "Not found"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "external_app"
-        ],
-        "description": "Update a new External App User record.  This service will insert a record if it does not already exist",
-        "summary": "Update an External App User record.",
-        "operationId": "updateExternalAppUser",
-        "security": [
-          {
-            "swdImplicit": [
-              "user"
-            ]
-          },
-          {
-            "swdApiKey": []
-          }
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "external_app_id",
-            "in": "path",
-            "description": "ID of the External App",
-            "required": true,
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           },
           {
             "name": "refresh_token",
@@ -2356,8 +2291,7 @@
             "in": "path",
             "description": "ID of the External App",
             "required": true,
-            "type": "integer",
-            "format": "int64"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -2378,9 +2312,243 @@
 
 
 
+    "/external_app_device": {
+      "get": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Get External App devices for a user.  This will return an array of all devices for an external_app_id.",
+        "summary": "Get External App devices for a user.",
+        "operationId": "getExternalDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Create a new External App Device record.  Add a Device (device_id) or a (location_id).  Current SmartThings uses device_id.",
+        "summary": "Create a new External App Device record.",
+        "operationId": "createExternalAppDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "device_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "location_id",
+            "in": "path",
+            "description": "location_id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Delete an External App Device record.  Remove a device if you no longer want it to return on the active work list.",
+        "summary": "Delete an External App Device record.",
+        "operationId": "deleteExternalAppDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "device_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "location_id",
+            "in": "path",
+            "description": "location_id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     
     
     
+
+
+
+
+
+
+
+
+    "/external_app_device_update_poll": {
+      "get": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Update the latest poll time to now for a Device.",
+        "summary": "Update the latest poll time to now for a Device.",
+        "operationId": "getExternalDevice",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "device_id",
+            "in": "path",
+            "description": "device_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "location_id",
+            "in": "path",
+            "description": "location_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "device_id_list",
+            "in": "path",
+            "description": "csv list of device_id values",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "location_id_list",
+            "in": "path",
+            "description": "csv list of location_id values",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    
+
     
     
     
