@@ -2185,7 +2185,7 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
@@ -2226,28 +2226,28 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
           },
           {
             "name": "refresh_token",
-            "in": "path",
+            "in": "query",
             "description": "refresh_token",
             "required": false,
             "type": "string"
           },
           {
             "name": "refresh_token_url",
-            "in": "path",
+            "in": "query",
             "description": "refresh_token_url",
             "required": false,
             "type": "string"
           },
           {
             "name": "data_push_url",
-            "in": "path",
+            "in": "query",
             "description": "data_push_url",
             "required": false,
             "type": "string"
@@ -2288,28 +2288,28 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
           },
           {
             "name": "refresh_token",
-            "in": "path",
+            "in": "query",
             "description": "refresh_token",
             "required": false,
             "type": "string"
           },
           {
             "name": "refresh_token_url",
-            "in": "path",
+            "in": "query",
             "description": "refresh_token_url",
             "required": false,
             "type": "string"
           },
           {
             "name": "data_push_url",
-            "in": "path",
+            "in": "query",
             "description": "data_push_url",
             "required": false,
             "type": "string"
@@ -2350,7 +2350,7 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
@@ -2398,7 +2398,7 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
@@ -2439,21 +2439,21 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
           },
           {
             "name": "device_id",
-            "in": "path",
+            "in": "query",
             "description": "device_id",
             "required": false,
             "type": "integer"
           },
           {
             "name": "location_id",
-            "in": "path",
+            "in": "query",
             "description": "location_id",
             "required": false,
             "type": "integer"
@@ -2494,21 +2494,21 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
           },
           {
             "name": "device_id",
-            "in": "path",
+            "in": "query",
             "description": "device_id",
             "required": false,
             "type": "integer"
           },
           {
             "name": "location_id",
-            "in": "path",
+            "in": "query",
             "description": "location_id",
             "required": false,
             "type": "integer"
@@ -2562,35 +2562,35 @@
         "parameters": [
           {
             "name": "external_app_id",
-            "in": "path",
+            "in": "query",
             "description": "ID of the External App",
             "required": true,
             "type": "integer"
           },
           {
             "name": "device_id",
-            "in": "path",
+            "in": "query",
             "description": "device_id",
             "required": false,
             "type": "integer"
           },
           {
             "name": "location_id",
-            "in": "path",
+            "in": "query",
             "description": "location_id",
             "required": false,
             "type": "integer"
           },
           {
             "name": "device_id_list",
-            "in": "path",
+            "in": "query",
             "description": "csv list of device_id values",
             "required": false,
             "type": "string"
           },
           {
             "name": "location_id_list",
-            "in": "path",
+            "in": "query",
             "description": "csv list of location_id values",
             "required": false,
             "type": "string"
