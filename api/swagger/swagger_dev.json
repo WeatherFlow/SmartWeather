@@ -32,6 +32,10 @@
       "description": "Manage User Devices"
     },
     {
+      "name": "external_app",
+      "description": "External Apps that we push data to"
+    },
+    {
       "name": "events",
       "description": "Get time series Event data"
     },
@@ -2153,6 +2157,238 @@
         }
       }
     },
+    
+    
+    
+    
+    "/external_app_user": {
+      "get": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Get External App data for a user.  This includes refresh_token, refresh_token_url and data_push_url",
+        "summary": "Get External App data for a user.",
+        "operationId": "getExternalApps",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Create a new External App User record.  This service will do an update if a record already exists",
+        "summary": "Create a new External App User record.",
+        "operationId": "craeateExternalAppUser",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "refresh_token",
+            "in": "path",
+            "description": "refresh_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "refresh_token_url",
+            "in": "path",
+            "description": "refresh_token_url",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data_push_url",
+            "in": "path",
+            "description": "data_push_url",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Update a new External App User record.  This service will insert a record if it does not already exist",
+        "summary": "Update an External App User record.",
+        "operationId": "updateExternalAppUser",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "refresh_token",
+            "in": "path",
+            "description": "refresh_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "refresh_token_url",
+            "in": "path",
+            "description": "refresh_token_url",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data_push_url",
+            "in": "path",
+            "description": "data_push_url",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Delete an External App User record.",
+        "summary": "Delete an External App User record.",
+        "operationId": "deleteExternalAppUser",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     "/user_notifications": {
       "get": {
         "tags": [
