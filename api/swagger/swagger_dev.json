@@ -2207,9 +2207,71 @@
         "tags": [
           "external_app"
         ],
-        "description": "Create a new External App User record.  This service will do an update if a record already exists",
+        "description": "Create a new External App User record.  This service will do an update if a record already exists. If this is a SmartThings insert (external_app_id = 1) all of the users devices will also be inserted into external_app_devices.",
         "summary": "Create a new External App User record.",
         "operationId": "craeateExternalAppUser",
+        "security": [
+          {
+            "swdImplicit": [
+              "user"
+            ]
+          },
+          {
+            "swdApiKey": []
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "external_app_id",
+            "in": "path",
+            "description": "ID of the External App",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "refresh_token",
+            "in": "path",
+            "description": "refresh_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "refresh_token_url",
+            "in": "path",
+            "description": "refresh_token_url",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data_push_url",
+            "in": "path",
+            "description": "data_push_url",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "external_app"
+        ],
+        "description": "Update an External App User record.  This service will insert a new record if it doesn't already exist.",
+        "summary": "Update an External App User record.",
+        "operationId": "updateExternalAppUser",
         "security": [
           {
             "swdImplicit": [
@@ -2524,14 +2586,14 @@
             "in": "path",
             "description": "csv list of device_id values",
             "required": false,
-            "type": "integer"
+            "type": "string"
           },
           {
             "name": "location_id_list",
             "in": "path",
             "description": "csv list of location_id values",
             "required": false,
-            "type": "integer"
+            "type": "string"
           }
         ],
         "responses": {
