@@ -2207,7 +2207,7 @@
         "tags": [
           "external_app"
         ],
-        "description": "Create a new External App User record.  This service will do an update if a record already exists. If this is a SmartThings insert (external_app_id = 1) all of the users devices will also be inserted into external_app_devices.",
+        "description": "Create a new External App User record. If this is a SmartThings insert (external_app_id = 1) all of the users devices will also be inserted into external_app_devices.",
         "summary": "Create a new External App User record.",
         "operationId": "craeateExternalAppUser",
         "security": [
@@ -2269,7 +2269,7 @@
         "tags": [
           "external_app"
         ],
-        "description": "Update an External App User record.  This service will insert a new record if it doesn't already exist.",
+        "description": "Update an External App User record.  All fields sent will be updated in the database.",
         "summary": "Update an External App User record.",
         "operationId": "updateExternalAppUser",
         "security": [
